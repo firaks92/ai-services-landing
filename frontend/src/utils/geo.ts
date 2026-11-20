@@ -7,12 +7,13 @@ export interface ClientGeo {
 }
 
 let cachedGeo: ClientGeo | null = null;
+const API_BASE_URL = (import.meta as any).env?.VITE_API_BASE_URL || '';
 
 export async function fetchClientGeo(): Promise<ClientGeo> {
   if (cachedGeo) return cachedGeo;
 
   try {
-    const res = await fetch('/api/v1/geo');
+    const res = await fetch(`${API_BASE_URL}/api/v1/geo`);
     if (res.ok) {
       const data = (await res.json()) as ClientGeo;
       cachedGeo = data;
