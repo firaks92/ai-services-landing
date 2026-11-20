@@ -1,0 +1,57 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Lead {
+  id                String   @id @default(cuid())
+  leadCode          String   @unique // Формат: AI-YYYYMMDD-XXXX
+  quizSource        String   // entry_popup | inline_quiz | service_card | exit_intent
+
+  // Фокус на ИИ-услугах
+  serviceCode       String   // chatbot | automation | content | rag_analytics | custom_audit
+  primaryService    String
+  serviceDetails    String   // JSON stringified array of branch options
+  industry          String
+  timeline          String
+  budget            String
+
+  // Информация о жителе / клиенте
+  residentName      String
+  cityInput         String
+  preferredChannel  String   // Telegram | Phone | WhatsApp
+  phone             String
+  telegramUsername  String?
+  comment           String?
+
+  // Геолокация и технические метаданные
+  ipAddress         String
+  geoCountry        String?
+  geoRegion         String?
+  geoCity           String?
+  timezone          String?
+  deviceInfo        String?
+  browserLanguage   String?
+  pageUrl           String?
+  referrer          String?
+  utmData           String?  // JSON stringified UTM object
+
+  // Интеграция с Telegram-ботом и CRM-статусы
+  status            String   @default("NEW") // NEW | IN_PROGRESS | COMPLETED | SPAM
+  deliveryStatus    String   @default("PENDING") // PENDING | SENT | FAILED
+  deliveryAttempts  Int      @default(0)
+  telegramChatId    String?
+  telegramMessageId Int?
+  assignedManager   String?  // @username или имя менеджера, взявшего заявку
+  clientTelegramId  String?  // Заполняется при переходе клиента по /start lead_<leadCode>
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([status, createdAt])
+  @@index([deliveryStatus])
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ai-services-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "High-conversion AI Services Landing Page with Interactive Quiz and Telegram Bot Integration",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm --workspace=backend run dev",
+    "dev:frontend": "npm --workspace=frontend run dev",
+    "dev": "npm run dev:backend",
+    "build:backend": "npm --workspace=backend run build",
+    "build:frontend": "npm --workspace=frontend run build",
+    "build": "npm run build:frontend && npm run build:backend",
+    "start": "npm --workspace=backend run start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

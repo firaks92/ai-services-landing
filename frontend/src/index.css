@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ease-mechanical: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  body {
+    background-color: #F4F2EC;
+    color: #141413;
+    overflow-x: hidden;
+  }
+
+  /* Accessible focus indicators matching Swiss Blueprint standard */
+  :focus-visible {
+    outline: 2px solid #1A4B8C;
+    outline-offset: 2px;
+  }
+
+  /* Tabular numbers for all monospace counters and metrics */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom scrollbars matching architectural paper theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F2EC;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D4C8;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #848075;
+}
+
+/* Mechanical motion classes */
+.transition-mechanical {
+  transition-timing-function: var(--ease-mechanical);
+  transition-duration: 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
