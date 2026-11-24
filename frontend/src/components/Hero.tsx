@@ -53,9 +53,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
 
   return (
     <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 border-b border-white/20 dark:border-white/10 overflow-hidden bg-transparent transition-colors">
-      {/* Decorative ambient glowing backdrops */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-r from-dash-violet/10 via-dash-purple/15 to-dash-cyan/15 dark:from-dash-violet/20 dark:via-dash-purple/25 dark:to-dash-cyan/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 -left-40 w-96 h-96 bg-dash-magenta/10 dark:bg-dash-magenta/15 rounded-full blur-[120px] pointer-events-none" />
+      {/* Decorative ambient glowing backdrops per Pinterest 1114007657841652106 */}
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-r from-dash-emerald/10 via-dash-mint/15 to-dash-emerald/10 dark:from-dash-emerald/15 dark:via-dash-mint/20 dark:to-dash-emerald/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 -left-40 w-96 h-96 bg-dash-emerald/10 dark:bg-dash-mint/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Top 3-Knob Mode Switcher */}
@@ -69,9 +69,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
         {/* Hero Title & Value Proposition */}
         <div className="text-center max-w-4xl mx-auto mb-12">
           {/* Tagline Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-5 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-dash-magenta dark:text-dash-cyan animate-pulse" />
-            <span className="font-mono text-[11px] font-bold text-dash-magenta dark:text-dash-cyan tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-5 shadow-sm border border-dash-emerald/20">
+            <Sparkles className="w-3.5 h-3.5 text-dash-mint animate-pulse" />
+            <span className="font-mono text-[11px] font-bold text-dash-mint tracking-wider uppercase">
               {current.tagline}
             </span>
           </div>
@@ -79,7 +79,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
           {/* Heading with Neon Gradient */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12] mb-6">
             {t('hero_title_pre')}{' '}
-            <span className="gradient-text-neon font-serif italic font-normal">
+            <span className="gradient-text-neon font-sans font-extrabold">
               {current.titleHighlight}
             </span>{' '}
             {current.titlePost}
@@ -94,7 +94,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
           <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
             <button
               onClick={onOpenQuiz}
-              className="flex items-center gap-3 bg-gradient-to-r from-dash-magenta via-dash-purple to-dash-violet hover:opacity-95 text-white px-8 py-4 text-sm font-bold uppercase tracking-wider rounded-full shadow-neon-magenta transition-all active:scale-95 group"
+              className="flex items-center gap-3 bg-gradient-to-r from-dash-mint via-dash-emerald to-dash-cyan hover:opacity-95 text-dash-dark px-8 py-4 text-sm font-extrabold uppercase tracking-wider rounded-full shadow-mint transition-all active:scale-95 group select-none"
             >
               <span>{t('hero_cta_quiz')}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -102,17 +102,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
 
             <a
               href="#cases"
-              className="flex items-center gap-2 px-6 py-4 text-sm font-semibold text-slate-800 dark:text-white glass-pill hover:bg-white/80 dark:hover:bg-white/10 rounded-full transition-all"
+              className="flex items-center gap-2 px-6 py-4 text-sm font-semibold text-slate-800 dark:text-white glass-pill hover:border-dash-mint/40 rounded-full transition-all"
             >
               <span>{t('hero_cta_roi')}</span>
-              <ChevronDown className="w-4 h-4 text-dash-cyan" />
+              <ChevronDown className="w-4 h-4 text-dash-mint" />
             </a>
           </div>
 
           {/* Trust Guarantees */}
           <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-xs text-slate-500 dark:text-dash-muted">
             <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-dash-lime" />
+              <CheckCircle2 className="w-4 h-4 text-dash-mint" />
               <span>{current.badge1}</span>
             </div>
             <span className="opacity-40">•</span>
@@ -129,9 +129,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
         </div>
 
         {/* Quick Service Launch Strip */}
-        <div className="pt-8 border-t border-white/20 dark:border-white/10">
+        <div className="pt-8 border-t border-slate-200 dark:border-white/10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-dash-magenta dark:text-dash-cyan">
+            <span className="font-mono text-xs font-bold uppercase tracking-wider text-dash-mint">
               {t('quick_choice_label')}
             </span>
             <span className="font-mono text-[11px] text-slate-400 dark:text-dash-subtle">
@@ -144,15 +144,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
               <button
                 key={pill.code}
                 onClick={() => onSelectService(pill.code)}
-                className="p-3.5 rounded-2xl glass-pill hover:bg-white/80 dark:hover:bg-white/[0.08] hover:border-dash-cyan/50 shadow-sm transition-all flex items-center justify-between group text-left select-none"
+                className="p-3.5 rounded-2xl glass-pill hover:border-dash-mint/50 shadow-sm transition-all flex items-center justify-between group text-left select-none"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <span className="text-xl">{pill.icon}</span>
-                  <span className="text-xs font-bold text-slate-800 dark:text-white group-hover:text-dash-magenta dark:group-hover:text-dash-cyan transition-colors truncate">
+                  <span className="text-xs font-bold text-slate-800 dark:text-white group-hover:text-dash-mint transition-colors truncate">
                     {pill.label}
                   </span>
                 </div>
-                <ArrowRight className="w-3.5 h-3.5 text-dash-magenta group-hover:translate-x-0.5 transition-transform shrink-0" />
+                <ArrowRight className="w-3.5 h-3.5 text-dash-mint group-hover:translate-x-0.5 transition-transform shrink-0" />
               </button>
             ))}
           </div>

@@ -37,7 +37,7 @@ export const FaqSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column (Sticky info) */}
           <div className="lg:col-span-5 lg:sticky lg:top-28 h-fit">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3 font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3 font-mono text-xs font-bold text-dash-mint uppercase tracking-wider">
               [ 05 // ЧАСТЫЕ ВОПРОСЫ И ОТВЕТЫ ]
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
@@ -51,9 +51,9 @@ export const FaqSection: React.FC = () => {
               href="https://t.me/frxaiagentbot?start=direct_site_faq"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-dash-magenta to-dash-purple hover:opacity-95 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-neon-magenta transition-all select-none group"
+              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-dash-mint to-dash-emerald hover:opacity-95 text-dash-dark px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-mint transition-all select-none group"
             >
-              <MessageSquare className="w-4 h-4 text-dash-cyan group-hover:scale-110 transition-transform" />
+              <MessageSquare className="w-4 h-4 text-dash-dark group-hover:scale-110 transition-transform" />
               <span>Задать вопрос инженеру в Telegram</span>
             </a>
           </div>
@@ -76,7 +76,7 @@ export const FaqSection: React.FC = () => {
                     </span>
                     <div
                       className={`w-7 h-7 rounded-full glass-pill shrink-0 flex items-center justify-center transition-transform ${
-                        isOpen ? 'bg-dash-magenta text-white rotate-180 shadow-neon-magenta' : 'text-slate-500 dark:text-dash-muted'
+                        isOpen ? 'bg-dash-mint text-dash-dark rotate-180 shadow-mint' : 'text-slate-500 dark:text-dash-muted'
                       }`}
                     >
                       {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}

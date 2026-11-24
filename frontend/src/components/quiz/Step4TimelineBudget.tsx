@@ -14,7 +14,7 @@ export const Step4TimelineBudget: React.FC<Step4TimelineBudgetProps> = ({
   onSelectTimeline,
   onSelectBudget,
 }) => {
-  const { currency, language, formatMoney } = useLocale();
+  const { currency, language } = useLocale();
 
   const timelines = [
     {
@@ -69,17 +69,17 @@ export const Step4TimelineBudget: React.FC<Step4TimelineBudgetProps> = ({
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
+        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-1">
           {language === 'uz' ? 'Ishga tushirish muddatlari va byudjet mo‘ljali' : language === 'en' ? 'Deployment Timeline & Budget Target' : 'Сроки запуска и ориентир по бюджету'}
         </h3>
-        <p className="text-xs text-dash-muted">
+        <p className="text-xs text-slate-500 dark:text-dash-muted">
           {language === 'uz' ? 'Tizim chuqurligini aniqlashga yordam beradi: tezkor MVP yoki keng ko‘lamli avtomatlashtirish.' : language === 'en' ? 'Helps architect the optimal solution depth: rapid MVP or enterprise-grade automation.' : 'Помогает подобрать подходящую глубину решения: быстрый MVP или масштабную автоматизацию.'}
         </p>
       </div>
 
       {/* 4.1 Timeline */}
       <div>
-        <div className="font-mono text-xs font-semibold text-dash-cyan uppercase tracking-wider mb-2.5">
+        <div className="font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider mb-2.5">
           {language === 'uz' ? '4.1 / KUTILAYOTGAN MUDDAT' : language === 'en' ? '4.1 / DESIRED TIMELINE' : '4.1 / ЖЕЛАЕМЫЕ СРОКИ ВНЕДРЕНИЯ'}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -92,17 +92,17 @@ export const Step4TimelineBudget: React.FC<Step4TimelineBudgetProps> = ({
                 onClick={() => onSelectTimeline(t.label)}
                 className={`p-3.5 text-left border rounded-xl transition-all text-xs font-semibold flex items-center justify-between select-none ${
                   isSelected
-                    ? 'bg-gradient-to-r from-dash-card-hover to-dash-surface border-dash-cyan text-white shadow-neon-cyan'
-                    : 'border-white/10 bg-dash-track/60 text-dash-muted hover:border-dash-purple/40 hover:text-white'
+                    ? 'bg-dash-emerald/10 border-dash-mint text-slate-900 dark:text-white shadow-mint'
+                    : 'border-slate-200 dark:border-white/10 bg-white/60 dark:bg-dash-track/60 text-slate-600 dark:text-dash-muted hover:border-dash-mint/40 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 <span>{t.label}</span>
                 <div
                   className={`w-4 h-4 rounded-full border shrink-0 ml-2 flex items-center justify-center ${
-                    isSelected ? 'border-dash-cyan bg-dash-cyan' : 'border-white/20'
+                    isSelected ? 'border-dash-mint bg-dash-mint' : 'border-slate-300 dark:border-white/20'
                   }`}
                 >
-                  {isSelected && <span className="w-1.5 h-1.5 bg-dash-bg rounded-full block" />}
+                  {isSelected && <span className="w-1.5 h-1.5 bg-dash-dark rounded-full block" />}
                 </div>
               </button>
             );
@@ -112,7 +112,7 @@ export const Step4TimelineBudget: React.FC<Step4TimelineBudgetProps> = ({
 
       {/* 4.2 Budget */}
       <div>
-        <div className="font-mono text-xs font-semibold text-dash-cyan uppercase tracking-wider mb-2.5">
+        <div className="font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider mb-2.5">
           {language === 'uz' ? '4.2 / REJALASHTIRILGAN BYUDJET' : language === 'en' ? '4.2 / TARGET BUDGET' : '4.2 / ПЛАНИРУЕМЫЙ БЮДЖЕТ'}
         </div>
         <div className="space-y-2">
@@ -125,17 +125,17 @@ export const Step4TimelineBudget: React.FC<Step4TimelineBudgetProps> = ({
                 onClick={() => onSelectBudget(b.label)}
                 className={`w-full p-3.5 text-left border rounded-xl transition-all text-xs sm:text-sm font-semibold flex items-center justify-between select-none ${
                   isSelected
-                    ? 'bg-gradient-to-r from-dash-card-hover to-dash-surface border-dash-cyan text-white shadow-neon-cyan'
-                    : 'border-white/10 bg-dash-track/60 text-dash-muted hover:border-dash-purple/40 hover:text-white'
+                    ? 'bg-dash-emerald/10 border-dash-mint text-slate-900 dark:text-white shadow-mint'
+                    : 'border-slate-200 dark:border-white/10 bg-white/60 dark:bg-dash-track/60 text-slate-600 dark:text-dash-muted hover:border-dash-mint/40 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 <span>{b.label}</span>
                 <div
                   className={`w-4 h-4 rounded-full border shrink-0 flex items-center justify-center ${
-                    isSelected ? 'border-dash-cyan bg-dash-cyan' : 'border-white/20'
+                    isSelected ? 'border-dash-mint bg-dash-mint' : 'border-slate-300 dark:border-white/20'
                   }`}
                 >
-                  {isSelected && <span className="w-1.5 h-1.5 bg-dash-bg rounded-full block" />}
+                  {isSelected && <span className="w-1.5 h-1.5 bg-dash-dark rounded-full block" />}
                 </div>
               </button>
             );

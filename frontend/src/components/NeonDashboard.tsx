@@ -91,25 +91,41 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
       photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=140&q=80',
       action: language === 'uz' ? '12 000 ta tungi muloqotdan iborat test muvaffaqiyatli o‘tdi' : language === 'en' ? 'Stress-tested on 12k concurrent night sessions' : 'Стресс-тест на 12 000 ночных диалогов пройден',
       time: language === 'uz' ? '14 daqiqa oldin' : language === 'en' ? '14m ago' : '14 мин назад',
+      tag: 'RAG ONLINE',
+      tagColor: 'text-dash-mint bg-dash-emerald/10 border-dash-emerald/30',
+    },
+    {
+      name: language === 'uz' ? 'Alisher K.' : 'Алишер Каримов',
+      role: 'Senior Bot Engineer',
+      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=140&q=80',
+      action: language === 'uz' ? 'amoCRM va Telegram o‘rtasida integratsiyani uladi (0.4s)' : language === 'en' ? 'Connected amoCRM real-time sync (0.4s)' : 'Подключил синхронизацию amoCRM с Telegram (0.4с)',
+      time: language === 'uz' ? '6 daqiqa oldin' : language === 'en' ? '6m ago' : '6 мин назад',
+      tag: 'CRM 100%',
+      tagColor: 'text-dash-cyan bg-dash-cyan/10 border-dash-cyan/30',
+    },
+    {
+      name: language === 'uz' ? 'Sofiya T.' : 'София Турсунова',
+      role: 'ML Ops & QA Lead',
+      photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=140&q=80',
+      action: language === 'uz' ? '12 000 ta tungi muloqotdan iborat test muvaffaqiyatli o‘tdi' : language === 'en' ? 'Stress-tested on 12k concurrent night sessions' : 'Стресс-тест на 12 000 ночных диалогов пройден',
+      time: language === 'uz' ? '14 daqiqa oldin' : language === 'en' ? '14m ago' : '14 мин назад',
       tag: 'SLA 99.9%',
-      tagColor: 'text-dash-magenta bg-dash-magenta/10 border-dash-magenta/30',
+      tagColor: 'text-dash-amber bg-dash-amber/10 border-dash-amber/30',
     },
   ];
 
   return (
-    <div className="glass-crystal p-5 sm:p-7 relative overflow-hidden text-slate-900 dark:text-dash-text">
-      {/* Background radial gradient glow & floating glass spheres */}
-      <div className="absolute -top-24 -right-24 w-72 h-72 bg-dash-purple/20 rounded-full blur-[80px] pointer-events-none" />
-      <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-dash-cyan/20 rounded-full blur-[80px] pointer-events-none" />
-      <div className="absolute top-1/2 -right-12 w-28 h-28 glass-orb animate-float-slow opacity-60 pointer-events-none" />
-      <div className="absolute -bottom-10 right-1/3 w-20 h-20 glass-orb animate-float-reverse opacity-50 pointer-events-none" />
+    <div className="neon-card p-5 sm:p-7 relative overflow-hidden text-slate-900 dark:text-dash-text">
+      {/* Background radial gradient glow */}
+      <div className="absolute -top-32 -right-32 w-80 h-80 bg-dash-emerald/15 rounded-full blur-[90px] pointer-events-none" />
+      <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-dash-mint/10 rounded-full blur-[90px] pointer-events-none" />
 
       {/* 1. Header Bar: Brand Glyph + Live Status + Timeframe Pills */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-6 border-b border-white/20 dark:border-white/10 relative z-10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-200 dark:border-white/10 relative z-10">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-dash-purple via-dash-violet to-dash-cyan p-0.5 shadow-neon-purple flex items-center justify-center">
-            <div className="w-full h-full bg-white/90 dark:bg-dash-bg/90 rounded-[14px] flex items-center justify-center backdrop-blur-md">
-              <Cpu className="w-5 h-5 text-dash-magenta dark:text-dash-cyan animate-pulse" />
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-dash-emerald via-dash-mint to-dash-cyan p-0.5 shadow-mint flex items-center justify-center">
+            <div className="w-full h-full bg-white dark:bg-dash-card rounded-[14px] flex items-center justify-center">
+              <Cpu className="w-5 h-5 text-dash-mint animate-pulse" />
             </div>
           </div>
           <div>
@@ -117,8 +133,8 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
               <span className="font-bold text-sm tracking-tight text-slate-900 dark:text-white uppercase">
                 {t('dash_title')}
               </span>
-              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-dash-lime/15 text-dash-lime border border-dash-lime/30 flex items-center gap-1 backdrop-blur-md">
-                <span className="w-1.5 h-1.5 rounded-full bg-dash-lime animate-ping" />
+              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-dash-emerald/15 text-dash-mint border border-dash-emerald/30 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-dash-mint animate-ping" />
                 {t('dash_live')}
               </span>
             </div>
@@ -136,7 +152,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
               onClick={() => setTimeframe(tVal)}
               className={`px-3 py-1 rounded-full font-mono text-[11px] font-bold transition-all ${
                 timeframe === tVal
-                  ? 'bg-gradient-to-r from-dash-purple to-dash-violet text-white shadow-neon-purple'
+                  ? 'bg-dash-mint text-dash-dark font-extrabold shadow-mint'
                   : 'text-slate-500 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -161,7 +177,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
               onClick={() => setActiveMetric(tab.id as any)}
               className={`py-2 px-2.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
                 isActive
-                  ? 'bg-gradient-to-r from-dash-violet via-dash-purple to-dash-magenta text-white shadow-neon-magenta scale-[1.02]'
+                  ? 'bg-gradient-to-r from-dash-mint via-dash-emerald to-dash-cyan text-dash-dark font-extrabold shadow-mint scale-[1.02]'
                   : 'text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -175,7 +191,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
       {/* 3. Main Dashboard Bento Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-6 relative z-10">
         {/* Left Card: Glowing Neon Wave Chart (7 cols) */}
-        <div className="lg:col-span-7 p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] relative overflow-hidden">
+        <div className="lg:col-span-7 p-5 rounded-2xl bg-white/70 dark:bg-dash-card border border-slate-200 dark:border-white/8 relative overflow-hidden">
           <div className="flex items-center justify-between mb-2">
             <div>
               <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 dark:text-dash-muted">
@@ -186,7 +202,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
               </div>
             </div>
             <div className="text-right">
-              <span className="font-mono text-sm sm:text-base font-bold text-dash-magenta dark:text-dash-cyan">
+              <span className="font-mono text-sm sm:text-base font-bold text-dash-mint">
                 {curr.primaryStat}
               </span>
               <div className="font-mono text-[10px] text-slate-500 dark:text-dash-muted">
@@ -201,14 +217,14 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
             <svg viewBox="0 0 450 150" className="w-full h-full overflow-visible" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="neonWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#00E5FF" stopOpacity="0.45" />
-                  <stop offset="50%" stopColor="#9B51E0" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#FF2A85" stopOpacity="0.25" />
+                  <stop offset="0%" stopColor="#00F5A0" stopOpacity="0.32" />
+                  <stop offset="60%" stopColor="#10B981" stopOpacity="0.18" />
+                  <stop offset="100%" stopColor="#06D6A0" stopOpacity="0.04" />
                 </linearGradient>
                 <linearGradient id="neonStrokeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#00E5FF" />
-                  <stop offset="50%" stopColor="#9B51E0" />
-                  <stop offset="100%" stopColor="#FF2A85" />
+                  <stop offset="0%" stopColor="#00F5A0" />
+                  <stop offset="50%" stopColor="#10B981" />
+                  <stop offset="100%" stopColor="#05FF91" />
                 </linearGradient>
                 <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
                   <feGaussianBlur stdDeviation="3" result="blur" />
@@ -229,33 +245,33 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
               />
 
               {/* Highlight Dot */}
-              <circle cx="290" cy="50" r="5" fill="#00E5FF" filter="url(#neonGlow)" />
+              <circle cx="290" cy="50" r="5" fill="#00F5A0" filter="url(#neonGlow)" />
               <circle cx="290" cy="50" r="2" fill="#FFFFFF" />
             </svg>
 
             {/* Floating Live Tooltip */}
-            <div className="absolute top-2 right-12 bg-white/80 dark:bg-dash-bg/80 backdrop-blur-md border border-dash-magenta/40 dark:border-dash-cyan/40 px-2.5 py-1 rounded-lg font-mono text-[10px] text-dash-magenta dark:text-dash-cyan shadow-sm dark:shadow-neon-cyan flex items-center gap-1.5 pointer-events-none">
-              <span className="w-1.5 h-1.5 rounded-full bg-dash-magenta dark:bg-dash-cyan animate-pulse" />
+            <div className="absolute top-2 right-12 bg-white/90 dark:bg-dash-track/90 backdrop-blur-md border border-dash-mint/40 px-2.5 py-1 rounded-lg font-mono text-[10px] text-dash-mint shadow-sm flex items-center gap-1.5 pointer-events-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-dash-mint animate-pulse" />
               <span>+34.8% SLA</span>
             </div>
           </div>
 
           {/* Under-chart metrics strip */}
-          <div className="grid grid-cols-4 gap-2 pt-3 border-t border-white/20 dark:border-white/5 font-mono text-[10px] text-center">
+          <div className="grid grid-cols-4 gap-2 pt-3 border-t border-slate-200 dark:border-white/5 font-mono text-[10px] text-center">
             <div className="p-1 rounded bg-black/5 dark:bg-white/5 text-slate-600 dark:text-dash-muted">ПН · 94%</div>
             <div className="p-1 rounded bg-black/5 dark:bg-white/5 text-slate-600 dark:text-dash-muted">СР · 98%</div>
-            <div className="p-1 rounded bg-black/5 dark:bg-white/5 text-dash-magenta dark:text-dash-cyan font-bold">СБ · 100%</div>
-            <div className="p-1 rounded bg-black/5 dark:bg-white/5 text-dash-purple font-bold">ВС · 99.8%</div>
+            <div className="p-1 rounded bg-black/5 dark:bg-white/5 text-dash-mint font-bold">СБ · 100%</div>
+            <div className="p-1 rounded bg-black/5 dark:bg-white/5 text-dash-emerald font-bold">ВС · 99.8%</div>
           </div>
         </div>
 
         {/* Right Card: Radial Donut + 3D Neon Bars (5 cols) */}
-        <div className="lg:col-span-5 p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] flex flex-col justify-between">
+        <div className="lg:col-span-5 p-5 rounded-2xl bg-white/70 dark:bg-dash-card border border-slate-200 dark:border-white/8 flex flex-col justify-between">
           <div className="flex items-center justify-between mb-3">
             <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 dark:text-dash-muted">
               {t('dash_load_distribution')}
             </span>
-            <span className="font-mono text-xs font-bold text-dash-magenta">
+            <span className="font-mono text-xs font-bold text-dash-mint">
               {curr.donutPercent}% KPI
             </span>
           </div>
@@ -265,7 +281,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
             {/* Donut Gauge */}
             <div className="relative w-28 h-28 flex items-center justify-center">
               <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="40" stroke="#CBD5E1" className="dark:stroke-[#1D173F]" strokeWidth="9" fill="none" />
+                <circle cx="50" cy="50" r="40" stroke="#E2E8F0" className="dark:stroke-[#151C1F]" strokeWidth="9" fill="none" />
                 <circle
                   cx="50"
                   cy="50"
@@ -295,10 +311,8 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
                   <div
                     style={{ height: `${val}%` }}
                     className={`w-3.5 rounded-full transition-all duration-300 ${
-                      idx === 3
-                        ? 'bg-gradient-to-t from-dash-magenta to-dash-coral shadow-neon-magenta'
-                        : idx === 4
-                        ? 'bg-gradient-to-t from-dash-cyan to-dash-violet shadow-neon-cyan'
+                      idx === 3 || idx === 4
+                        ? 'bg-gradient-to-t from-dash-emerald to-dash-mint shadow-mint'
                         : 'bg-slate-300 dark:bg-dash-surface opacity-75'
                     }`}
                   />
@@ -308,22 +322,23 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-white/80 dark:bg-dash-track/70 backdrop-blur-md border border-white/30 dark:border-white/5 font-mono text-[11px] text-center text-dash-magenta dark:text-dash-cyan font-bold">
+          <div className="p-3 rounded-xl bg-white dark:bg-dash-track/70 border border-slate-200 dark:border-white/5 font-mono text-[11px] text-center text-dash-mint font-bold">
             ✓ {curr.donutLabel} — {curr.donutSub}
           </div>
         </div>
       </div>
 
       {/* 4. Real Team & AI Copilot Live Stream */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] mb-6 relative z-10">
-        <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/20 dark:border-white/5">
+      <div className="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-dash-card border border-slate-200 dark:border-white/8 mb-6 relative z-10">
+        <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200 dark:border-white/5">
           <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-dash-purple" />
+            <Users className="w-4 h-4 text-dash-mint" />
             <span className="font-mono text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               {t('dash_team_activity')}
             </span>
           </div>
-          <span className="font-mono text-[10px] text-dash-lime font-bold">
+          <span className="font-mono text-[10px] text-dash-mint font-bold flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-dash-mint animate-pulse" />
             {t('dash_online_count')}
           </span>
         </div>
@@ -333,16 +348,16 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
           {teamActivities.map((member) => (
             <div
               key={member.name}
-              className="p-3 rounded-xl bg-white/70 dark:bg-white/[0.05] backdrop-blur-xl border border-white/40 dark:border-white/5 hover:border-dash-purple/40 transition-colors flex items-center gap-3"
+              className="p-3 rounded-xl bg-slate-50 dark:bg-dash-track/90 border border-slate-200 dark:border-white/5 hover:border-dash-mint/30 transition-colors flex items-center gap-3"
             >
               {/* Photo Avatar with Ring */}
               <div className="relative shrink-0">
                 <img
                   src={member.photo}
                   alt={member.name}
-                  className="w-11 h-11 rounded-full object-cover ring-2 ring-dash-purple/60 shadow-sm"
+                  className="w-11 h-11 rounded-full object-cover ring-2 ring-dash-emerald/60 shadow-sm"
                 />
-                <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-dash-lime ring-2 ring-white dark:ring-dash-bg" />
+                <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-dash-mint ring-2 ring-white dark:ring-dash-bg" />
               </div>
 
               {/* Info */}
@@ -362,9 +377,9 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
       </div>
 
       {/* 5. Primary Dashboard Action CTA */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-gradient-to-r from-dash-violet/10 via-dash-purple/20 to-dash-magenta/15 dark:from-dash-violet/30 dark:via-dash-purple/20 dark:to-dash-magenta/30 border border-white/30 dark:border-white/15 backdrop-blur-xl relative z-10">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-gradient-to-r from-dash-emerald/10 via-dash-mint/15 to-dash-cyan/10 dark:from-dash-emerald/20 dark:via-dash-mint/15 dark:to-dash-cyan/10 border border-slate-200 dark:border-white/10 relative z-10">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-white dark:bg-white/10 flex items-center justify-center text-dash-magenta dark:text-dash-cyan shadow-sm">
+          <div className="w-9 h-9 rounded-xl bg-white dark:bg-dash-track flex items-center justify-center text-dash-mint shadow-sm">
             <Sparkles className="w-5 h-5" />
           </div>
           <div>
@@ -379,7 +394,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
 
         <button
           onClick={onOpenQuiz}
-          className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-dash-magenta via-dash-purple to-dash-violet hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider shadow-neon-magenta flex items-center justify-center gap-2 select-none active:scale-95 transition-all shrink-0"
+          className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-dash-mint via-dash-emerald to-dash-cyan hover:opacity-95 text-dash-dark font-extrabold text-xs uppercase tracking-wider shadow-mint flex items-center justify-center gap-2 select-none active:scale-95 transition-all shrink-0"
         >
           <span>{t('dash_cta_btn')}</span>
           <ArrowUpRight className="w-4 h-4" />

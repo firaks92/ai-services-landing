@@ -190,23 +190,15 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50/50 dark:bg-dash-bg/40 text-slate-900 dark:text-dash-text selection:bg-dash-magenta selection:text-white transition-colors relative">
-      {/* Ambient Cosmic Liquid Glass Floating Spheres (Pinterest #1083326885405565250) */}
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-dash-bg text-slate-900 dark:text-dash-text selection:bg-dash-mint selection:text-dash-dark transition-colors relative">
+      {/* Luxury Obsidian & Emerald Atmospheric Mesh (Pinterest #1114007657841652106) */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Top-right large crystal orb */}
-        <div className="absolute -top-12 -right-16 w-80 h-80 sm:w-96 sm:h-96 glass-orb animate-float-slow opacity-75 dark:opacity-60" />
-        {/* Top-left soft magenta/violet orb */}
-        <div className="absolute top-48 -left-20 w-64 h-64 glass-orb animate-float-reverse opacity-70 dark:opacity-50" />
-        {/* Center cyan floating glass bubble */}
-        <div className="absolute top-[42%] right-[8%] w-52 h-52 sm:w-72 sm:h-72 glass-orb animate-float-drift opacity-65 dark:opacity-45" />
-        {/* Lower-left floating orb */}
-        <div className="absolute top-[68%] -left-12 w-80 h-80 glass-orb animate-float-slow opacity-70 dark:opacity-50" />
-        {/* Bottom floating light sphere */}
-        <div className="absolute -bottom-24 right-1/4 w-96 h-96 glass-orb animate-float-reverse opacity-60 dark:opacity-40" />
-
-        {/* Diffuse chromatic atmospheric auras */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-dash-purple/10 dark:bg-dash-purple/20 rounded-full blur-[140px]" />
-        <div className="absolute top-2/3 right-10 w-[500px] h-[500px] bg-dash-cyan/10 dark:bg-dash-cyan/15 rounded-full blur-[130px]" />
+        {/* Top center diffuse emerald bloom */}
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-dash-emerald/15 via-dash-mint/5 to-transparent rounded-full blur-[140px]" />
+        {/* Subtle right-side ambient mint beam */}
+        <div className="absolute top-1/3 -right-32 w-[550px] h-[550px] bg-dash-mint/8 rounded-full blur-[130px]" />
+        {/* Subtle left-side dark emerald aura */}
+        <div className="absolute top-2/3 -left-32 w-[600px] h-[600px] bg-dash-emerald/8 rounded-full blur-[140px]" />
       </div>
 
       <div className="relative z-10 flex flex-col min-h-screen">

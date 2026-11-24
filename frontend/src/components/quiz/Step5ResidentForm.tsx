@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { PreferredChannel } from '../../types/quiz.js';
-import { Send, MapPin, MessageCircle, Phone, Smartphone, AlertCircle, Loader2 } from 'lucide-react';
+import { Send, Loader2, AlertCircle, MapPin, MessageCircle, Phone, Smartphone } from 'lucide-react';
 
 interface Step5ResidentFormProps {
   primaryService: string;
@@ -14,15 +14,15 @@ interface Step5ResidentFormProps {
   consentAccepted: boolean;
   isSubmitting: boolean;
   submitError: string | null;
-  onUpdate: (fields: Partial<{
-    name: string;
-    cityInput: string;
-    preferredChannel: PreferredChannel;
-    phone: string;
-    telegramUsername: string;
-    comment: string;
-    consentAccepted: boolean;
-  }>) => void;
+  onUpdate: (fields: {
+    name?: string;
+    cityInput?: string;
+    preferredChannel?: PreferredChannel;
+    phone?: string;
+    telegramUsername?: string;
+    comment?: string;
+    consentAccepted?: boolean;
+  }) => void;
   onSubmit: () => void;
   onOpenPrivacy: () => void;
 }
@@ -43,24 +43,24 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
   onSubmit,
   onOpenPrivacy,
 }) => {
-  const [showComment, setShowComment] = useState(Boolean(comment));
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [showComment, setShowComment] = useState(Boolean(comment));
 
   const validate = () => {
     const errors: Record<string, string> = {};
-    if (!name || name.trim().length < 2) {
+    if (!name.trim() || name.trim().length < 2) {
       errors.name = 'Укажите ваше имя (минимум 2 символа)';
     }
-    if (!cityInput || cityInput.trim().length < 2) {
+    if (!cityInput.trim()) {
       errors.cityInput = 'Укажите ваш город или регион';
     }
-    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
-    if (!cleanPhone || !/^\+?[0-9]{9,15}$/.test(cleanPhone)) {
+    const cleanPhone = phone.replace(/[^\d+]/g, '');
+    if (cleanPhone.length < 9) {
       errors.phone = 'Укажите корректный номер телефона с кодом страны';
     }
     if (preferredChannel === 'Telegram') {
-      const cleanUsername = telegramUsername.replace(/^@/, '').trim();
-      if (!cleanUsername || cleanUsername.length < 4) {
+      const cleanTg = telegramUsername.replace(/^@/, '').trim();
+      if (!cleanTg) {
         errors.telegramUsername = 'Укажите ваш Telegram никнейм (например: @username)';
       }
     }
@@ -111,7 +111,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
 
       {/* 1. Name */}
       <div>
-        <label className="block font-mono text-xs font-semibold text-dash-magenta dark:text-dash-cyan uppercase tracking-wider mb-1">
+        <label className="block font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider mb-1">
           ВАШЕ ИМЯ *
         </label>
         <input
@@ -123,7 +123,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
           className={`w-full h-11 px-4 text-xs sm:text-sm bg-white/70 dark:bg-dash-track/70 backdrop-blur-md border rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-dash-subtle focus:outline-none ${
             touched.name && errors.name
               ? 'border-red-500'
-              : 'border-slate-300 dark:border-white/10 focus:border-dash-cyan'
+              : 'border-slate-300 dark:border-white/10 focus:border-dash-mint'
           }`}
           autoComplete="name"
         />
@@ -135,11 +135,11 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
       {/* 2. City / District */}
       <div>
         <div className="flex items-center justify-between mb-1">
-          <label className="font-mono text-xs font-semibold text-dash-magenta dark:text-dash-cyan uppercase tracking-wider">
+          <label className="font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider">
             ГОРОД / РЕГИОН *
           </label>
           {cityAutofilled && (
-            <span className="font-mono text-[10px] text-dash-lime px-2 py-0.5 rounded-full bg-dash-track border border-dash-lime/30 flex items-center gap-1">
+            <span className="font-mono text-[10px] text-dash-emerald px-2 py-0.5 rounded-full bg-dash-track border border-dash-emerald/30 flex items-center gap-1">
               <MapPin className="w-2.5 h-2.5" /> Определено по IP
             </span>
           )}
@@ -153,7 +153,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
           className={`w-full h-11 px-4 text-xs sm:text-sm bg-white/70 dark:bg-dash-track/70 backdrop-blur-md border rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-dash-subtle focus:outline-none ${
             touched.cityInput && errors.cityInput
               ? 'border-red-500'
-              : 'border-slate-300 dark:border-white/10 focus:border-dash-cyan'
+              : 'border-slate-300 dark:border-white/10 focus:border-dash-mint'
           }`}
           autoComplete="address-level2"
         />
@@ -164,7 +164,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
 
       {/* 3. Preferred Channel */}
       <div>
-        <label className="block font-mono text-xs font-semibold text-dash-magenta dark:text-dash-cyan uppercase tracking-wider mb-1.5">
+        <label className="block font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider mb-1.5">
           УДОБНЫЙ КАНАЛ СВЯЗИ
         </label>
         <div className="p-1 rounded-2xl bg-white/70 dark:bg-dash-track/70 backdrop-blur-md border border-slate-300 dark:border-white/10 grid grid-cols-3 gap-1.5">
@@ -182,7 +182,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
                 onClick={() => onUpdate({ preferredChannel: ch.id as PreferredChannel })}
                 className={`py-2 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all select-none ${
                   isSelected
-                    ? 'bg-gradient-to-r from-dash-magenta to-dash-purple text-white shadow-neon-magenta'
+                    ? 'bg-gradient-to-r from-dash-mint to-dash-emerald text-dash-dark font-extrabold shadow-mint'
                     : 'text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
@@ -197,7 +197,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
       {/* 4 & 5. Phone + Telegram Username */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <label className="block font-mono text-xs font-semibold text-dash-magenta dark:text-dash-cyan uppercase tracking-wider mb-1">
+          <label className="block font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider mb-1">
             НОМЕР ТЕЛЕФОНА *
           </label>
           <input
@@ -210,7 +210,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
             className={`w-full h-11 px-4 text-xs sm:text-sm bg-white/70 dark:bg-dash-track/70 backdrop-blur-md border rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-dash-subtle focus:outline-none ${
               touched.phone && errors.phone
                 ? 'border-red-500'
-                : 'border-slate-300 dark:border-white/10 focus:border-dash-cyan'
+                : 'border-slate-300 dark:border-white/10 focus:border-dash-mint'
             }`}
           />
           {touched.phone && errors.phone && (
@@ -219,7 +219,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
         </div>
 
         <div>
-          <label className="block font-mono text-xs font-semibold text-dash-magenta dark:text-dash-cyan uppercase tracking-wider mb-1">
+          <label className="block font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider mb-1">
             TELEGRAM {preferredChannel === 'Telegram' ? '*' : '(ОПЦИЯ)'}
           </label>
           <div className="relative">
@@ -233,7 +233,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
               className={`w-full h-11 pl-7 pr-3 text-xs sm:text-sm bg-white/70 dark:bg-dash-track/70 backdrop-blur-md border rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-dash-subtle focus:outline-none ${
                 touched.telegramUsername && errors.telegramUsername
                   ? 'border-red-500'
-                  : 'border-slate-300 dark:border-white/10 focus:border-dash-cyan'
+                  : 'border-slate-300 dark:border-white/10 focus:border-dash-mint'
               }`}
             />
           </div>
@@ -249,14 +249,14 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
           <button
             type="button"
             onClick={() => setShowComment(true)}
-            className="text-xs text-dash-magenta hover:underline font-semibold"
+            className="text-xs text-dash-mint hover:underline font-semibold"
           >
             + Добавить комментарий к задаче (необязательно)
           </button>
         ) : (
           <div>
             <div className="flex items-center justify-between mb-1">
-              <label className="font-mono text-xs font-semibold text-dash-magenta dark:text-dash-cyan uppercase tracking-wider">
+              <label className="font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider">
                 КОММЕНТАРИЙ К ЗАДАЧЕ
               </label>
               <span className="font-mono text-[10px] text-slate-400 dark:text-dash-subtle">
@@ -268,7 +268,7 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
               onChange={(e) => onUpdate({ comment: e.target.value.slice(0, 500) })}
               placeholder="Опишите ваши системы, объем обращений или специфику проекта..."
               rows={3}
-              className="w-full p-3 text-xs bg-white/70 dark:bg-dash-track/70 backdrop-blur-md border border-slate-300 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-dash-subtle focus:outline-none resize-none"
+              className="w-full p-3 text-xs bg-white/70 dark:bg-dash-track/70 backdrop-blur-md border border-slate-300 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-dash-subtle focus:outline-none focus:border-dash-mint resize-none"
             />
           </div>
         )}
@@ -281,14 +281,14 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
             type="checkbox"
             checked={consentAccepted}
             onChange={(e) => onUpdate({ consentAccepted: e.target.checked })}
-            className="w-4 h-4 mt-0.5 rounded accent-dash-magenta cursor-pointer"
+            className="w-4 h-4 mt-0.5 rounded accent-dash-mint cursor-pointer"
           />
-          <span className="text-[11px] text-dash-muted leading-tight">
+          <span className="text-[11px] text-slate-600 dark:text-dash-muted leading-tight">
             Согласен(на) на обработку персональных данных согласно{' '}
             <button
               type="button"
               onClick={onOpenPrivacy}
-              className="text-dash-cyan underline font-medium"
+              className="text-dash-mint underline font-medium"
             >
               Политике конфиденциальности
             </button>
@@ -304,11 +304,11 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-12 bg-gradient-to-r from-dash-magenta via-dash-purple to-dash-violet hover:opacity-95 disabled:opacity-50 text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full flex items-center justify-center gap-2 shadow-neon-magenta transition-all active:scale-98"
+          className="w-full h-12 bg-gradient-to-r from-dash-mint to-dash-emerald hover:opacity-95 disabled:opacity-50 text-dash-dark font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-full flex items-center justify-center gap-2 shadow-mint transition-all active:scale-98 select-none"
         >
           {isSubmitting ? (
             <>
-              <Loader2 className="w-4 h-4 animate-spin" />
+              <Loader2 className="w-4 h-4 animate-spin text-dash-dark" />
               <span>ОТПРАВЛЯЕМ В TELEGRAM...</span>
             </>
           ) : (

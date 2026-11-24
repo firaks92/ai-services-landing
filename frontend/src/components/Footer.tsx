@@ -17,9 +17,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenQuiz }) => 
           {/* Brand */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-dash-violet via-dash-purple to-dash-cyan p-0.5 shadow-neon-purple flex items-center justify-center">
-                <div className="w-full h-full bg-white dark:bg-dash-bg rounded-[14px] flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-dash-magenta dark:text-dash-cyan" />
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-dash-emerald via-dash-mint to-dash-cyan p-0.5 shadow-mint flex items-center justify-center">
+                <div className="w-full h-full bg-white dark:bg-dash-card rounded-[14px] flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-dash-mint" />
                 </div>
               </div>
               <div className="flex flex-col">
@@ -34,8 +34,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenQuiz }) => 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-dash-muted max-w-sm leading-relaxed">
               {t('footer_desc')}
             </p>
-            <div className="font-mono text-xs text-dash-lime flex items-center gap-2 pt-2">
-              <span className="w-2 h-2 rounded-full bg-dash-lime animate-pulse" />
+            <div className="font-mono text-xs text-dash-mint flex items-center gap-2 pt-2">
+              <span className="w-2 h-2 rounded-full bg-dash-mint animate-pulse" />
               <span>{t('footer_engineer_online')}</span>
             </div>
           </div>
@@ -69,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenQuiz }) => 
               <li>
                 <button
                   onClick={onOpenQuiz}
-                  className="text-dash-magenta dark:text-dash-cyan hover:underline transition-colors font-bold"
+                  className="text-dash-mint hover:underline transition-colors font-bold"
                 >
                   {t('btn_select_node')}
                 </button>
@@ -90,7 +90,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenQuiz }) => 
               href="https://t.me/frxaiagentbot?start=footer_direct"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-dash-magenta via-dash-purple to-dash-violet hover:opacity-95 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-neon-magenta transition-all group"
+              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-dash-mint to-dash-emerald hover:opacity-95 text-dash-dark px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-mint transition-all group"
             >
               <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               <span>@frxaiagentbot в Telegram</span>
@@ -106,7 +106,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenQuiz }) => 
             <button onClick={onOpenPrivacy} className="hover:text-slate-900 dark:hover:text-white underline transition-colors">
               {t('footer_privacy')}
             </button>
-            <span className="text-dash-magenta dark:text-dash-cyan font-bold">i18n & MULTI-CURRENCY EDITION</span>
+            <span className="text-dash-mint font-bold">i18n & MULTI-CURRENCY EDITION</span>
           </div>
         </div>
       </div>

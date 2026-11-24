@@ -12,13 +12,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
   const { language, setLanguage, currency, setCurrency, t } = useLocale();
 
   return (
-    <header className="sticky top-0 z-40 bg-white/70 dark:bg-dash-bg/60 backdrop-blur-2xl border-b border-white/30 dark:border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-colors">
+    <header className="sticky top-0 z-40 bg-white/80 dark:bg-dash-bg/85 backdrop-blur-2xl border-b border-slate-200 dark:border-white/8 shadow-sm dark:shadow-none transition-colors">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Brand / Logo */}
         <a href="#" className="flex items-center gap-3 shrink-0 group">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-dash-violet via-dash-purple to-dash-cyan p-0.5 shadow-neon-purple group-hover:scale-105 transition-transform flex items-center justify-center">
-            <div className="w-full h-full bg-white/90 dark:bg-dash-bg/90 rounded-[14px] flex items-center justify-center backdrop-blur-md">
-              <Sparkles className="w-5 h-5 text-dash-magenta dark:text-dash-cyan" />
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-dash-emerald via-dash-mint to-dash-cyan p-0.5 shadow-mint group-hover:scale-105 transition-transform flex items-center justify-center">
+            <div className="w-full h-full bg-white dark:bg-dash-card rounded-[14px] flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-dash-emerald dark:text-dash-mint" />
             </div>
           </div>
           <div className="flex flex-col">
@@ -26,8 +26,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
               <span className="font-mono text-sm font-extrabold tracking-tight text-slate-900 dark:text-white">
                 AI.STUDIO
               </span>
-              <span className="font-mono text-xs text-dash-magenta font-bold">//</span>
-              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded-full bg-white/60 dark:bg-white/[0.08] border border-white/30 dark:border-white/10 text-dash-cyan font-bold backdrop-blur-md">
+              <span className="font-mono text-xs text-dash-mint font-bold">//</span>
+              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded-full bg-dash-emerald/10 border border-dash-emerald/25 text-dash-mint font-bold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-dash-mint animate-pulse" />
                 2026
               </span>
             </div>
@@ -41,25 +42,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
         <nav className="hidden xl:flex items-center gap-1 p-1 rounded-full glass-pill">
           <a
             href="#services"
-            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-dash-mint transition-colors"
           >
             {t('nav_services')}
           </a>
           <a
             href="#cases"
-            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-dash-mint transition-colors"
           >
             {t('nav_cases')}
           </a>
           <a
             href="#process"
-            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-dash-mint transition-colors"
           >
             {t('nav_process')}
           </a>
           <a
             href="#faq"
-            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-dash-mint transition-colors"
           >
             {t('nav_faq')}
           </a>
@@ -74,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
               onClick={() => setLanguage('ru')}
               className={`px-2 py-0.5 rounded-full transition-all ${
                 language === 'ru'
-                  ? 'bg-gradient-to-r from-dash-magenta to-dash-purple text-white shadow-sm'
+                  ? 'bg-gradient-to-r from-dash-emerald to-dash-mint text-dash-dark font-extrabold shadow-sm'
                   : 'text-slate-500 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -84,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
               onClick={() => setLanguage('uz')}
               className={`px-2 py-0.5 rounded-full transition-all ${
                 language === 'uz'
-                  ? 'bg-gradient-to-r from-dash-magenta to-dash-purple text-white shadow-sm'
+                  ? 'bg-gradient-to-r from-dash-emerald to-dash-mint text-dash-dark font-extrabold shadow-sm'
                   : 'text-slate-500 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -94,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
               onClick={() => setLanguage('en')}
               className={`px-2 py-0.5 rounded-full transition-all ${
                 language === 'en'
-                  ? 'bg-gradient-to-r from-dash-magenta to-dash-purple text-white shadow-sm'
+                  ? 'bg-gradient-to-r from-dash-emerald to-dash-mint text-dash-dark font-extrabold shadow-sm'
                   : 'text-slate-500 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -108,7 +109,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
               onClick={() => setCurrency('usd')}
               className={`px-2.5 py-0.5 rounded-full transition-all ${
                 currency === 'usd'
-                  ? 'bg-dash-cyan text-slate-950 font-extrabold shadow-sm'
+                  ? 'bg-dash-mint text-dash-dark font-extrabold shadow-sm'
                   : 'text-slate-500 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -118,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
               onClick={() => setCurrency('uzs')}
               className={`px-2.5 py-0.5 rounded-full transition-all ${
                 currency === 'uzs'
-                  ? 'bg-dash-cyan text-slate-950 font-extrabold shadow-sm'
+                  ? 'bg-dash-mint text-dash-dark font-extrabold shadow-sm'
                   : 'text-slate-500 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -132,10 +133,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
           {/* Primary CTA */}
           <button
             onClick={onOpenQuiz}
-            className="flex items-center gap-2 bg-gradient-to-r from-dash-magenta to-dash-purple hover:opacity-95 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full shadow-neon-magenta transition-all active:scale-95 group"
+            className="flex items-center gap-2 bg-gradient-to-r from-dash-mint via-dash-emerald to-dash-cyan hover:opacity-95 text-dash-dark px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-mint transition-all active:scale-95 group select-none"
           >
             <span>{t('btn_select_node')}</span>
-            <span className="font-mono text-[10px] text-white/80">{t('approx_time')}</span>
+            <span className="font-mono text-[10px] text-dash-dark/80">{t('approx_time')}</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
@@ -145,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
           <ThemeToggle />
           <button
             onClick={onOpenQuiz}
-            className="bg-gradient-to-r from-dash-magenta to-dash-purple text-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-neon-magenta"
+            className="bg-gradient-to-r from-dash-mint to-dash-emerald text-dash-dark px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-mint"
           >
             {t('btn_select_node')}
           </button>
@@ -161,7 +162,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
 
       {/* Mobile dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-white/20 dark:border-white/10 bg-white/90 dark:bg-dash-bg/90 backdrop-blur-2xl px-4 py-4 space-y-4">
+        <div className="lg:hidden border-b border-slate-200 dark:border-white/10 bg-white/95 dark:bg-dash-card/95 backdrop-blur-2xl px-4 py-4 space-y-4">
           {/* Mobile Switchers */}
           <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100 dark:border-white/10">
             {/* Lang */}
@@ -171,7 +172,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
                   key={l}
                   onClick={() => setLanguage(l)}
                   className={`px-2 py-0.5 rounded-full uppercase ${
-                    language === l ? 'bg-dash-magenta text-white' : 'text-slate-500 dark:text-dash-muted'
+                    language === l ? 'bg-dash-mint text-dash-dark font-extrabold' : 'text-slate-500 dark:text-dash-muted'
                   }`}
                 >
                   {l}
@@ -184,7 +185,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
               <button
                 onClick={() => setCurrency('usd')}
                 className={`px-2 py-0.5 rounded-full ${
-                  currency === 'usd' ? 'bg-dash-cyan text-slate-950 font-bold' : 'text-slate-500 dark:text-dash-muted'
+                  currency === 'usd' ? 'bg-dash-mint text-dash-dark font-extrabold' : 'text-slate-500 dark:text-dash-muted'
                 }`}
               >
                 $ USD
@@ -192,7 +193,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
               <button
                 onClick={() => setCurrency('uzs')}
                 className={`px-2 py-0.5 rounded-full ${
-                  currency === 'uzs' ? 'bg-dash-cyan text-slate-950 font-bold' : 'text-slate-500 dark:text-dash-muted'
+                  currency === 'uzs' ? 'bg-dash-mint text-dash-dark font-extrabold' : 'text-slate-500 dark:text-dash-muted'
                 }`}
               >
                 UZS

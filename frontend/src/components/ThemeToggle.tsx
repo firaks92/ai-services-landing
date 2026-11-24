@@ -14,7 +14,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
       setTheme('light');
       document.documentElement.classList.remove('dark');
     } else {
-      // Default is dark mode per modern neon dashboard aesthetic
+      // Default is dark mode per luxury obsidian FinTech dashboard aesthetic
       setTheme('dark');
       document.documentElement.classList.add('dark');
     }
@@ -36,12 +36,12 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
       onClick={toggleTheme}
       aria-label={`Переключить на ${theme === 'dark' ? 'светлую' : 'тёмную'} тему`}
       title={theme === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему'}
-      className={`relative inline-flex items-center p-1 rounded-full bg-slate-200 dark:bg-dash-track border border-slate-300 dark:border-white/15 w-16 h-8 transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-dash-cyan ${className}`}
+      className={`relative inline-flex items-center p-1 rounded-full bg-slate-200 dark:bg-dash-track border border-slate-300 dark:border-white/15 w-16 h-8 transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-dash-mint ${className}`}
     >
       <div
         className={`w-6 h-6 rounded-full flex items-center justify-center transform transition-transform duration-250 ease-out ${
           theme === 'dark'
-            ? 'translate-x-8 bg-gradient-to-r from-dash-violet to-dash-purple text-dash-cyan shadow-neon-purple'
+            ? 'translate-x-8 bg-gradient-to-r from-dash-mint to-dash-emerald text-dash-dark shadow-mint'
             : 'translate-x-0 bg-white text-amber-500 shadow-md'
         }`}
       >

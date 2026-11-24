@@ -61,8 +61,8 @@ export const InlineQuiz: React.FC<InlineQuizProps> = ({
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3 font-mono text-xs font-bold text-dash-magenta uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-dash-cyan" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3 font-mono text-xs font-bold text-dash-mint uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-dash-mint" />
             [ 03 // ИНТЕРАКТИВНЫЙ КОНФИГУРАТОР ТЗ ]
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3">
@@ -186,7 +186,7 @@ export const InlineQuiz: React.FC<InlineQuizProps> = ({
                   type="button"
                   onClick={handleNext}
                   disabled={!canGoNext()}
-                  className="flex items-center gap-2 bg-gradient-to-r from-dash-magenta to-dash-purple hover:opacity-95 disabled:opacity-40 text-white px-7 py-3 text-xs font-bold uppercase tracking-wider rounded-full shadow-neon-magenta transition-all select-none"
+                  className="flex items-center gap-2 bg-gradient-to-r from-dash-mint to-dash-emerald hover:opacity-95 disabled:opacity-40 text-dash-dark px-7 py-3 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-mint transition-all select-none"
                 >
                   <span>ДАЛЕЕ</span>
                   <ArrowRight className="w-3.5 h-3.5" />

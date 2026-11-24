@@ -106,7 +106,7 @@ export const QuizModal: React.FC<QuizModalProps> = ({
           {/* Top Bar: Progress & Close */}
           <div className="p-4 sm:p-6 border-b border-white/10 shrink-0">
             <div className="flex items-center justify-between mb-3">
-              <span className="font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
+              <span className="font-mono text-xs font-bold text-dash-mint uppercase tracking-wider">
                 FLIGHT DECK // КОНФИГУРАТОР ИИ
               </span>
               <button
@@ -223,7 +223,7 @@ export const QuizModal: React.FC<QuizModalProps> = ({
                 type="button"
                 onClick={handleNext}
                 disabled={!canGoNext()}
-                className="flex items-center gap-2 bg-gradient-to-r from-dash-magenta to-dash-purple hover:opacity-95 disabled:opacity-40 text-white px-7 py-2.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-neon-magenta transition-all select-none"
+                className="flex items-center gap-2 bg-gradient-to-r from-dash-mint to-dash-emerald hover:opacity-95 disabled:opacity-40 text-dash-dark px-7 py-2.5 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-mint transition-all select-none"
               >
                 <span>ДАЛЕЕ</span>
                 <ArrowRight className="w-3.5 h-3.5" />

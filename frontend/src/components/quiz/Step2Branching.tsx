@@ -32,14 +32,14 @@ export const Step2Branching: React.FC<Step2BranchingProps> = ({
   return (
     <div className="space-y-6">
       <div>
-        <div className="inline-block font-mono text-[11px] text-dash-cyan font-bold px-3 py-0.5 rounded-full bg-dash-track border border-dash-cyan/30 mb-2">
+        <div className="inline-block font-mono text-[11px] text-dash-mint font-bold px-3 py-0.5 rounded-full bg-dash-emerald/10 border border-dash-emerald/30 mb-2">
           {config.badgeTitle}
         </div>
-        <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
+        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-1">
           {config.question}
         </h3>
         {config.subtitle && (
-          <p className="font-mono text-xs text-dash-muted">{config.subtitle}</p>
+          <p className="font-mono text-xs text-slate-500 dark:text-dash-muted">{config.subtitle}</p>
         )}
       </div>
 
@@ -48,7 +48,7 @@ export const Step2Branching: React.FC<Step2BranchingProps> = ({
         <div className="space-y-6">
           {/* Tier A: Channels (multi-select chips) */}
           <div>
-            <div className="font-mono text-xs font-semibold text-dash-cyan uppercase tracking-wider mb-2.5">
+            <div className="font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider mb-2.5">
               {config.tierA.title}
             </div>
             <div className="flex flex-wrap gap-2">
@@ -61,8 +61,8 @@ export const Step2Branching: React.FC<Step2BranchingProps> = ({
                     onClick={() => toggleItem(channel)}
                     className={`px-4 py-2 text-xs font-semibold rounded-full border transition-all flex items-center gap-1.5 select-none ${
                       isSelected
-                        ? 'bg-gradient-to-r from-dash-magenta to-dash-purple text-white border-dash-magenta shadow-neon-magenta'
-                        : 'border-white/10 bg-dash-track text-dash-muted hover:border-dash-cyan/40 hover:text-white'
+                        ? 'bg-gradient-to-r from-dash-mint to-dash-emerald text-dash-dark font-bold border-dash-mint shadow-mint'
+                        : 'border-slate-200 dark:border-white/10 bg-white/60 dark:bg-dash-track text-slate-600 dark:text-dash-muted hover:border-dash-mint/40 hover:text-slate-900 dark:hover:text-white'
                     }`}
                   >
                     {isSelected && <Check className="w-3.5 h-3.5" />}
@@ -75,7 +75,7 @@ export const Step2Branching: React.FC<Step2BranchingProps> = ({
 
           {/* Tier B: Main Objective */}
           <div>
-            <div className="font-mono text-xs font-semibold text-dash-cyan uppercase tracking-wider mb-2.5">
+            <div className="font-mono text-xs font-semibold text-dash-mint uppercase tracking-wider mb-2.5">
               {config.tierB.title}
             </div>
             <div className="space-y-2">
@@ -88,17 +88,17 @@ export const Step2Branching: React.FC<Step2BranchingProps> = ({
                     onClick={() => setSingleInGroup(goal, config.tierB!.options)}
                     className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between select-none ${
                       isSelected
-                        ? 'bg-gradient-to-r from-dash-card-hover to-dash-surface border-dash-cyan text-white shadow-neon-cyan'
-                        : 'border-white/10 bg-dash-track/60 text-dash-muted hover:border-dash-purple/40 hover:text-white'
+                        ? 'bg-dash-emerald/10 border-dash-mint text-slate-900 dark:text-white shadow-mint'
+                        : 'border-slate-200 dark:border-white/10 bg-white/60 dark:bg-dash-track/60 text-slate-600 dark:text-dash-muted hover:border-dash-mint/40 hover:text-slate-900 dark:hover:text-white'
                     }`}
                   >
                     <span className="text-xs sm:text-sm font-semibold">{goal}</span>
                     <div
                       className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
-                        isSelected ? 'border-dash-cyan bg-dash-cyan' : 'border-white/20'
+                        isSelected ? 'border-dash-mint bg-dash-mint' : 'border-slate-300 dark:border-white/20'
                       }`}
                     >
-                      {isSelected && <span className="w-1.5 h-1.5 bg-dash-bg rounded-full block" />}
+                      {isSelected && <span className="w-1.5 h-1.5 bg-dash-dark rounded-full block" />}
                     </div>
                   </button>
                 );
@@ -126,8 +126,8 @@ export const Step2Branching: React.FC<Step2BranchingProps> = ({
                 }}
                 className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between group select-none ${
                   isSelected
-                    ? 'bg-gradient-to-r from-dash-card-hover to-dash-surface border-dash-cyan text-white shadow-neon-cyan'
-                    : 'border-white/10 bg-dash-track/60 text-dash-muted hover:border-dash-purple/40 hover:text-white'
+                    ? 'bg-dash-emerald/10 border-dash-mint text-slate-900 dark:text-white shadow-mint'
+                    : 'border-slate-200 dark:border-white/10 bg-white/60 dark:bg-dash-track/60 text-slate-600 dark:text-dash-muted hover:border-dash-mint/40 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 <span className="text-xs sm:text-sm font-semibold">{opt}</span>
@@ -135,18 +135,18 @@ export const Step2Branching: React.FC<Step2BranchingProps> = ({
                 {config.singleTier?.multiSelect ? (
                   <div
                     className={`w-4 h-4 rounded-md flex items-center justify-center transition-colors ${
-                      isSelected ? 'bg-dash-magenta text-white shadow-neon-magenta' : 'border border-white/20'
+                      isSelected ? 'bg-dash-mint text-dash-dark shadow-mint' : 'border border-slate-300 dark:border-white/20'
                     }`}
                   >
-                    {isSelected && <Check className="w-3 h-3" />}
+                    {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
                   </div>
                 ) : (
                   <div
                     className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                      isSelected ? 'border-dash-cyan bg-dash-cyan' : 'border-white/20'
+                      isSelected ? 'border-dash-mint bg-dash-mint' : 'border-slate-300 dark:border-white/20'
                     }`}
                   >
-                    {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-dash-bg block" />}
+                    {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-dash-dark block" />}
                   </div>
                 )}
               </button>
