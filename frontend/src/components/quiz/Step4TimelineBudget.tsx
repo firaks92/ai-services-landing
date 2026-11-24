@@ -17,17 +17,17 @@ export const Step4TimelineBudget: React.FC<Step4TimelineBudgetProps> = ({
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-xl sm:text-2xl font-bold text-clay-pine dark:text-clay-dark-pine mb-1">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
           Сроки запуска и ориентир по бюджету
         </h3>
-        <p className="text-xs text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-dash-muted">
           Помогает подобрать подходящую глубину решения: быстрый MVP или масштабную автоматизацию.
         </p>
       </div>
 
       {/* 4.1 Timeline */}
       <div>
-        <div className="font-mono text-xs font-semibold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider mb-2.5">
+        <div className="font-mono text-xs font-semibold text-dash-cyan uppercase tracking-wider mb-2.5">
           4.1 / ЖЕЛАЕМЫЕ СРОКИ ВНЕДРЕНИЯ
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -38,19 +38,19 @@ export const Step4TimelineBudget: React.FC<Step4TimelineBudgetProps> = ({
                 key={t}
                 type="button"
                 onClick={() => onSelectTimeline(t)}
-                className={`p-3.5 text-left border rounded-squircle-sm transition-all text-xs font-semibold flex items-center justify-between select-none ${
+                className={`p-3.5 text-left border rounded-xl transition-all text-xs font-semibold flex items-center justify-between select-none ${
                   isSelected
-                    ? 'clay-card border-clay-emerald bg-clay-card-muted/80 dark:bg-clay-dark-muted shadow-sm text-clay-pine dark:text-clay-dark-pine'
-                    : 'border-clay-border dark:border-clay-dark-border bg-white dark:bg-clay-dark-card hover:border-clay-sage text-slate-700 dark:text-slate-300'
+                    ? 'bg-gradient-to-r from-dash-card-hover to-dash-surface border-dash-cyan text-white shadow-neon-cyan'
+                    : 'border-white/10 bg-dash-track/60 text-dash-muted hover:border-dash-purple/40 hover:text-white'
                 }`}
               >
                 <span>{t}</span>
                 <div
-                  className={`w-4 h-4 rounded-full clay-knob shrink-0 ml-2 flex items-center justify-center ${
-                    isSelected ? 'bg-clay-emerald text-white' : 'opacity-40'
+                  className={`w-4 h-4 rounded-full border shrink-0 ml-2 flex items-center justify-center ${
+                    isSelected ? 'border-dash-cyan bg-dash-cyan' : 'border-white/20'
                   }`}
                 >
-                  {isSelected && <span className="w-1.5 h-1.5 bg-white rounded-full block" />}
+                  {isSelected && <span className="w-1.5 h-1.5 bg-dash-bg rounded-full block" />}
                 </div>
               </button>
             );
@@ -60,7 +60,7 @@ export const Step4TimelineBudget: React.FC<Step4TimelineBudgetProps> = ({
 
       {/* 4.2 Budget */}
       <div>
-        <div className="font-mono text-xs font-semibold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider mb-2.5">
+        <div className="font-mono text-xs font-semibold text-dash-cyan uppercase tracking-wider mb-2.5">
           4.2 / ПЛАНИРУЕМЫЙ БЮДЖЕТ
         </div>
         <div className="space-y-2">
@@ -71,19 +71,19 @@ export const Step4TimelineBudget: React.FC<Step4TimelineBudgetProps> = ({
                 key={b}
                 type="button"
                 onClick={() => onSelectBudget(b)}
-                className={`w-full p-3.5 text-left border rounded-squircle-sm transition-all text-xs sm:text-sm font-semibold flex items-center justify-between select-none ${
+                className={`w-full p-3.5 text-left border rounded-xl transition-all text-xs sm:text-sm font-semibold flex items-center justify-between select-none ${
                   isSelected
-                    ? 'clay-card border-clay-emerald bg-clay-card-muted/80 dark:bg-clay-dark-muted shadow-sm text-clay-pine dark:text-clay-dark-pine'
-                    : 'border-clay-border dark:border-clay-dark-border bg-white dark:bg-clay-dark-card hover:border-clay-sage text-slate-700 dark:text-slate-300'
+                    ? 'bg-gradient-to-r from-dash-card-hover to-dash-surface border-dash-cyan text-white shadow-neon-cyan'
+                    : 'border-white/10 bg-dash-track/60 text-dash-muted hover:border-dash-purple/40 hover:text-white'
                 }`}
               >
                 <span>{b}</span>
                 <div
-                  className={`w-4 h-4 rounded-full clay-knob shrink-0 flex items-center justify-center ${
-                    isSelected ? 'bg-clay-emerald text-white' : 'opacity-40'
+                  className={`w-4 h-4 rounded-full border shrink-0 flex items-center justify-center ${
+                    isSelected ? 'border-dash-cyan bg-dash-cyan' : 'border-white/20'
                   }`}
                 >
-                  {isSelected && <span className="w-1.5 h-1.5 bg-white rounded-full block" />}
+                  {isSelected && <span className="w-1.5 h-1.5 bg-dash-bg rounded-full block" />}
                 </div>
               </button>
             );

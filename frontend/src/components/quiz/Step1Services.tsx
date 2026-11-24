@@ -11,10 +11,10 @@ export const Step1Services: React.FC<Step1ServicesProps> = ({ selectedCode, onSe
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-xl sm:text-2xl font-bold text-clay-pine dark:text-clay-dark-pine mb-1">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
           Какие ИИ-услуги вас интересуют в первую очередь?
         </h3>
-        <p className="text-xs text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-dash-muted">
           Выберите ключевое направление — вопросы следующего шага автоматически адаптируются под вашу задачу.
         </p>
       </div>
@@ -27,29 +27,31 @@ export const Step1Services: React.FC<Step1ServicesProps> = ({ selectedCode, onSe
               key={srv.code}
               type="button"
               onClick={() => onSelect(srv.code, srv.title)}
-              className={`w-full text-left p-4 rounded-squircle-sm border transition-all flex items-start justify-between select-none group ${
+              className={`w-full text-left p-4 rounded-2xl border transition-all flex items-start justify-between select-none group ${
                 isSelected
-                  ? 'clay-card border-clay-emerald bg-clay-card-muted/80 dark:bg-clay-dark-muted shadow-sm'
-                  : 'border-clay-border dark:border-clay-dark-border bg-white dark:bg-clay-dark-card hover:border-clay-sage'
+                  ? 'bg-gradient-to-r from-dash-card-hover to-dash-surface border-dash-cyan shadow-neon-cyan'
+                  : 'border-white/10 bg-dash-track/60 hover:border-dash-purple/50'
               }`}
             >
               <div className="pr-4">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-mono text-xs font-bold text-clay-coral">[{srv.index}]</span>
-                  <span className="text-sm sm:text-base font-semibold text-clay-pine dark:text-clay-dark-pine group-hover:text-clay-coral transition-colors">
+                  <span className="font-mono text-xs font-bold text-dash-magenta">[{srv.index}]</span>
+                  <span className="text-sm sm:text-base font-bold text-white group-hover:text-dash-cyan transition-colors">
                     {srv.title}
                   </span>
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{srv.description}</p>
+                <p className="text-xs text-dash-muted leading-relaxed">{srv.description}</p>
               </div>
 
-              {/* Tactile Rotary Dial Radio Indicator */}
+              {/* Glowing Radio Indicator */}
               <div
-                className={`w-5 h-5 rounded-full clay-knob flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                  isSelected ? 'border-2 border-clay-emerald bg-clay-emerald text-white' : 'opacity-50'
+                className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 border transition-all ${
+                  isSelected
+                    ? 'border-dash-cyan bg-dash-cyan shadow-neon-cyan text-dash-bg'
+                    : 'border-white/20 bg-dash-track'
                 }`}
               >
-                {isSelected && <span className="w-2 h-2 rounded-full bg-white block" />}
+                {isSelected && <span className="w-2 h-2 rounded-full bg-dash-bg block" />}
               </div>
             </button>
           );

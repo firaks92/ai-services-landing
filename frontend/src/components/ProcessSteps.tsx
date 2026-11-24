@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckSquare, ArrowRight, ShieldCheck } from 'lucide-react';
+import { CheckSquare, ArrowRight, ShieldCheck, Cpu } from 'lucide-react';
 
 export const ProcessSteps: React.FC = () => {
   const steps = [
@@ -29,24 +29,24 @@ export const ProcessSteps: React.FC = () => {
       title: 'Мониторинг и SLA',
       duration: 'Постоянно',
       desc: 'Отслеживаем каждый диалог, анализируем процент успешных закрытий, дообучаем модель новым товарам и обновляем базу знаний по мере изменения цен.',
-      artifact: 'Еженедельный отчет точности, аптайм 99.8% и инженерный саппорт',
+      artifact: 'Еженедельный отчет точности, аптайм 99.9% и инженерный саппорт',
     },
   ];
 
   return (
-    <section id="process" className="py-20 md:py-28 border-b border-clay-border dark:border-clay-dark-border">
+    <section id="process" className="py-20 md:py-28 border-b border-white/10 bg-dash-bg">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-clay-border dark:border-clay-dark-border">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full clay-inset mb-3 font-mono text-xs font-bold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-dash-track border border-white/10 mb-3 font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
               [ 04 // ТЕХНОЛОГИЧЕСКИЙ МАРШРУТ ]
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-clay-pine dark:text-clay-dark-pine">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
               От первого ТЗ до боевого запуска в прод
             </h2>
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md">
+          <p className="text-sm text-dash-muted max-w-md">
             Никаких затяжных проектов на полгода. Поэтапная сдача с осязаемыми результатами на каждом шаге и гарантией по договору.
           </p>
         </div>
@@ -56,33 +56,33 @@ export const ProcessSteps: React.FC = () => {
           {steps.map((s) => (
             <div
               key={s.num}
-              className="clay-card p-7 rounded-squircle-lg flex flex-col justify-between hover:shadow-clay-card-hover transition-all group"
+              className="neon-card p-7 rounded-2xl flex flex-col justify-between group"
             >
               <div>
                 {/* Step Header */}
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-clay-border dark:border-clay-dark-border">
-                  <span className="font-mono text-base font-bold text-clay-coral">
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                  <span className="font-mono text-base font-extrabold text-dash-magenta">
                     0{s.num} // ЭТАП
                   </span>
-                  <span className="font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-full clay-inset text-clay-emerald">
+                  <span className="font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-dash-track border border-dash-lime/30 text-dash-lime">
                     {s.duration}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-clay-pine dark:text-clay-dark-pine mb-2 group-hover:text-clay-coral transition-colors">
+                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-dash-cyan transition-colors">
                   {s.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-dash-muted leading-relaxed mb-6">
                   {s.desc}
                 </p>
               </div>
 
               {/* Artifact badge */}
-              <div className="pt-4 border-t border-clay-border dark:border-clay-dark-border">
-                <span className="font-mono text-[10px] text-slate-400 block mb-1">
+              <div className="pt-4 border-t border-white/10">
+                <span className="font-mono text-[10px] text-dash-subtle block mb-1">
                   РЕЗУЛЬТАТ ЭТАПА:
                 </span>
-                <span className="text-xs font-semibold text-clay-pine dark:text-clay-sage-soft block">
+                <span className="text-xs font-semibold text-dash-cyan block">
                   ✓ {s.artifact}
                 </span>
               </div>

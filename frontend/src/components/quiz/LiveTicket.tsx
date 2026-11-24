@@ -1,6 +1,6 @@
 import React from 'react';
 import type { QuizState } from '../../types/quiz.js';
-import { Plane, Ticket, ShieldCheck, Sparkles } from 'lucide-react';
+import { Plane, Ticket, ShieldCheck, Sparkles, Cpu } from 'lucide-react';
 
 interface LiveTicketProps {
   quizState: QuizState;
@@ -8,63 +8,63 @@ interface LiveTicketProps {
 
 export const LiveTicket: React.FC<LiveTicketProps> = ({ quizState }) => {
   return (
-    <div className="h-full bg-clay-card dark:bg-clay-dark-card p-6 font-mono text-xs text-clay-pine dark:text-clay-dark-pine flex flex-col justify-between select-none relative overflow-hidden border-r border-clay-border dark:border-clay-dark-border">
+    <div className="h-full bg-dash-card p-6 font-mono text-xs text-dash-text flex flex-col justify-between select-none relative overflow-hidden border-r border-white/10">
       {/* Top Pass Header */}
       <div>
-        <div className="flex items-center justify-between pb-3.5 border-b border-clay-border dark:border-clay-dark-border mb-4">
+        <div className="flex items-center justify-between pb-3.5 border-b border-white/10 mb-4">
           <div className="flex items-center gap-2">
-            <Ticket className="w-4 h-4 text-clay-coral" />
-            <span className="font-bold uppercase tracking-wider text-[11px]">
-              BOARDING PASS // СПЕЦИФИКАЦИЯ
+            <Ticket className="w-4 h-4 text-dash-magenta" />
+            <span className="font-bold uppercase tracking-wider text-[11px] text-white">
+              SPEC TICKET // СПЕЦИФИКАЦИЯ
             </span>
           </div>
-          <span className="font-bold text-[10px] px-2 py-0.5 rounded-full bg-clay-mint/50 dark:bg-clay-sage/20 text-clay-emerald dark:text-clay-mint">
-            GATE A-37
+          <span className="font-bold text-[10px] px-2 py-0.5 rounded-full bg-dash-cyan/15 text-dash-cyan border border-dash-cyan/30">
+            NODE A-37
           </span>
         </div>
 
         {/* Flight & Spec ID */}
-        <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-5">
-          <span>СИСТЕМА: AI.FLIGHT-2026</span>
-          <span className="text-clay-coral font-bold">{quizState.leadCode || 'AI-PROD-SPEC'}</span>
+        <div className="flex items-center justify-between text-[11px] font-mono text-dash-muted mb-5">
+          <span>СИСТЕМА: AI.ENGINE-2026</span>
+          <span className="text-dash-magenta font-bold">{quizState.leadCode || 'AI-PROD-SPEC'}</span>
         </div>
 
         {/* Live Parameters */}
         <div className="space-y-3.5">
-          <div className="p-2.5 rounded-squircle-sm clay-inset">
-            <div className="text-slate-500 text-[10px] uppercase font-bold">[01 / ВЫБРАННЫЙ УЗЕЛ]:</div>
-            <div className="font-semibold text-clay-pine dark:text-clay-dark-pine text-xs mt-0.5 line-clamp-2">
+          <div className="p-3 rounded-xl bg-dash-track border border-white/5">
+            <div className="text-dash-muted text-[10px] uppercase font-bold">[01 / ВЫБРАННЫЙ УЗЕЛ]:</div>
+            <div className="font-bold text-white text-xs mt-0.5 line-clamp-2">
               {quizState.primaryService || '— Ожидание выбора в квизе...'}
             </div>
           </div>
 
-          <div className="p-2.5 rounded-squircle-sm clay-inset">
-            <div className="text-slate-500 text-[10px] uppercase font-bold">[02 / ПАРАМЕТРЫ ЗАДАЧИ]:</div>
-            <div className="text-slate-700 dark:text-slate-300 text-xs mt-0.5 line-clamp-2">
+          <div className="p-3 rounded-xl bg-dash-track border border-white/5">
+            <div className="text-dash-muted text-[10px] uppercase font-bold">[02 / ПАРАМЕТРЫ ЗАДАЧИ]:</div>
+            <div className="text-dash-cyan text-xs mt-0.5 line-clamp-2">
               {quizState.serviceDetails.length > 0
                 ? quizState.serviceDetails.join(', ')
                 : '— На этапе конфигурации'}
             </div>
           </div>
 
-          <div className="p-2.5 rounded-squircle-sm clay-inset">
-            <div className="text-slate-500 text-[10px] uppercase font-bold">[03 / ОТРАСЛЬ И НИША]:</div>
-            <div className="text-slate-700 dark:text-slate-300 text-xs mt-0.5">
+          <div className="p-3 rounded-xl bg-dash-track border border-white/5">
+            <div className="text-dash-muted text-[10px] uppercase font-bold">[03 / ОТРАСЛЬ И НИША]:</div>
+            <div className="text-white text-xs mt-0.5">
               {quizState.industry || '— Не выбрана'}
             </div>
           </div>
 
-          <div className="p-2.5 rounded-squircle-sm clay-inset">
-            <div className="text-slate-500 text-[10px] uppercase font-bold">[04 / СРОК И БЮДЖЕТ]:</div>
-            <div className="text-clay-emerald font-bold text-xs mt-0.5">
+          <div className="p-3 rounded-xl bg-dash-track border border-white/5">
+            <div className="text-dash-muted text-[10px] uppercase font-bold">[04 / СРОК И БЮДЖЕТ]:</div>
+            <div className="text-dash-lime font-bold text-xs mt-0.5">
               {quizState.budget || '— Формируется расчет'}
             </div>
           </div>
 
           {quizState.cityInput && (
-            <div className="p-2.5 rounded-squircle-sm clay-inset">
-              <div className="text-slate-500 text-[10px] uppercase font-bold">[05 / ЛОКАЦИЯ]:</div>
-              <div className="text-clay-pine dark:text-clay-mint font-semibold text-xs mt-0.5">
+            <div className="p-3 rounded-xl bg-dash-track border border-white/5">
+              <div className="text-dash-muted text-[10px] uppercase font-bold">[05 / ЛОКАЦИЯ]:</div>
+              <div className="text-dash-magenta font-semibold text-xs mt-0.5">
                 {quizState.cityInput}
               </div>
             </div>
@@ -72,24 +72,24 @@ export const LiveTicket: React.FC<LiveTicketProps> = ({ quizState }) => {
         </div>
       </div>
 
-      {/* Perforated Divider (Tear-off notch effect) */}
+      {/* Perforated Divider */}
       <div className="my-4 relative">
-        <div className="border-b-2 border-dashed border-clay-border dark:border-clay-dark-border" />
+        <div className="border-b-2 border-dashed border-white/10" />
       </div>
 
       {/* Barcode & Guarantee Summary */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between text-[10px] text-slate-500">
-          <span>PRIORITY PASS</span>
-          <span>SLA: 99.8%</span>
+        <div className="flex items-center justify-between text-[10px] text-dash-muted">
+          <span>PRIORITY SLA</span>
+          <span className="text-dash-lime font-bold">ONLINE 99.9%</span>
         </div>
 
         {/* Pseudo Barcode */}
-        <div className="text-center font-mono tracking-widest text-slate-400 dark:text-slate-500 text-[11px] select-none py-1">
+        <div className="text-center font-mono tracking-widest text-dash-subtle text-[11px] select-none py-1">
           ||| | | |||| || | ||| |||| | || | |||
         </div>
 
-        <div className="text-[10px] text-slate-500 dark:text-slate-400 space-y-1">
+        <div className="text-[10px] text-dash-muted space-y-1">
           <div>✓ Фиксированная смета до старта</div>
           <div>✓ NDA и защита коммерческой тайны</div>
           <div>✓ Прямой чат с инженером в Telegram</div>

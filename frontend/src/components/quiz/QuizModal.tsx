@@ -88,30 +88,30 @@ export const QuizModal: React.FC<QuizModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex justify-end bg-black/75 backdrop-blur-md animate-fadeIn"
       onClick={onClose}
     >
-      {/* Side Sheet Drawer with Squircle Styling */}
+      {/* Side Sheet Drawer with Neon Card Styling */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full sm:max-w-2xl lg:max-w-4xl h-full bg-clay-bg dark:bg-clay-dark-bg flex flex-col md:flex-row shadow-2xl border-l border-clay-border dark:border-clay-dark-border"
+        className="w-full sm:max-w-2xl lg:max-w-4xl h-full bg-dash-bg flex flex-col md:flex-row shadow-2xl border-l border-white/10"
       >
-        {/* Left Column (Desktop only): Live Engineer Boarding Pass */}
+        {/* Left Column (Desktop only): Live Ticket */}
         <div className="hidden lg:block w-72 shrink-0">
           <LiveTicket quizState={quizState} />
         </div>
 
         {/* Right Main Working Area */}
-        <div className="flex-1 flex flex-col justify-between h-full overflow-hidden bg-clay-bg dark:bg-clay-dark-bg">
+        <div className="flex-1 flex flex-col justify-between h-full overflow-hidden bg-dash-card">
           {/* Top Bar: Progress & Close */}
-          <div className="p-4 sm:p-6 border-b border-clay-border dark:border-clay-dark-border shrink-0">
+          <div className="p-4 sm:p-6 border-b border-white/10 shrink-0">
             <div className="flex items-center justify-between mb-3">
-              <span className="font-mono text-xs font-bold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider">
+              <span className="font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
                 FLIGHT DECK // КОНФИГУРАТОР ИИ
               </span>
               <button
                 onClick={onClose}
-                className="flex items-center gap-1.5 font-mono text-xs text-slate-500 hover:text-clay-coral px-3 py-1 rounded-full clay-inset transition-colors"
+                className="flex items-center gap-1.5 font-mono text-xs text-dash-muted hover:text-white px-3 py-1 rounded-full bg-dash-track border border-white/10 transition-colors"
                 title="Закрыть окно (Esc)"
               >
                 <span>ESC / Закрыть</span>
@@ -203,14 +203,14 @@ export const QuizModal: React.FC<QuizModalProps> = ({
             )}
           </div>
 
-          {/* Bottom Bar: Back & Next Buttons */}
+          {/* Bottom Bar */}
           {currentStep < 5 && (
-            <div className="p-4 sm:p-6 border-t border-clay-border dark:border-clay-dark-border flex items-center justify-between shrink-0 bg-clay-bg dark:bg-clay-dark-bg">
+            <div className="p-4 sm:p-6 border-t border-white/10 flex items-center justify-between shrink-0 bg-dash-bg">
               {currentStep > 1 ? (
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="flex items-center gap-1.5 font-mono text-xs font-semibold text-slate-500 hover:text-clay-pine dark:hover:text-white px-4 py-2 rounded-full clay-inset transition-colors"
+                  className="flex items-center gap-1.5 font-mono text-xs font-semibold text-dash-muted hover:text-white px-4 py-2 rounded-full bg-dash-track border border-white/10 transition-colors"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   <span>НАЗАД</span>
@@ -223,7 +223,7 @@ export const QuizModal: React.FC<QuizModalProps> = ({
                 type="button"
                 onClick={handleNext}
                 disabled={!canGoNext()}
-                className="flex items-center gap-2 bg-clay-coral hover:bg-clay-coral-hover disabled:opacity-40 text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-clay-btn transition-all select-none"
+                className="flex items-center gap-2 bg-gradient-to-r from-dash-magenta to-dash-purple hover:opacity-95 disabled:opacity-40 text-white px-7 py-2.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-neon-magenta transition-all select-none"
               >
                 <span>ДАЛЕЕ</span>
                 <ArrowRight className="w-3.5 h-3.5" />

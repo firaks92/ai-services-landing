@@ -54,45 +54,45 @@ export const CasesRoi: React.FC = () => {
   ];
 
   return (
-    <section id="cases" className="py-20 md:py-28 border-b border-clay-border dark:border-clay-dark-border">
+    <section id="cases" className="py-20 md:py-28 border-b border-white/10 bg-dash-bg">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-clay-border dark:border-clay-dark-border">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full clay-inset mb-3 font-mono text-xs font-bold text-clay-coral uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-dash-track border border-white/10 mb-3 font-mono text-xs font-bold text-dash-magenta uppercase tracking-wider">
               [ 02 // ПРОТОКОЛЫ ВНЕДРЕНИЙ И ОКУПАЕМОСТЬ ]
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-clay-pine dark:text-clay-dark-pine">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
               Реальные цифры окупаемости в бизнесе
             </h2>
           </div>
-          <div className="flex items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
-            <CheckCircle2 className="w-4 h-4 text-clay-emerald" />
+          <div className="flex items-center gap-2 font-mono text-xs text-dash-lime">
+            <CheckCircle2 className="w-4 h-4 text-dash-lime" />
             <span>ДАННЫЕ ЗАФИКСИРОВАНЫ ПО РЕЗУЛЬТАТАМ 30–90 ДНЕЙ РАБОТЫ</span>
           </div>
         </div>
 
-        {/* Interactive ROI Quick Calculator (Tactile Dial) */}
-        <div className="clay-card p-6 sm:p-8 mb-12 relative overflow-hidden">
+        {/* Interactive ROI Calculator with Neon Dashboard Style */}
+        <div className="neon-card p-6 sm:p-8 mb-12 relative overflow-hidden">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-md">
-              <span className="font-mono text-xs font-bold text-clay-emerald uppercase tracking-wider">
+              <span className="font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
                 ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР ВАШЕЙ ВЫГОДЫ
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-clay-pine dark:text-clay-dark-pine mt-1 mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mt-1 mb-2">
                 Сколько ваш бизнес сэкономит на рутине?
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+              <p className="text-xs sm:text-sm text-dash-muted">
                 Передвиньте ползунок количества сотрудников в поддержке или продажах, чтобы увидеть расчет сохраненного фонда оплаты труда.
               </p>
             </div>
 
             {/* Controls */}
-            <div className="w-full lg:w-auto flex-1 max-w-lg p-4 rounded-squircle clay-inset space-y-4">
+            <div className="w-full lg:w-auto flex-1 max-w-lg p-5 rounded-2xl bg-dash-track border border-white/10 space-y-4">
               <div>
-                <div className="flex justify-between font-mono text-xs font-semibold mb-2 text-clay-pine dark:text-clay-sage-soft">
+                <div className="flex justify-between font-mono text-xs font-semibold mb-2 text-white">
                   <span>Сотрудников на первой линии:</span>
-                  <span className="text-clay-coral font-bold">{operatorCount} чел</span>
+                  <span className="text-dash-magenta font-bold">{operatorCount} чел</span>
                 </div>
                 <input
                   type="range"
@@ -101,14 +101,14 @@ export const CasesRoi: React.FC = () => {
                   step="1"
                   value={operatorCount}
                   onChange={(e) => setOperatorCount(Number(e.target.value))}
-                  className="w-full h-2 rounded-full bg-slate-300 dark:bg-slate-700 accent-clay-coral cursor-pointer"
+                  className="w-full h-2 rounded-full bg-dash-surface accent-dash-magenta cursor-pointer"
                 />
               </div>
 
               <div>
-                <div className="flex justify-between font-mono text-xs font-semibold mb-2 text-clay-pine dark:text-clay-sage-soft">
+                <div className="flex justify-between font-mono text-xs font-semibold mb-2 text-white">
                   <span>Средний ФОТ на сотрудника:</span>
-                  <span className="text-clay-emerald font-bold">{salaryPerOperator.toLocaleString('ru-RU')} ₽</span>
+                  <span className="text-dash-cyan font-bold">{salaryPerOperator.toLocaleString('ru-RU')} ₽</span>
                 </div>
                 <input
                   type="range"
@@ -117,20 +117,20 @@ export const CasesRoi: React.FC = () => {
                   step="5000"
                   value={salaryPerOperator}
                   onChange={(e) => setSalaryPerOperator(Number(e.target.value))}
-                  className="w-full h-2 rounded-full bg-slate-300 dark:bg-slate-700 accent-clay-emerald cursor-pointer"
+                  className="w-full h-2 rounded-full bg-dash-surface accent-dash-cyan cursor-pointer"
                 />
               </div>
             </div>
 
             {/* Calculated Output Badge */}
-            <div className="p-5 rounded-squircle clay-card border border-clay-emerald/30 text-center min-w-[220px]">
-              <span className="font-mono text-[10px] text-slate-500 uppercase tracking-widest block mb-1">
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-dash-card-hover to-dash-surface border border-dash-cyan/30 text-center min-w-[240px] shadow-neon-cyan">
+              <span className="font-mono text-[10px] text-dash-muted uppercase tracking-widest block mb-1">
                 ЭКОНОМИЯ ФОТ В ГОД
               </span>
-              <span className="text-2xl sm:text-3xl font-mono font-bold text-clay-emerald tabular-nums block mb-1">
+              <span className="text-2xl sm:text-3xl font-mono font-extrabold text-dash-cyan tabular-nums block mb-1">
                 ~{estimatedSavingsYear.toLocaleString('ru-RU')} ₽
               </span>
-              <span className="text-[11px] font-mono text-slate-400">
+              <span className="text-[11px] font-mono text-dash-muted">
                 или ~{estimatedSavingsMonth.toLocaleString('ru-RU')} ₽ / месяц
               </span>
             </div>
@@ -142,54 +142,54 @@ export const CasesRoi: React.FC = () => {
           {protocols.map((p) => (
             <div
               key={p.id}
-              className="clay-card p-7 rounded-squircle-lg flex flex-col justify-between hover:shadow-clay-card-hover transition-all"
+              className="neon-card p-7 rounded-2xl flex flex-col justify-between"
             >
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-clay-border dark:border-clay-dark-border">
-                  <span className="font-mono text-xs font-bold text-clay-coral">
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                  <span className="font-mono text-xs font-bold text-dash-magenta">
                     КЕЙС #{p.id} // {p.niche}
                   </span>
-                  <span className="font-mono text-[11px] px-2 py-0.5 rounded-full clay-inset text-slate-500">
+                  <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-dash-track border border-white/10 text-dash-muted">
                     {p.location}
                   </span>
                 </div>
 
                 {/* Problem vs Solution */}
                 <div className="space-y-3 mb-6">
-                  <div className="p-3 rounded-squircle-sm bg-red-50/50 dark:bg-red-950/20 border border-red-200/40 dark:border-red-800/30">
-                    <span className="font-mono text-[10px] uppercase font-bold text-red-700 dark:text-red-400 block mb-1">
+                  <div className="p-3.5 rounded-xl bg-red-950/20 border border-red-500/20">
+                    <span className="font-mono text-[10px] uppercase font-bold text-red-400 block mb-1">
                       БЫЛО ДО ВНЕДРЕНИЯ ИИ:
                     </span>
-                    <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">{p.before}</p>
+                    <p className="text-xs sm:text-sm text-dash-muted">{p.before}</p>
                   </div>
 
-                  <div className="p-3 rounded-squircle-sm bg-clay-mint/30 dark:bg-clay-sage/10 border border-clay-emerald/30">
-                    <span className="font-mono text-[10px] uppercase font-bold text-clay-emerald block mb-1">
+                  <div className="p-3.5 rounded-xl bg-dash-cyan/10 border border-dash-cyan/30">
+                    <span className="font-mono text-[10px] uppercase font-bold text-dash-cyan block mb-1">
                       РЕШЕНИЕ И АРХИТЕКТУРА:
                     </span>
-                    <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">{p.solution}</p>
+                    <p className="text-xs sm:text-sm text-white">{p.solution}</p>
                   </div>
                 </div>
               </div>
 
               {/* Metrics & Payback Row */}
-              <div className="pt-4 border-t border-clay-border dark:border-clay-dark-border">
+              <div className="pt-4 border-t border-white/10">
                 <div className="grid grid-cols-2 gap-3 mb-3">
-                  <div className="p-2.5 rounded-squircle-sm clay-inset">
-                    <span className="font-mono text-[10px] text-slate-500 block">{p.metric1.label}</span>
-                    <span className="text-base font-mono font-bold text-clay-coral">
+                  <div className="p-3 rounded-xl bg-dash-track border border-white/5">
+                    <span className="font-mono text-[10px] text-dash-muted block">{p.metric1.label}</span>
+                    <span className="text-base font-mono font-bold text-dash-magenta">
                       {p.metric1.value}
                     </span>
                   </div>
-                  <div className="p-2.5 rounded-squircle-sm clay-inset">
-                    <span className="font-mono text-[10px] text-slate-500 block">{p.metric2.label}</span>
-                    <span className="text-base font-mono font-bold text-clay-emerald">
+                  <div className="p-3 rounded-xl bg-dash-track border border-white/5">
+                    <span className="font-mono text-[10px] text-dash-muted block">{p.metric2.label}</span>
+                    <span className="text-base font-mono font-bold text-dash-lime">
                       {p.metric2.value}
                     </span>
                   </div>
                 </div>
-                <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400 block">
+                <span className="font-mono text-[11px] text-dash-muted block">
                   ✓ {p.payback}
                 </span>
               </div>

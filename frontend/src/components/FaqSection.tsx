@@ -32,18 +32,18 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 md:py-28 border-b border-clay-border dark:border-clay-dark-border">
+    <section id="faq" className="py-20 md:py-28 border-b border-white/10 bg-dash-bg">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column (Sticky info) */}
           <div className="lg:col-span-5 lg:sticky lg:top-28 h-fit">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full clay-inset mb-3 font-mono text-xs font-bold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-dash-track border border-white/10 mb-3 font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
               [ 05 // ЧАСТЫЕ ВОПРОСЫ И ОТВЕТЫ ]
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-clay-pine dark:text-clay-dark-pine mb-6">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6">
               Ответы на главные вопросы и сомнения
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-dash-muted leading-relaxed mb-8">
               Если у вас есть специфическая задача, нестандартная база данных или закрытый контур — задайте вопрос напрямую нашему архитектору.
             </p>
 
@@ -51,9 +51,9 @@ export const FaqSection: React.FC = () => {
               href="https://t.me/frxaiagentbot?start=direct_site_faq"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-clay-pine hover:bg-clay-pine-light dark:bg-clay-mint dark:text-clay-pine text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-clay-card transition-all select-none group"
+              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-dash-magenta to-dash-purple hover:opacity-95 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-neon-magenta transition-all select-none group"
             >
-              <MessageSquare className="w-4 h-4 text-clay-coral group-hover:scale-110 transition-transform" />
+              <MessageSquare className="w-4 h-4 text-dash-cyan group-hover:scale-110 transition-transform" />
               <span>Задать вопрос инженеру в Telegram</span>
             </a>
           </div>
@@ -65,18 +65,18 @@ export const FaqSection: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="clay-card rounded-squircle-sm overflow-hidden transition-all"
+                  className="neon-card rounded-2xl overflow-hidden transition-all"
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
                     className="w-full p-6 text-left flex items-start justify-between gap-4 select-none"
                   >
-                    <span className="text-base sm:text-lg font-bold text-clay-pine dark:text-clay-dark-pine">
+                    <span className="text-base sm:text-lg font-bold text-white">
                       {faq.q}
                     </span>
                     <div
-                      className={`w-7 h-7 rounded-full clay-knob shrink-0 flex items-center justify-center transition-transform ${
-                        isOpen ? 'bg-clay-coral text-white rotate-180' : 'text-slate-500'
+                      className={`w-7 h-7 rounded-full bg-dash-track border border-white/10 shrink-0 flex items-center justify-center transition-transform ${
+                        isOpen ? 'bg-dash-magenta text-white rotate-180 shadow-neon-magenta' : 'text-dash-muted'
                       }`}
                     >
                       {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -84,7 +84,7 @@ export const FaqSection: React.FC = () => {
                   </button>
 
                   {isOpen && (
-                    <div className="px-6 pb-6 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-clay-border dark:border-clay-dark-border pt-4">
+                    <div className="px-6 pb-6 text-sm text-dash-muted leading-relaxed border-t border-white/10 pt-4">
                       {faq.a}
                     </div>
                   )}

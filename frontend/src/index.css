@@ -8,95 +8,111 @@
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  html.dark {
-    color-scheme: dark;
-  }
-
   body {
-    background-color: #F5F7F4;
-    color: #193B32;
+    background-color: #080613;
+    color: #F3F0FF;
     overflow-x: hidden;
-    transition: background-color 250ms ease, color 250ms ease;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
-  html.dark body {
-    background-color: #0D1614;
-    color: #E2F0EA;
-  }
-
-  /* Accessible focus indicators */
+  /* Accessible focus indicators with neon glow */
   :focus-visible {
-    outline: 2px solid #227B57;
+    outline: 2px solid #00E5FF;
     outline-offset: 2px;
   }
 
-  /* Tabular numbers for all monospace counters and metrics */
   .tabular-nums {
     font-variant-numeric: tabular-nums;
   }
 }
 
-/* Claymorphic Utility Components */
+/* Glassmorphism & Neon Dashboard Classes */
 @layer components {
-  .clay-card {
-    background-color: #FFFFFF;
-    border-radius: 22px;
-    border: 1px solid rgba(25, 59, 50, 0.08);
-    box-shadow: 0 18px 40px -12px rgba(25, 59, 50, 0.08), 0 4px 16px -2px rgba(25, 59, 50, 0.04), inset 0 1px 1.5px rgba(255, 255, 255, 0.95);
-    transition: all 220ms var(--ease-mechanical);
+  .neon-card {
+    background: linear-gradient(135deg, rgba(24, 19, 52, 0.85) 0%, rgba(18, 14, 37, 0.95) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 28px;
+    box-shadow: 0 20px 50px -10px rgba(5, 3, 12, 0.85), inset 0 1px 1.5px rgba(255, 255, 255, 0.18);
+    transition: all 260ms var(--ease-mechanical);
   }
 
-  html.dark .clay-card {
-    background-color: #14221E;
-    border: 1px solid rgba(132, 177, 151, 0.16);
-    box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.07);
+  .neon-card:hover {
+    border-color: rgba(155, 81, 224, 0.4);
+    box-shadow: 0 25px 60px -10px rgba(155, 81, 224, 0.25), 0 0 30px -5px rgba(0, 229, 255, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  }
+
+  .clay-card {
+    background: linear-gradient(135deg, rgba(26, 20, 56, 0.9) 0%, rgba(18, 14, 37, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 24px;
+    box-shadow: 0 18px 45px -10px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.16);
+    transition: all 240ms var(--ease-mechanical);
   }
 
   .clay-inset {
-    background-color: #DFEAE3;
-    box-shadow: inset 0 2px 5px rgba(25, 59, 50, 0.12), inset 0 -1px 2px rgba(255, 255, 255, 0.85);
-  }
-
-  html.dark .clay-inset {
-    background-color: #101B18;
-    box-shadow: inset 0 2.5px 6px rgba(0, 0, 0, 0.5), inset 0 -1px 1px rgba(255, 255, 255, 0.06);
+    background-color: #0E0A1E;
+    box-shadow: inset 0 2.5px 6px rgba(0, 0, 0, 0.65), inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.04);
   }
 
   .clay-knob {
-    background-color: #FFFFFF;
-    box-shadow: 0 4px 12px rgba(25, 59, 50, 0.18), 0 1px 3px rgba(25, 59, 50, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    background: linear-gradient(135deg, #241D4E 0%, #161131 100%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.3);
     transition: all 200ms var(--ease-spring);
   }
 
-  html.dark .clay-knob {
-    background-color: #1F362F;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  .gradient-text-neon {
+    background: linear-gradient(135deg, #00E5FF 0%, #9B51E0 50%, #FF2A85 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-cyan {
+    background: linear-gradient(135deg, #FFFFFF 20%, #00E5FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-coral {
+    background: linear-gradient(135deg, #FF6B4A 0%, #FF2A85 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
-/* Custom scrollbars */
+/* Custom glowing scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5F7F4;
-}
-html.dark ::-webkit-scrollbar-track {
-  background: #0D1614;
+  background: #080613;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C2DCCF;
+  background: #241D4E;
   border-radius: 9999px;
+  border: 1px solid rgba(155, 81, 224, 0.2);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #84B197;
+  background: #9B51E0;
 }
 
-/* Spring motion */
-.transition-spring {
-  transition-timing-function: var(--ease-spring);
-  transition-duration: 250ms;
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

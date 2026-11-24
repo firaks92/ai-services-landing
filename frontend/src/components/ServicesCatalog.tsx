@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Bot, Workflow, Sparkles, Database, Compass, Check, Layers } from 'lucide-react';
+import { ArrowRight, Bot, Workflow, Sparkles, Database, Compass, Check, Layers, Cpu, Zap } from 'lucide-react';
 import type { ServiceCode } from '../types/quiz.js';
 
 interface ServicesCatalogProps {
@@ -7,43 +7,42 @@ interface ServicesCatalogProps {
 }
 
 export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectService }) => {
-  // Card mode switcher: 'effect' (Бизнес-эффект) vs 'stack' (Стек и архитектура)
   const [viewMode, setViewMode] = useState<'effect' | 'stack'>('effect');
 
   return (
-    <section id="services" className="py-20 md:py-28 border-b border-clay-border dark:border-clay-dark-border">
+    <section id="services" className="py-20 md:py-28 border-b border-white/10 bg-dash-bg">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header & View Mode Switcher */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-clay-border dark:border-clay-dark-border">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full clay-inset mb-3 font-mono text-xs font-bold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-dash-track border border-white/10 mb-3 font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
               [ 01 // ИНЖЕНЕРНЫЕ УЗЛЫ СИСТЕМЫ ]
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-clay-pine dark:text-clay-dark-pine">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
               Модульная архитектура для вашего бизнеса
             </h2>
           </div>
 
           {/* Interactive Perspective Switcher (Pinterest inspired toggle) */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <span className="font-mono text-xs text-slate-500 uppercase">Режим отображения:</span>
-            <div className="p-1 rounded-full clay-inset flex items-center">
+            <span className="font-mono text-xs text-dash-muted uppercase">Режим отображения:</span>
+            <div className="p-1 rounded-full bg-dash-track border border-white/10 flex items-center">
               <button
                 onClick={() => setViewMode('effect')}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                   viewMode === 'effect'
-                    ? 'clay-card text-clay-pine dark:text-clay-mint shadow-sm'
-                    : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                    ? 'bg-gradient-to-r from-dash-purple to-dash-violet text-white shadow-neon-purple'
+                    : 'text-dash-muted hover:text-white'
                 }`}
               >
                 Бизнес-эффект & ROI
               </button>
               <button
                 onClick={() => setViewMode('stack')}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                   viewMode === 'stack'
-                    ? 'clay-card text-clay-pine dark:text-clay-mint shadow-sm'
-                    : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                    ? 'bg-gradient-to-r from-dash-purple to-dash-violet text-white shadow-neon-purple'
+                    : 'text-dash-muted hover:text-white'
                 }`}
               >
                 Стек & Интеграции
@@ -55,51 +54,57 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
         {/* Asymmetrical Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Node 01: AI Chatbots (Flagship 7 cols) */}
-          <div className="lg:col-span-7 clay-card p-7 sm:p-9 flex flex-col justify-between hover:shadow-clay-card-hover transition-all group">
+          <div className="lg:col-span-7 neon-card p-7 sm:p-9 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-full bg-clay-mint/50 dark:bg-clay-sage/20 text-clay-emerald dark:text-clay-mint">
+                  <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-dash-cyan/15 text-dash-cyan border border-dash-cyan/30">
                     NODE-01 // ФЛАГМАН
                   </span>
-                  <span className="font-mono text-xs text-slate-400">ВНЕДРЕНИЕ ЗА 7–14 ДНЕЙ</span>
+                  <span className="font-mono text-xs text-dash-subtle">ЗАПУСК ЗА 7–14 ДНЕЙ</span>
                 </div>
-                <div className="w-10 h-10 rounded-squircle clay-inset flex items-center justify-center text-clay-pine dark:text-clay-mint group-hover:scale-105 transition-transform">
-                  <Bot className="w-5 h-5 text-clay-emerald" />
+                <div className="w-11 h-11 rounded-2xl bg-dash-track border border-white/15 flex items-center justify-center text-dash-cyan group-hover:scale-105 transition-transform shadow-neon-cyan">
+                  <Bot className="w-6 h-6" />
                 </div>
               </div>
 
               {/* Schematic mini-track */}
-              <div className="p-3 mb-6 rounded-squircle-sm clay-inset flex items-center justify-between font-mono text-[11px] text-slate-600 dark:text-slate-300">
-                <span className="font-semibold">Клиент (TG / WhatsApp)</span>
-                <span className="text-clay-coral font-bold">⟶ [LLM Продавец] ⟶</span>
-                <span className="font-semibold">Сделка в CRM (0.6с)</span>
+              <div className="p-3 mb-6 rounded-xl bg-dash-track border border-white/10 flex items-center justify-between font-mono text-xs text-dash-muted">
+                <span className="font-semibold text-white">Клиент (TG / WhatsApp)</span>
+                <span className="text-dash-magenta font-bold">⟶ [LLM Продавец] ⟶</span>
+                <span className="font-semibold text-dash-lime">Сделка в CRM (0.6с)</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold text-clay-pine dark:text-clay-dark-pine mb-3">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
                 ИИ-чат-боты и голосовые ассистенты
               </h3>
 
               {viewMode === 'effect' ? (
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-dash-muted leading-relaxed mb-6">
                   Консультируют по каталогу без галлюцинаций, квалифицируют лидов, отрабатывают 90% возражений и автоматически создают сделку в CRM. Отвечают за 0.8 сек даже в 3 часа ночи.
                 </p>
               ) : (
-                <div className="p-4 mb-6 rounded-squircle-sm bg-clay-card-muted dark:bg-clay-dark-muted font-mono text-xs space-y-1.5 text-slate-700 dark:text-slate-300">
+                <div className="p-4 mb-6 rounded-xl bg-dash-track border border-white/10 font-mono text-xs space-y-1.5 text-dash-text">
                   <div>• Архитектура: Llama 3.3 / Claude 3.5 Sonnet / OpenAI GPT-4o</div>
                   <div>• Каналы: Telegram Bot API, WhatsApp Business API, Web Widget</div>
                   <div>• Интеграции: amoCRM, Bitrix24, МойСклад, Google Таблицы</div>
                 </div>
               )}
 
-              {/* Tags */}
+              {/* Colorful Pill Grid (inspired by Pinterest pin matrix) */}
               <div className="flex flex-wrap gap-2 mb-8">
-                {['Telegram', 'WhatsApp', 'Instagram Direct', 'Сайт-виджет', 'Телефония'].map((tag) => (
+                {[
+                  { name: 'Telegram', color: 'border-dash-cyan/40 text-dash-cyan bg-dash-cyan/10' },
+                  { name: 'WhatsApp', color: 'border-dash-lime/40 text-dash-lime bg-dash-lime/10' },
+                  { name: 'Instagram Direct', color: 'border-dash-magenta/40 text-dash-magenta bg-dash-magenta/10' },
+                  { name: 'amoCRM', color: 'border-dash-purple/40 text-dash-purple bg-dash-purple/10' },
+                  { name: 'Телефония', color: 'border-dash-coral/40 text-dash-coral bg-dash-coral/10' },
+                ].map((tag) => (
                   <span
-                    key={tag}
-                    className="font-mono text-xs px-3 py-1 rounded-full clay-inset text-slate-700 dark:text-slate-300"
+                    key={tag.name}
+                    className={`font-mono text-xs px-3 py-1 rounded-full border ${tag.color}`}
                   >
-                    #{tag}
+                    #{tag.name}
                   </span>
                 ))}
               </div>
@@ -107,7 +112,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
 
             <button
               onClick={() => onSelectService('chatbot')}
-              className="flex items-center justify-between w-full pt-5 border-t border-clay-border dark:border-clay-dark-border text-xs font-bold uppercase tracking-wider text-clay-pine dark:text-clay-dark-pine group-hover:text-clay-coral transition-colors"
+              className="flex items-center justify-between w-full pt-5 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
             >
               <span>Сконфигурировать узел чат-бота</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -115,27 +120,27 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
           </div>
 
           {/* Node 02: Process Automation (Flagship 5 cols) */}
-          <div className="lg:col-span-5 clay-card p-7 sm:p-9 flex flex-col justify-between hover:shadow-clay-card-hover transition-all group">
+          <div className="lg:col-span-5 neon-card p-7 sm:p-9 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-full bg-clay-peach/60 dark:bg-clay-coral/20 text-clay-coral">
-                  NODE-02 // ПРОЦЕССЫ
+                <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-dash-magenta/15 text-dash-magenta border border-dash-magenta/30">
+                  NODE-02 // АВТОМАТИЗАЦИЯ
                 </span>
-                <div className="w-10 h-10 rounded-squircle clay-inset flex items-center justify-center text-clay-pine dark:text-clay-mint group-hover:scale-105 transition-transform">
-                  <Workflow className="w-5 h-5 text-clay-coral" />
+                <div className="w-11 h-11 rounded-2xl bg-dash-track border border-white/15 flex items-center justify-center text-dash-magenta group-hover:scale-105 transition-transform shadow-neon-magenta">
+                  <Workflow className="w-6 h-6" />
                 </div>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-clay-pine dark:text-clay-dark-pine mb-3">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-3">
                 Автоматизация рутины и CRM
               </h3>
 
               {viewMode === 'effect' ? (
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                <p className="text-sm text-dash-muted leading-relaxed mb-6">
                   Автоматический разбор счетов, договоров, накладных и актов сверки. ИИ считывает сканы документов, извлекает реквизиты и отправляет данные в 1С или ERP без ошибок оператора.
                 </p>
               ) : (
-                <div className="p-4 mb-6 rounded-squircle-sm bg-clay-card-muted dark:bg-clay-dark-muted font-mono text-xs space-y-1.5 text-slate-700 dark:text-slate-300">
+                <div className="p-4 mb-6 rounded-xl bg-dash-track border border-white/10 font-mono text-xs space-y-1.5 text-dash-text">
                   <div>• Движок автоматизации: n8n self-hosted / Make</div>
                   <div>• Распознавание: OCR + Vision LLM мультимодальные модели</div>
                   <div>• Выгрузка: 1С:Предприятие, Bitrix24, Postgres, Webhooks</div>
@@ -143,10 +148,10 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
               )}
 
               <div className="flex flex-wrap gap-2 mb-8">
-                {['amoCRM', 'Bitrix24', '1С / ERP', 'n8n', 'Google Docs'].map((tag) => (
+                {['Bitrix24', '1С / ERP', 'n8n Flow', 'Google Docs'].map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-xs px-3 py-1 rounded-full clay-inset text-slate-700 dark:text-slate-300"
+                    className="font-mono text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-dash-muted"
                   >
                     #{tag}
                   </span>
@@ -156,7 +161,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
 
             <button
               onClick={() => onSelectService('automation')}
-              className="flex items-center justify-between w-full pt-5 border-t border-clay-border dark:border-clay-dark-border text-xs font-bold uppercase tracking-wider text-clay-pine dark:text-clay-dark-pine group-hover:text-clay-coral transition-colors"
+              className="flex items-center justify-between w-full pt-5 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
             >
               <span>Сконфигурировать автоматизацию</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -164,24 +169,24 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
           </div>
 
           {/* Node 03: RAG Knowledge Bases (4 cols) */}
-          <div className="lg:col-span-4 clay-card p-6 sm:p-7 flex flex-col justify-between hover:shadow-clay-card-hover transition-all group">
+          <div className="lg:col-span-4 neon-card p-6 sm:p-7 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-full clay-inset text-clay-pine dark:text-clay-mint">
+                <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-dash-purple/15 text-dash-purple border border-dash-purple/30">
                   NODE-03 // RAG
                 </span>
-                <Database className="w-5 h-5 text-clay-sage" />
+                <Database className="w-5 h-5 text-dash-purple" />
               </div>
-              <h3 className="text-lg font-bold text-clay-pine dark:text-clay-dark-pine mb-2">
+              <h3 className="text-lg font-bold text-white mb-2">
                 Базы знаний и RAG-поиск
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-dash-muted leading-relaxed mb-6">
                 Поиск по регламентам, PDF, ГОСТам и внутренней документации компании. Ассистент находит точный пункт регламента за 0.5 секунды с указанием первоисточника.
               </p>
             </div>
             <button
               onClick={() => onSelectService('rag_analytics')}
-              className="flex items-center justify-between w-full pt-4 border-t border-clay-border dark:border-clay-dark-border text-xs font-bold uppercase tracking-wider text-clay-pine dark:text-clay-dark-pine group-hover:text-clay-coral transition-colors"
+              className="flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
             >
               <span>Выбрать RAG</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -189,24 +194,24 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
           </div>
 
           {/* Node 04: AI Content & Marketing (4 cols) */}
-          <div className="lg:col-span-4 clay-card p-6 sm:p-7 flex flex-col justify-between hover:shadow-clay-card-hover transition-all group">
+          <div className="lg:col-span-4 neon-card p-6 sm:p-7 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-full clay-inset text-clay-pine dark:text-clay-mint">
+                <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-dash-coral/15 text-dash-coral border border-dash-coral/30">
                   NODE-04 // КОНТЕНТ
                 </span>
-                <Sparkles className="w-5 h-5 text-clay-coral" />
+                <Sparkles className="w-5 h-5 text-dash-coral" />
               </div>
-              <h3 className="text-lg font-bold text-clay-pine dark:text-clay-dark-pine mb-2">
+              <h3 className="text-lg font-bold text-white mb-2">
                 ИИ-маркетинг и контент
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                Массовая генерация сотен карточек товаров для Wildberries/Uzum/Ozon, рекламные сценарии, фотореалистичные генерации и видео-аватары по брендбуку.
+              <p className="text-xs sm:text-sm text-dash-muted leading-relaxed mb-6">
+                Массовая генерация сотен карточек товаров для маркетплейсов, рекламные сценарии, фотореалистичные генерации и видео-аватары по брендбуку.
               </p>
             </div>
             <button
               onClick={() => onSelectService('content')}
-              className="flex items-center justify-between w-full pt-4 border-t border-clay-border dark:border-clay-dark-border text-xs font-bold uppercase tracking-wider text-clay-pine dark:text-clay-dark-pine group-hover:text-clay-coral transition-colors"
+              className="flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
             >
               <span>Выбрать контент</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -214,24 +219,24 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
           </div>
 
           {/* Node 05: Custom Audit & Enterprise (4 cols) */}
-          <div className="lg:col-span-4 clay-card p-6 sm:p-7 flex flex-col justify-between hover:shadow-clay-card-hover transition-all group">
+          <div className="lg:col-span-4 neon-card p-6 sm:p-7 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-full clay-inset text-clay-pine dark:text-clay-mint">
+                <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-dash-lime/15 text-dash-lime border border-dash-lime/30">
                   NODE-05 // АУДИТ
                 </span>
-                <Compass className="w-5 h-5 text-clay-pine dark:text-clay-mint" />
+                <Compass className="w-5 h-5 text-dash-lime" />
               </div>
-              <h3 className="text-lg font-bold text-clay-pine dark:text-clay-dark-pine mb-2">
+              <h3 className="text-lg font-bold text-white mb-2">
                 ИИ-аудит и кастомное R&D
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-dash-muted leading-relaxed mb-6">
                 Полный аудит бизнес-процессов компании с выявлением узких мест. Составляем расчет окупаемости (ROI), подбираем архитектуру и внедряем под ключ.
               </p>
             </div>
             <button
               onClick={() => onSelectService('custom_audit')}
-              className="flex items-center justify-between w-full pt-4 border-t border-clay-border dark:border-clay-dark-border text-xs font-bold uppercase tracking-wider text-clay-pine dark:text-clay-dark-pine group-hover:text-clay-coral transition-colors"
+              className="flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
             >
               <span>Заказать аудит</span>
               <ArrowRight className="w-3.5 h-3.5" />

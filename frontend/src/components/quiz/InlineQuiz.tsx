@@ -57,31 +57,31 @@ export const InlineQuiz: React.FC<InlineQuizProps> = ({
   };
 
   return (
-    <section id="quiz-block" className="py-20 md:py-28 border-b border-clay-border dark:border-clay-dark-border">
+    <section id="quiz-block" className="py-20 md:py-28 border-b border-white/10 bg-dash-bg">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full clay-inset mb-3 font-mono text-xs font-bold text-clay-coral uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-dash-track border border-white/10 mb-3 font-mono text-xs font-bold text-dash-magenta uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-dash-cyan" />
             [ 03 // ИНТЕРАКТИВНЫЙ КОНФИГУРАТОР ТЗ ]
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-clay-pine dark:text-clay-dark-pine mb-3">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3">
             Сконфигурируйте ИИ-систему за 60 секунд
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
-            Пройдите 4 коротких шага. Вы мгновенно получите посадочный билет со сметой, а инженер свяжется с вами для демонстрации прототипа.
+          <p className="text-sm sm:text-base text-dash-muted">
+            Пройдите 4 коротких шага. Вы мгновенно получите спецификацию со сметой, а инженер свяжется с вами для демонстрации прототипа.
           </p>
         </div>
 
-        {/* Big Dual-Pane Clay Card */}
-        <div className="clay-card rounded-squircle-lg overflow-hidden flex flex-col lg:flex-row shadow-clay-card dark:shadow-clay-dark">
+        {/* Big Dual-Pane Neon Card */}
+        <div className="neon-card rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-neon-card">
           {/* Left Column: Live Ticket / Boarding Pass */}
-          <div className="w-full lg:w-80 shrink-0 border-b lg:border-b-0 lg:border-r border-clay-border dark:border-clay-dark-border">
+          <div className="w-full lg:w-80 shrink-0 border-b lg:border-b-0 lg:border-r border-white/10">
             <LiveTicket quizState={quizState} />
           </div>
 
           {/* Right Column: Steps Canvas */}
-          <div className="flex-1 flex flex-col justify-between p-6 sm:p-10 bg-white dark:bg-clay-dark-card">
+          <div className="flex-1 flex flex-col justify-between p-6 sm:p-10 bg-dash-card">
             <div>
               {currentStep <= 5 && <StepIndicator currentStep={currentStep} />}
 
@@ -168,12 +168,12 @@ export const InlineQuiz: React.FC<InlineQuizProps> = ({
 
             {/* Bottom Controls */}
             {currentStep < 5 && (
-              <div className="pt-6 border-t border-clay-border dark:border-clay-dark-border flex items-center justify-between">
+              <div className="pt-6 border-t border-white/10 flex items-center justify-between">
                 {currentStep > 1 ? (
                   <button
                     type="button"
                     onClick={handleBack}
-                    className="flex items-center gap-1.5 font-mono text-xs font-semibold text-slate-500 hover:text-clay-pine dark:hover:text-white px-4 py-2 rounded-full clay-inset transition-colors"
+                    className="flex items-center gap-1.5 font-mono text-xs font-semibold text-dash-muted hover:text-white px-4 py-2 rounded-full bg-dash-track border border-white/10 transition-colors"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
                     <span>НАЗАД</span>
@@ -186,7 +186,7 @@ export const InlineQuiz: React.FC<InlineQuizProps> = ({
                   type="button"
                   onClick={handleNext}
                   disabled={!canGoNext()}
-                  className="flex items-center gap-2 bg-clay-coral hover:bg-clay-coral-hover disabled:opacity-40 text-white px-7 py-3 text-xs font-bold uppercase tracking-wider rounded-full shadow-clay-btn transition-all select-none"
+                  className="flex items-center gap-2 bg-gradient-to-r from-dash-magenta to-dash-purple hover:opacity-95 disabled:opacity-40 text-white px-7 py-3 text-xs font-bold uppercase tracking-wider rounded-full shadow-neon-magenta transition-all select-none"
                 >
                   <span>ДАЛЕЕ</span>
                   <ArrowRight className="w-3.5 h-3.5" />

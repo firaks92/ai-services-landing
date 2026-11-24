@@ -17,10 +17,10 @@ export const Step3Industry: React.FC<Step3IndustryProps> = ({
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-xl sm:text-2xl font-bold text-clay-pine dark:text-clay-dark-pine mb-1">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
           В какой сфере работает ваш бизнес?
         </h3>
-        <p className="text-xs text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-dash-muted">
           Это поможет архитектору сразу подобрать готовые кейсы и структуру интеграций под вашу специфику.
         </p>
       </div>
@@ -33,23 +33,22 @@ export const Step3Industry: React.FC<Step3IndustryProps> = ({
               <button
                 type="button"
                 onClick={() => onSelectIndustry(ind)}
-                className={`w-full text-left p-3.5 rounded-squircle-sm border transition-all flex items-center justify-between select-none ${
+                className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between select-none ${
                   isSelected
-                    ? 'clay-card border-clay-emerald bg-clay-card-muted/80 dark:bg-clay-dark-muted shadow-sm'
-                    : 'border-clay-border dark:border-clay-dark-border bg-white dark:bg-clay-dark-card hover:border-clay-sage'
+                    ? 'bg-gradient-to-r from-dash-card-hover to-dash-surface border-dash-cyan text-white shadow-neon-cyan'
+                    : 'border-white/10 bg-dash-track/60 text-dash-muted hover:border-dash-purple/40 hover:text-white'
                 }`}
               >
-                <span className="text-xs sm:text-sm font-semibold text-clay-pine dark:text-clay-dark-pine">{ind}</span>
+                <span className="text-xs sm:text-sm font-semibold">{ind}</span>
                 <div
-                  className={`w-4 h-4 rounded-full clay-knob flex items-center justify-center shrink-0 ${
-                    isSelected ? 'bg-clay-emerald text-white' : 'opacity-40'
+                  className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
+                    isSelected ? 'border-dash-cyan bg-dash-cyan' : 'border-white/20'
                   }`}
                 >
-                  {isSelected && <span className="w-1.5 h-1.5 bg-white rounded-full block" />}
+                  {isSelected && <span className="w-1.5 h-1.5 bg-dash-bg rounded-full block" />}
                 </div>
               </button>
 
-              {/* Expandable custom input for "Другое" */}
               {ind === 'Другое' && isSelected && (
                 <div className="pt-2">
                   <input
@@ -57,7 +56,7 @@ export const Step3Industry: React.FC<Step3IndustryProps> = ({
                     value={customIndustry}
                     onChange={(e) => onChangeCustom(e.target.value)}
                     placeholder="Укажите вашу сферу (например: Автосервис, Юриспруденция)..."
-                    className="w-full h-11 px-4 text-xs sm:text-sm bg-white dark:bg-clay-dark-card border border-clay-border dark:border-clay-dark-border rounded-squircle-sm focus:outline-none focus:border-clay-emerald text-clay-pine dark:text-clay-dark-pine placeholder:text-slate-400"
+                    className="w-full h-11 px-4 text-xs sm:text-sm bg-dash-track border border-white/20 rounded-xl focus:outline-none focus:border-dash-cyan text-white placeholder:text-dash-subtle"
                   />
                 </div>
               )}
