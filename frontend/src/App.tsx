@@ -190,7 +190,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-dash-bg text-dash-text selection:bg-dash-magenta selection:text-white transition-colors">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-dash-bg text-slate-900 dark:text-dash-text selection:bg-dash-magenta selection:text-white transition-colors">
       {/* 1. Header */}
       <Header onOpenQuiz={() => handleOpenQuiz({ step: 1, source: 'entry_popup' })} />
 

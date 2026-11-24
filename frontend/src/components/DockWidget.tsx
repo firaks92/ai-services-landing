@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { useLocale } from '../context/LocaleContext.js';
 
 interface DockWidgetProps {
   onOpenQuiz: () => void;
@@ -7,6 +8,7 @@ interface DockWidgetProps {
 }
 
 export const DockWidget: React.FC<DockWidgetProps> = ({ onOpenQuiz, isVisible }) => {
+  const { t } = useLocale();
   if (!isVisible) return null;
 
   return (
@@ -17,7 +19,7 @@ export const DockWidget: React.FC<DockWidgetProps> = ({ onOpenQuiz, isVisible })
       >
         <span className="w-2 h-2 rounded-full bg-dash-lime animate-pulse" />
         <span className="font-mono text-[11px] uppercase tracking-wider">
-          ПОДОБРАТЬ ИИ-УЗЕЛ · ~60 СЕК
+          {t('btn_select_node')} · {t('approx_time')}
         </span>
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </button>
