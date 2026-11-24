@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, MessageSquare } from 'lucide-react';
+import { Plus, Minus, MessageSquare, Sparkles } from 'lucide-react';
 
 export const FaqSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -32,57 +32,59 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 md:py-28 border-b border-border-subtle bg-canvas">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-20 md:py-28 border-b border-clay-border dark:border-clay-dark-border">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column (Sticky info) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 h-fit">
-            <div className="font-mono text-xs font-medium text-ink-muted uppercase tracking-wider mb-2">
-              [04 / ЧАСТЫЕ ВОПРОСЫ]
+          <div className="lg:col-span-5 lg:sticky lg:top-28 h-fit">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full clay-inset mb-3 font-mono text-xs font-bold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider">
+              [ 05 // ЧАСТЫЕ ВОПРОСЫ И ОТВЕТЫ ]
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-ink-primary mb-6">
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-clay-pine dark:text-clay-dark-pine mb-6">
               Ответы на главные вопросы и сомнения
             </h2>
-            <p className="text-sm text-ink-secondary leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
               Если у вас есть специфическая задача, нестандартная база данных или закрытый контур — задайте вопрос напрямую нашему архитектору.
             </p>
 
             <a
-              href="https://t.me/YourAiServicesBot?start=direct_site_faq"
+              href="https://t.me/frxaiagentbot?start=direct_site_faq"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border-strong hover:bg-blueprint hover:border-blueprint hover:text-surface text-ink-primary px-4 py-2.5 text-xs font-semibold rounded-sharp transition-mechanical group"
+              className="inline-flex items-center gap-2.5 bg-clay-pine hover:bg-clay-pine-light dark:bg-clay-mint dark:text-clay-pine text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-full shadow-clay-card transition-all select-none group"
             >
-              <MessageSquare className="w-4 h-4 text-blueprint group-hover:text-surface transition-colors" />
+              <MessageSquare className="w-4 h-4 text-clay-coral group-hover:scale-110 transition-transform" />
               <span>Задать вопрос инженеру в Telegram</span>
             </a>
           </div>
 
-          {/* Right Column (Accordion) */}
-          <div className="lg:col-span-7 border-t border-border-subtle">
-            {faqs.map((faq, index) => {
-              const isOpen = openIndex === index;
+          {/* Right Column (Accordion List) */}
+          <div className="lg:col-span-7 space-y-4">
+            {faqs.map((faq, idx) => {
+              const isOpen = openIndex === idx;
               return (
-                <div key={index} className="border-b border-border-subtle">
+                <div
+                  key={idx}
+                  className="clay-card rounded-squircle-sm overflow-hidden transition-all"
+                >
                   <button
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex items-center justify-between w-full py-5 text-left group"
-                    aria-expanded={isOpen}
+                    onClick={() => setOpenIndex(isOpen ? null : idx)}
+                    className="w-full p-6 text-left flex items-start justify-between gap-4 select-none"
                   >
-                    <span className="text-base sm:text-lg font-semibold text-ink-primary group-hover:text-signal transition-colors pr-4">
+                    <span className="text-base sm:text-lg font-bold text-clay-pine dark:text-clay-dark-pine">
                       {faq.q}
                     </span>
-                    <span
-                      className={`w-6 h-6 flex items-center justify-center border border-border-subtle rounded-sharp transition-transform duration-200 flex-shrink-0 ${
-                        isOpen ? 'rotate-45 border-signal text-signal' : 'text-ink-secondary'
+                    <div
+                      className={`w-7 h-7 rounded-full clay-knob shrink-0 flex items-center justify-center transition-transform ${
+                        isOpen ? 'bg-clay-coral text-white rotate-180' : 'text-slate-500'
                       }`}
                     >
-                      <Plus className="w-4 h-4" />
-                    </span>
+                      {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                    </div>
                   </button>
 
                   {isOpen && (
-                    <div className="pb-6 pr-8 text-sm text-ink-secondary leading-relaxed animate-fadeIn">
+                    <div className="px-6 pb-6 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-clay-border dark:border-clay-dark-border pt-4">
                       {faq.a}
                     </div>
                   )}

@@ -1,14 +1,14 @@
 import React from 'react';
-import { CheckSquare } from 'lucide-react';
+import { CheckSquare, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export const ProcessSteps: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: 'Экспресс-аудит и архитектура',
+      title: 'Аудит и архитектура',
       duration: 'День 1–2',
       desc: 'Анализируем ваши текущие процессы, переписки менеджеров и воронку продаж. Определяем узкие места, где ИИ даст мгновенный финансовый результат.',
-      artifact: 'Инженерная карта архитектуры решения и фиксированная смета',
+      artifact: 'Инженерная карта архитектуры и фиксированная смета',
     },
     {
       num: '02',
@@ -19,64 +19,72 @@ export const ProcessSteps: React.FC = () => {
     },
     {
       num: '03',
-      title: 'Боевая интеграция и запуск',
+      title: 'Боевая интеграция',
       duration: 'День 7–14',
       desc: 'Подключаем ИИ к вашей CRM (amoCRM / Bitrix24), мессенджерам, телефонии и базе 1С. Настраиваем логирование, защиту от сбоев и уведомления менеджерам.',
       artifact: 'Боевой релиз, сквозная передача лидов в CRM и Telegram-бот',
     },
     {
       num: '04',
-      title: 'Мониторинг, дообучение и SLA',
+      title: 'Мониторинг и SLA',
       duration: 'Постоянно',
       desc: 'Отслеживаем каждый диалог, анализируем процент успешных закрытий, дообучаем модель новым товарам и обновляем базу знаний по мере изменения цен.',
-      artifact: 'Еженедельный отчет точности, аптайм 99.9% и инженерный саппорт',
+      artifact: 'Еженедельный отчет точности, аптайм 99.8% и инженерный саппорт',
     },
   ];
 
   return (
-    <section id="process" className="py-20 md:py-28 border-b border-border-subtle bg-canvas">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="process" className="py-20 md:py-28 border-b border-clay-border dark:border-clay-dark-border">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-border-subtle mb-12 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-clay-border dark:border-clay-dark-border">
           <div>
-            <div className="font-mono text-xs font-medium text-ink-muted uppercase tracking-wider mb-2">
-              [03 / ТЕХНОЛОГИЧЕСКИЙ МАРШРУТ]
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full clay-inset mb-3 font-mono text-xs font-bold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider">
+              [ 04 // ТЕХНОЛОГИЧЕСКИЙ МАРШРУТ ]
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-ink-primary">
-              Как устроен процесс: от ТЗ до боевого запуска
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-clay-pine dark:text-clay-dark-pine">
+              От первого ТЗ до боевого запуска в прод
             </h2>
           </div>
-          <p className="text-sm text-ink-secondary max-w-md">
-            Никаких затяжных проектов на полгода. Поэтапная сдача с осязаемыми результатами на каждом шаге.
+          <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md">
+            Никаких затяжных проектов на полгода. Поэтапная сдача с осязаемыми результатами на каждом шаге и гарантией по договору.
           </p>
         </div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-border-subtle bg-surface">
+        {/* Steps Bento Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
             <div
               key={s.num}
-              className="border-r border-b border-border-subtle p-6 sm:p-8 flex flex-col justify-between"
+              className="clay-card p-7 rounded-squircle-lg flex flex-col justify-between hover:shadow-clay-card-hover transition-all group"
             >
               <div>
-                <div className="flex items-center justify-between pb-4 border-b border-border-subtle mb-6">
-                  <span className="font-mono text-xl font-bold text-signal">[{s.num}]</span>
-                  <span className="font-mono text-xs text-blueprint font-medium px-2 py-0.5 bg-blueprint-soft rounded-sharp">
+                {/* Step Header */}
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-clay-border dark:border-clay-dark-border">
+                  <span className="font-mono text-base font-bold text-clay-coral">
+                    0{s.num} // ЭТАП
+                  </span>
+                  <span className="font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-full clay-inset text-clay-emerald">
                     {s.duration}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-ink-primary mb-3">{s.title}</h3>
-                <p className="text-xs text-ink-secondary leading-relaxed mb-6">{s.desc}</p>
+                <h3 className="text-lg font-bold text-clay-pine dark:text-clay-dark-pine mb-2 group-hover:text-clay-coral transition-colors">
+                  {s.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                  {s.desc}
+                </p>
               </div>
 
-              <div className="pt-4 border-t border-border-subtle">
-                <div className="flex items-start gap-2">
-                  <CheckSquare className="w-3.5 h-3.5 text-status-success mt-0.5 flex-shrink-0" />
-                  <div className="text-[11px] font-mono text-ink-muted leading-tight">
-                    <span className="font-semibold text-ink-primary">Результат:</span> {s.artifact}
-                  </div>
-                </div>
+              {/* Artifact badge */}
+              <div className="pt-4 border-t border-clay-border dark:border-clay-dark-border">
+                <span className="font-mono text-[10px] text-slate-400 block mb-1">
+                  РЕЗУЛЬТАТ ЭТАПА:
+                </span>
+                <span className="text-xs font-semibold text-clay-pine dark:text-clay-sage-soft block">
+                  ✓ {s.artifact}
+                </span>
               </div>
             </div>
           ))}

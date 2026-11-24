@@ -92,26 +92,26 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <h3 className="text-xl sm:text-2xl font-bold text-ink-primary mb-1">
-          Расчет по услуге «{primaryService || 'ИИ-услуги'}» готов!
+        <h3 className="text-xl sm:text-2xl font-bold text-clay-pine dark:text-clay-dark-pine mb-1">
+          Спецификация по услуге «{primaryService || 'ИИ-решение'}» готова!
         </h3>
-        <p className="text-xs text-ink-secondary">
-          Укажите контактные данные жителя (клиента) — инженер мгновенно получит спецификацию в Telegram-бот и свяжется с вами.
+        <p className="text-xs text-slate-500 dark:text-slate-400">
+          Укажите контактные данные — дежурный инженер мгновенно получит техническое задание в Telegram и свяжется с вами.
         </p>
       </div>
 
       {submitError && (
-        <div className="p-3 bg-status-error/10 border border-status-error text-status-error text-xs rounded-sharp flex items-start gap-2">
-          <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+        <div className="p-3 bg-red-50 dark:bg-red-950/40 border border-red-300 dark:border-red-700 text-red-700 dark:text-red-300 text-xs rounded-squircle-sm flex items-start gap-2">
+          <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
           <span>{submitError}</span>
         </div>
       )}
 
       {/* 1. Name */}
       <div>
-        <label className="block font-mono text-xs font-semibold text-ink-primary uppercase tracking-wider mb-1.5">
+        <label className="block font-mono text-xs font-semibold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider mb-1">
           ВАШЕ ИМЯ *
         </label>
         <input
@@ -120,27 +120,27 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
           onChange={(e) => onUpdate({ name: e.target.value })}
           onBlur={() => handleBlur('name')}
           placeholder="Например: Алишер Каримов"
-          className={`w-full h-11 px-3 text-base sm:text-sm bg-surface border rounded-sharp text-ink-primary focus:outline-none ${
+          className={`w-full h-11 px-4 text-xs sm:text-sm bg-white dark:bg-clay-dark-card border rounded-squircle-sm text-clay-pine dark:text-clay-dark-pine focus:outline-none ${
             touched.name && errors.name
-              ? 'border-status-error'
-              : 'border-border-subtle focus:border-border-strong'
+              ? 'border-red-500'
+              : 'border-clay-border dark:border-clay-dark-border focus:border-clay-emerald'
           }`}
           autoComplete="name"
         />
         {touched.name && errors.name && (
-          <p className="text-status-error text-[11px] mt-1">{errors.name}</p>
+          <p className="text-red-500 text-[11px] mt-1">{errors.name}</p>
         )}
       </div>
 
       {/* 2. City / District */}
       <div>
-        <div className="flex items-center justify-between mb-1.5">
-          <label className="font-mono text-xs font-semibold text-ink-primary uppercase tracking-wider">
-            ГОРОД / РАЙОН ПРОЖИВАНИЯ *
+        <div className="flex items-center justify-between mb-1">
+          <label className="font-mono text-xs font-semibold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider">
+            ГОРОД / РЕГИОН *
           </label>
           {cityAutofilled && (
-            <span className="font-mono text-[10px] text-blueprint bg-blueprint-soft px-1.5 py-0.5 rounded-sharp flex items-center gap-1">
-              <MapPin className="w-2.5 h-2.5" /> Определено по IP · можно изменить
+            <span className="font-mono text-[10px] text-clay-emerald px-2 py-0.5 rounded-full clay-inset flex items-center gap-1">
+              <MapPin className="w-2.5 h-2.5" /> Определено по IP
             </span>
           )}
         </div>
@@ -149,25 +149,25 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
           value={cityInput}
           onChange={(e) => onUpdate({ cityInput: e.target.value })}
           onBlur={() => handleBlur('cityInput')}
-          placeholder="Например: Ташкент, Мирзо-Улугбекский р-н"
-          className={`w-full h-11 px-3 text-base sm:text-sm bg-surface border rounded-sharp text-ink-primary focus:outline-none ${
+          placeholder="Например: Ташкент / Москва / Алматы"
+          className={`w-full h-11 px-4 text-xs sm:text-sm bg-white dark:bg-clay-dark-card border rounded-squircle-sm text-clay-pine dark:text-clay-dark-pine focus:outline-none ${
             touched.cityInput && errors.cityInput
-              ? 'border-status-error'
-              : 'border-border-subtle focus:border-border-strong'
+              ? 'border-red-500'
+              : 'border-clay-border dark:border-clay-dark-border focus:border-clay-emerald'
           }`}
           autoComplete="address-level2"
         />
         {touched.cityInput && errors.cityInput && (
-          <p className="text-status-error text-[11px] mt-1">{errors.cityInput}</p>
+          <p className="text-red-500 text-[11px] mt-1">{errors.cityInput}</p>
         )}
       </div>
 
-      {/* 3. Preferred Channel (Segmented Control) */}
+      {/* 3. Preferred Channel (Tactile Pill Switcher) */}
       <div>
-        <label className="block font-mono text-xs font-semibold text-ink-primary uppercase tracking-wider mb-1.5">
+        <label className="block font-mono text-xs font-semibold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider mb-1.5">
           УДОБНЫЙ КАНАЛ СВЯЗИ
         </label>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="p-1 rounded-squircle clay-inset grid grid-cols-3 gap-1.5">
           {[
             { id: 'Telegram', label: 'Telegram (бот)', icon: MessageCircle },
             { id: 'Phone', label: 'Телефон', icon: Phone },
@@ -180,10 +180,10 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
                 key={ch.id}
                 type="button"
                 onClick={() => onUpdate({ preferredChannel: ch.id as PreferredChannel })}
-                className={`py-2 px-2 border rounded-sharp text-xs font-medium flex items-center justify-center gap-1.5 transition-mechanical ${
+                className={`py-2 px-2 rounded-squircle-sm text-xs font-semibold flex items-center justify-center gap-1.5 transition-all select-none ${
                   isSelected
-                    ? 'border-border-strong bg-ink-primary text-surface font-semibold'
-                    : 'border-border-subtle bg-surface text-ink-secondary hover:border-border-strong'
+                    ? 'clay-card text-clay-pine dark:text-clay-mint shadow-sm'
+                    : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -196,9 +196,8 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
 
       {/* 4 & 5. Phone + Telegram Username */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {/* Phone */}
         <div>
-          <label className="block font-mono text-xs font-semibold text-ink-primary uppercase tracking-wider mb-1.5">
+          <label className="block font-mono text-xs font-semibold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider mb-1">
             НОМЕР ТЕЛЕФОНА *
           </label>
           <input
@@ -208,39 +207,38 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
             onChange={(e) => onUpdate({ phone: e.target.value })}
             onBlur={() => handleBlur('phone')}
             placeholder="+998 90 123-45-67"
-            className={`w-full h-11 px-3 text-base sm:text-sm bg-surface border rounded-sharp text-ink-primary focus:outline-none ${
+            className={`w-full h-11 px-4 text-xs sm:text-sm bg-white dark:bg-clay-dark-card border rounded-squircle-sm text-clay-pine dark:text-clay-dark-pine focus:outline-none ${
               touched.phone && errors.phone
-                ? 'border-status-error'
-                : 'border-border-subtle focus:border-border-strong'
+                ? 'border-red-500'
+                : 'border-clay-border dark:border-clay-dark-border focus:border-clay-emerald'
             }`}
           />
           {touched.phone && errors.phone && (
-            <p className="text-status-error text-[11px] mt-1">{errors.phone}</p>
+            <p className="text-red-500 text-[11px] mt-1">{errors.phone}</p>
           )}
         </div>
 
-        {/* Telegram Username */}
         <div>
-          <label className="block font-mono text-xs font-semibold text-ink-primary uppercase tracking-wider mb-1.5">
-            TELEGRAM {preferredChannel === 'Telegram' ? '*' : '(ОПЦИОНАЛЬНО)'}
+          <label className="block font-mono text-xs font-semibold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider mb-1">
+            TELEGRAM {preferredChannel === 'Telegram' ? '*' : '(ОПЦИЯ)'}
           </label>
           <div className="relative">
-            <span className="absolute left-3 top-3 text-ink-muted text-sm font-mono">@</span>
+            <span className="absolute left-3 top-3 text-slate-400 text-sm font-mono">@</span>
             <input
               type="text"
               value={telegramUsername.replace(/^@/, '')}
               onChange={(e) => onUpdate({ telegramUsername: `@${e.target.value.replace(/^@/, '')}` })}
               onBlur={() => handleBlur('telegramUsername')}
               placeholder="username"
-              className={`w-full h-11 pl-7 pr-3 text-base sm:text-sm bg-surface border rounded-sharp text-ink-primary focus:outline-none ${
+              className={`w-full h-11 pl-7 pr-3 text-xs sm:text-sm bg-white dark:bg-clay-dark-card border rounded-squircle-sm text-clay-pine dark:text-clay-dark-pine focus:outline-none ${
                 touched.telegramUsername && errors.telegramUsername
-                  ? 'border-status-error'
-                  : 'border-border-subtle focus:border-border-strong'
+                  ? 'border-red-500'
+                  : 'border-clay-border dark:border-clay-dark-border focus:border-clay-emerald'
               }`}
             />
           </div>
           {touched.telegramUsername && errors.telegramUsername && (
-            <p className="text-status-error text-[11px] mt-1">{errors.telegramUsername}</p>
+            <p className="text-red-500 text-[11px] mt-1">{errors.telegramUsername}</p>
           )}
         </div>
       </div>
@@ -251,17 +249,17 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
           <button
             type="button"
             onClick={() => setShowComment(true)}
-            className="text-xs text-blueprint hover:underline font-medium"
+            className="text-xs text-clay-coral hover:underline font-semibold"
           >
             + Добавить комментарий к задаче (необязательно)
           </button>
         ) : (
           <div>
             <div className="flex items-center justify-between mb-1">
-              <label className="font-mono text-xs font-semibold text-ink-primary uppercase tracking-wider">
+              <label className="font-mono text-xs font-semibold text-clay-pine dark:text-clay-sage-soft uppercase tracking-wider">
                 КОММЕНТАРИЙ К ЗАДАЧЕ
               </label>
-              <span className="font-mono text-[10px] text-ink-muted">
+              <span className="font-mono text-[10px] text-slate-400">
                 {comment.length} / 500
               </span>
             </div>
@@ -270,34 +268,34 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
               onChange={(e) => onUpdate({ comment: e.target.value.slice(0, 500) })}
               placeholder="Опишите ваши системы, объем обращений или специфику проекта..."
               rows={3}
-              className="w-full p-2.5 text-base sm:text-xs bg-surface border border-border-subtle focus:border-border-strong rounded-sharp text-ink-primary focus:outline-none resize-none"
+              className="w-full p-3 text-xs bg-white dark:bg-clay-dark-card border border-clay-border dark:border-clay-dark-border rounded-squircle-sm text-clay-pine dark:text-clay-dark-pine focus:outline-none resize-none"
             />
           </div>
         )}
       </div>
 
       {/* 7. Consent Checkbox */}
-      <div className="pt-2">
+      <div className="pt-1">
         <label className="flex items-start gap-2.5 cursor-pointer">
           <input
             type="checkbox"
             checked={consentAccepted}
             onChange={(e) => onUpdate({ consentAccepted: e.target.checked })}
-            className="w-4 h-4 mt-0.5 rounded-sharp border-border-subtle text-signal focus:ring-0 cursor-pointer"
+            className="w-4 h-4 mt-0.5 rounded accent-clay-coral cursor-pointer"
           />
-          <span className="text-[11px] text-ink-secondary leading-tight">
+          <span className="text-[11px] text-slate-500 dark:text-slate-400 leading-tight">
             Согласен(на) на обработку персональных данных согласно{' '}
             <button
               type="button"
               onClick={onOpenPrivacy}
-              className="text-blueprint underline hover:text-blueprint-hover"
+              className="text-clay-coral underline font-medium"
             >
               Политике конфиденциальности
             </button>
           </span>
         </label>
         {touched.consent && errors.consent && (
-          <p className="text-status-error text-[11px] mt-1">{errors.consent}</p>
+          <p className="text-red-500 text-[11px] mt-1">{errors.consent}</p>
         )}
       </div>
 
@@ -306,16 +304,16 @@ export const Step5ResidentForm: React.FC<Step5ResidentFormProps> = ({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-12 bg-signal hover:bg-signal-hover disabled:bg-border-subtle text-surface font-semibold text-xs sm:text-sm uppercase tracking-wider rounded-sharp flex items-center justify-center gap-2 transition-mechanical shadow-sm"
+          className="w-full h-12 bg-clay-coral hover:bg-clay-coral-hover disabled:opacity-50 text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-squircle flex items-center justify-center gap-2 shadow-clay-btn transition-all active:scale-98"
         >
           {isSubmitting ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin" />
-              <span>ОТПРАВЛЯЕМ В TELEGRAM-БОТ...</span>
+              <span>ОТПРАВЛЯЕМ В TELEGRAM...</span>
             </>
           ) : (
             <>
-              <span>ПОЛУЧИТЬ ПОДБОР ИИ-УСЛУГ</span>
+              <span>ПОЛУЧИТЬ ПОДБОР ИИ-УЗЛА</span>
               <Send className="w-4 h-4" />
             </>
           )}

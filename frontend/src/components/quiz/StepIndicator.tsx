@@ -17,18 +17,18 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, total
   const timeLeft = timeRemainingMap[currentStep] || '~10 СЕК';
 
   return (
-    <div className="w-full pb-4 border-b border-border-subtle">
-      <div className="flex items-center justify-between text-xs font-mono mb-2 text-ink-muted">
-        <span className="font-semibold text-ink-primary">
-          ШАГ 0{currentStep} / 0{totalSteps}
+    <div className="w-full pb-4 border-b border-clay-border dark:border-clay-dark-border">
+      <div className="flex items-center justify-between text-xs font-mono mb-2 text-slate-500">
+        <span className="font-bold text-clay-pine dark:text-clay-dark-pine">
+          КОНФИГУРАТОР // ШАГ 0{currentStep} ИЗ 0{totalSteps}
         </span>
-        <span className="text-[11px] text-ink-secondary">
-          ОСТАЛОСЬ {timeLeft}
+        <span className="text-[11px] text-clay-coral font-bold px-2 py-0.5 rounded-full clay-inset">
+          {timeLeft}
         </span>
       </div>
 
-      {/* Segmented Progress Bar */}
-      <div className="grid grid-cols-5 gap-1.5 h-1.5 w-full">
+      {/* Segmented Tactile Progress Bar */}
+      <div className="grid grid-cols-5 gap-2 h-2 w-full p-0.5 rounded-full clay-inset">
         {Array.from({ length: totalSteps }).map((_, idx) => {
           const stepNum = idx + 1;
           const isCompleted = stepNum < currentStep;
@@ -37,12 +37,12 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, total
           return (
             <div
               key={idx}
-              className={`h-full rounded-sharp transition-all duration-300 ${
+              className={`h-full rounded-full transition-all duration-300 ${
                 isCompleted
-                  ? 'bg-ink-primary'
+                  ? 'bg-clay-pine dark:bg-clay-mint'
                   : isCurrent
-                  ? 'bg-signal'
-                  : 'bg-border-subtle'
+                  ? 'bg-clay-coral shadow-sm'
+                  : 'bg-transparent'
               }`}
             />
           );

@@ -8,7 +8,7 @@ import { Step3Industry } from './Step3Industry.js';
 import { Step4TimelineBudget } from './Step4TimelineBudget.js';
 import { Step5ResidentForm } from './Step5ResidentForm.js';
 import { ThankYouScreen } from './ThankYouScreen.js';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
 
 interface InlineQuizProps {
   quizState: QuizState;
@@ -57,131 +57,138 @@ export const InlineQuiz: React.FC<InlineQuizProps> = ({
   };
 
   return (
-    <section id="quiz-block" className="py-20 md:py-28 border-b border-border-subtle bg-canvas">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="quiz-block" className="py-20 md:py-28 border-b border-clay-border dark:border-clay-dark-border">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="font-mono text-xs font-semibold text-signal uppercase tracking-wider mb-2">
-            [КОНФИГУРАТОР ПРОЕКТА ОНЛАЙН]
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full clay-inset mb-3 font-mono text-xs font-bold text-clay-coral uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5" />
+            [ 03 // ИНТЕРАКТИВНЫЙ КОНФИГУРАТОР ТЗ ]
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-ink-primary mb-3">
-            Подберите ИИ-решение под ваши задачи
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-clay-pine dark:text-clay-dark-pine mb-3">
+            Сконфигурируйте ИИ-систему за 60 секунд
           </h2>
-          <p className="text-xs sm:text-sm text-ink-secondary">
-            Ответьте на 5 коротких вопросов, чтобы получить индивидуальный расчет стоимости и архитектурную схему внедрения.
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+            Пройдите 4 коротких шага. Вы мгновенно получите посадочный билет со сметой, а инженер свяжется с вами для демонстрации прототипа.
           </p>
         </div>
 
-        {/* Main Quiz Frame */}
-        <div className="border border-border-subtle rounded-card bg-surface shadow-sm overflow-hidden flex flex-col lg:flex-row max-w-5xl mx-auto">
-          {/* Left Column (Desktop only): Live Ticket */}
-          <div className="hidden lg:block w-72 flex-shrink-0">
+        {/* Big Dual-Pane Clay Card */}
+        <div className="clay-card rounded-squircle-lg overflow-hidden flex flex-col lg:flex-row shadow-clay-card dark:shadow-clay-dark">
+          {/* Left Column: Live Ticket / Boarding Pass */}
+          <div className="w-full lg:w-80 shrink-0 border-b lg:border-b-0 lg:border-r border-clay-border dark:border-clay-dark-border">
             <LiveTicket quizState={quizState} />
           </div>
 
-          {/* Right Area: Quiz Flow */}
-          <div className="flex-1 flex flex-col justify-between">
-            <div className="p-6 sm:p-8 border-b border-border-subtle">
+          {/* Right Column: Steps Canvas */}
+          <div className="flex-1 flex flex-col justify-between p-6 sm:p-10 bg-white dark:bg-clay-dark-card">
+            <div>
               {currentStep <= 5 && <StepIndicator currentStep={currentStep} />}
-            </div>
 
-            <div className="p-6 sm:p-8 flex-1 min-h-[360px]">
-              {currentStep === 1 && (
-                <Step1Services
-                  selectedCode={quizState.serviceCode}
-                  onSelect={handleSelectService}
-                />
-              )}
+              <div className="pt-6 min-h-[360px]">
+                {currentStep === 1 && (
+                  <Step1Services
+                    selectedCode={quizState.serviceCode}
+                    onSelect={handleSelectService}
+                  />
+                )}
 
-              {currentStep === 2 && quizState.serviceCode && (
-                <Step2Branching
-                  serviceCode={quizState.serviceCode}
-                  selectedDetails={quizState.serviceDetails}
-                  onChangeDetails={(details) => onUpdateState({ serviceDetails: details })}
-                />
-              )}
+                {currentStep === 2 && quizState.serviceCode && (
+                  <Step2Branching
+                    serviceCode={quizState.serviceCode}
+                    selectedDetails={quizState.serviceDetails}
+                    onChangeDetails={(details) => onUpdateState({ serviceDetails: details })}
+                  />
+                )}
 
-              {currentStep === 3 && (
-                <Step3Industry
-                  selectedIndustry={quizState.industry}
-                  customIndustry={quizState.customIndustry}
-                  onSelectIndustry={(ind) => {
-                    onUpdateState({ industry: ind });
-                    if (ind !== 'Другое') {
-                      setTimeout(() => onUpdateState({ step: 4 }), 240);
-                    }
-                  }}
-                  onChangeCustom={(val) => onUpdateState({ customIndustry: val, industry: val })}
-                />
-              )}
+                {currentStep === 3 && (
+                  <Step3Industry
+                    selectedIndustry={quizState.industry}
+                    customIndustry={quizState.customIndustry}
+                    onSelectIndustry={(ind) => {
+                      onUpdateState({ industry: ind });
+                      if (ind !== 'Другое') {
+                        setTimeout(() => onUpdateState({ step: 4 }), 240);
+                      }
+                    }}
+                    onChangeCustom={(val) => onUpdateState({ customIndustry: val, industry: val })}
+                  />
+                )}
 
-              {currentStep === 4 && (
-                <Step4TimelineBudget
-                  selectedTimeline={quizState.timeline}
-                  selectedBudget={quizState.budget}
-                  onSelectTimeline={(timeline) => onUpdateState({ timeline })}
-                  onSelectBudget={(budget) => onUpdateState({ budget })}
-                />
-              )}
+                {currentStep === 4 && (
+                  <Step4TimelineBudget
+                    selectedTimeline={quizState.timeline}
+                    selectedBudget={quizState.budget}
+                    onSelectTimeline={(t) => onUpdateState({ timeline: t })}
+                    onSelectBudget={(b) => {
+                      onUpdateState({ budget: b });
+                      setTimeout(() => onUpdateState({ step: 5 }), 240);
+                    }}
+                  />
+                )}
 
-              {currentStep === 5 && (
-                <Step5ResidentForm
-                  primaryService={quizState.primaryService}
-                  name={quizState.residentName}
-                  cityInput={quizState.cityInput}
-                  cityAutofilled={quizState.cityAutofilled}
-                  preferredChannel={quizState.preferredChannel}
-                  phone={quizState.phone}
-                  telegramUsername={quizState.telegramUsername}
-                  comment={quizState.comment}
-                  consentAccepted={quizState.consentAccepted}
-                  isSubmitting={quizState.isSubmitting}
-                  submitError={quizState.submitError}
-                  onUpdate={(fields) => {
-                    const updates: Partial<QuizState> = {};
-                    if (fields.name !== undefined) updates.residentName = fields.name;
-                    if (fields.cityInput !== undefined) updates.cityInput = fields.cityInput;
-                    if (fields.preferredChannel !== undefined) updates.preferredChannel = fields.preferredChannel;
-                    if (fields.phone !== undefined) updates.phone = fields.phone;
-                    if (fields.telegramUsername !== undefined) updates.telegramUsername = fields.telegramUsername;
-                    if (fields.comment !== undefined) updates.comment = fields.comment;
-                    if (fields.consentAccepted !== undefined) updates.consentAccepted = fields.consentAccepted;
-                    onUpdateState(updates);
-                  }}
-                  onSubmit={onSubmit}
-                  onOpenPrivacy={onOpenPrivacy}
-                />
-              )}
+                {currentStep === 5 && (
+                  <Step5ResidentForm
+                    primaryService={quizState.primaryService}
+                    name={quizState.residentName}
+                    cityInput={quizState.cityInput}
+                    cityAutofilled={quizState.cityAutofilled}
+                    preferredChannel={quizState.preferredChannel}
+                    phone={quizState.phone}
+                    telegramUsername={quizState.telegramUsername}
+                    comment={quizState.comment}
+                    consentAccepted={quizState.consentAccepted}
+                    isSubmitting={quizState.isSubmitting}
+                    submitError={quizState.submitError}
+                    onUpdate={(fields) => {
+                      const mapped: Partial<QuizState> = {};
+                      if (fields.name !== undefined) mapped.residentName = fields.name;
+                      if (fields.cityInput !== undefined) mapped.cityInput = fields.cityInput;
+                      if (fields.preferredChannel !== undefined) mapped.preferredChannel = fields.preferredChannel;
+                      if (fields.phone !== undefined) mapped.phone = fields.phone;
+                      if (fields.telegramUsername !== undefined) mapped.telegramUsername = fields.telegramUsername;
+                      if (fields.comment !== undefined) mapped.comment = fields.comment;
+                      if (fields.consentAccepted !== undefined) mapped.consentAccepted = fields.consentAccepted;
+                      onUpdateState(mapped);
+                    }}
+                    onSubmit={onSubmit}
+                    onOpenPrivacy={onOpenPrivacy}
+                  />
+                )}
 
-              {currentStep === 6 && (
-                <ThankYouScreen
-                  quizState={quizState}
-                  onReset={() => onUpdateState({ step: 1 })}
-                  onEditContacts={() => onUpdateState({ step: 5 })}
-                />
-              )}
+                {currentStep === 6 && (
+                  <ThankYouScreen
+                    quizState={quizState}
+                    onReset={() => onUpdateState({ step: 1, serviceCode: null, primaryService: '', serviceDetails: [] })}
+                    onEditContacts={() => onUpdateState({ step: 5 })}
+                  />
+                )}
+              </div>
             </div>
 
             {/* Bottom Controls */}
-            {currentStep >= 1 && currentStep <= 4 && (
-              <div className="p-4 sm:p-6 border-t border-border-subtle bg-canvas flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={handleBack}
-                  disabled={currentStep === 1}
-                  className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold text-ink-secondary hover:text-ink-primary disabled:opacity-30 disabled:pointer-events-none rounded-sharp border border-border-subtle bg-surface transition-colors"
-                >
-                  <ArrowLeft className="w-3.5 h-3.5" />
-                  <span>Назад</span>
-                </button>
+            {currentStep < 5 && (
+              <div className="pt-6 border-t border-clay-border dark:border-clay-dark-border flex items-center justify-between">
+                {currentStep > 1 ? (
+                  <button
+                    type="button"
+                    onClick={handleBack}
+                    className="flex items-center gap-1.5 font-mono text-xs font-semibold text-slate-500 hover:text-clay-pine dark:hover:text-white px-4 py-2 rounded-full clay-inset transition-colors"
+                  >
+                    <ArrowLeft className="w-3.5 h-3.5" />
+                    <span>НАЗАД</span>
+                  </button>
+                ) : (
+                  <div />
+                )}
 
                 <button
                   type="button"
                   onClick={handleNext}
                   disabled={!canGoNext()}
-                  className="flex items-center gap-2 px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-ink-primary hover:bg-signal disabled:bg-border-subtle disabled:text-ink-muted text-surface rounded-sharp transition-mechanical shadow-sm"
+                  className="flex items-center gap-2 bg-clay-coral hover:bg-clay-coral-hover disabled:opacity-40 text-white px-7 py-3 text-xs font-bold uppercase tracking-wider rounded-full shadow-clay-btn transition-all select-none"
                 >
-                  <span>Далее</span>
+                  <span>ДАЛЕЕ</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>

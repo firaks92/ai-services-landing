@@ -24,98 +24,72 @@ export const ThankYouScreen: React.FC<ThankYouScreenProps> = ({
   };
 
   return (
-    <div className="py-4 space-y-6 animate-fadeIn">
+    <div className="py-4 space-y-5">
       {/* Acceptance Status Stamp */}
-      <div className="border border-status-success/30 bg-status-success/5 p-4 rounded-sharp flex items-center gap-3">
-        <CheckCircle2 className="w-6 h-6 text-status-success flex-shrink-0" />
+      <div className="clay-card border-clay-emerald/40 bg-clay-mint/30 dark:bg-clay-sage/10 p-4 rounded-squircle flex items-center gap-3">
+        <CheckCircle2 className="w-6 h-6 text-clay-emerald shrink-0" />
         <div>
-          <div className="font-mono text-xs font-bold text-status-success uppercase tracking-wider">
-            ЗАЯВКА ПРИНЯТА И ПЕРЕДАНА В РАБОТУ
+          <div className="font-mono text-xs font-bold text-clay-emerald uppercase tracking-wider">
+            СПЕЦИФИКАЦИЯ ПРИНЯТА // ТЗ ПЕРЕДАНО В РАБОТУ
           </div>
-          <div className="text-xs text-ink-secondary">
-            Уведомление доставлено инженеру в Telegram-чат
+          <div className="text-xs text-slate-600 dark:text-slate-300">
+            Уведомление доставлено инженеру в Telegram
           </div>
         </div>
       </div>
 
       {/* Greeting & Lead ID */}
       <div>
-        <h3 className="text-2xl font-bold text-ink-primary mb-2">
+        <h3 className="text-2xl font-bold text-clay-pine dark:text-clay-dark-pine mb-2">
           Спасибо, {quizState.residentName || 'клиент'}!
         </h3>
-        <p className="text-sm text-ink-secondary leading-relaxed mb-4">
+        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
           Мы зафиксировали вашу спецификацию. Инженер изучит параметры задачи и свяжется с вами в течение 15 минут в выбранном канале ({quizState.preferredChannel}).
         </p>
 
         {/* Lead Code Block with Copy */}
-        <div className="flex items-center justify-between p-3 bg-canvas border border-border-subtle rounded-sharp font-mono text-xs">
-          <span className="text-ink-muted">НОМЕР ЗАЯВКИ:</span>
+        <div className="flex items-center justify-between p-3.5 rounded-squircle clay-inset font-mono text-xs mb-4">
+          <span className="text-slate-500">НОМЕР СПЕЦИФИКАЦИИ:</span>
           <div className="flex items-center gap-2">
-            <span className="font-bold text-ink-primary">#{quizState.leadCode}</span>
+            <span className="font-bold text-clay-pine dark:text-clay-dark-pine">#{quizState.leadCode}</span>
             <button
               onClick={copyLeadCode}
-              className="p-1 hover:text-signal text-ink-muted transition-colors"
-              title="Скопировать номер заявки"
+              className="p-1 hover:text-clay-coral text-slate-400 transition-colors"
+              title="Скопировать номер"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-status-success" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-clay-emerald" /> : <Copy className="w-3.5 h-3.5" />}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Summary Box */}
-      <div className="p-4 bg-surface border border-border-subtle rounded-sharp text-xs space-y-2">
-        <div className="font-mono text-[10px] text-ink-muted uppercase">РЕЗЮМЕ СПЕЦИФИКАЦИИ:</div>
-        <div className="text-ink-primary">
-          <span className="font-semibold">Услуга:</span> {quizState.primaryService}
-        </div>
-        {quizState.serviceDetails.length > 0 && (
-          <div className="text-ink-secondary">
-            <span className="font-semibold text-ink-primary">Детали:</span> {quizState.serviceDetails.join(', ')}
-          </div>
+        {/* Telegram Bot Link Button */}
+        {quizState.botDeepLink && (
+          <a
+            href={quizState.botDeepLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full h-12 bg-clay-pine hover:bg-clay-pine-light dark:bg-clay-mint dark:text-clay-pine text-white font-bold text-xs uppercase tracking-wider rounded-squircle flex items-center justify-center gap-2 shadow-clay-card transition-all mb-3 select-none"
+          >
+            <Send className="w-4 h-4" />
+            <span>ОТКРЫТЬ СПЕЦИФИКАЦИЮ В TELEGRAM-БОТЕ</span>
+          </a>
         )}
-        <div className="text-ink-secondary">
-          <span className="font-semibold text-ink-primary">Локация:</span> {quizState.cityInput}
-        </div>
-        {quizState.budget && (
-          <div className="text-ink-secondary">
-            <span className="font-semibold text-ink-primary">Бюджет:</span> {quizState.budget}
-          </div>
-        )}
-      </div>
-
-      {/* Direct Telegram Bridge Button */}
-      <div className="space-y-3 pt-2">
-        <div className="text-xs text-ink-secondary leading-relaxed">
-          Перейдите в наш Telegram-бот, чтобы получить мгновенное персональное подтверждение и при необходимости отправить ТЗ или файлы:
-        </div>
-
-        <a
-          href={quizState.botDeepLink || `https://t.me/YourAiServicesBot?start=lead_${quizState.leadCode}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full h-12 bg-blueprint hover:bg-blueprint-hover text-surface font-semibold text-xs sm:text-sm uppercase tracking-wider rounded-sharp flex items-center justify-center gap-2 transition-mechanical shadow-sm"
-        >
-          <Send className="w-4 h-4" />
-          <span>ОТКРЫТЬ ДИАЛОГ В TELEGRAM-БОТЕ</span>
-        </a>
       </div>
 
       {/* Actions */}
-      <div className="pt-4 border-t border-border-subtle flex items-center justify-between text-xs">
-        <button
-          onClick={onReset}
-          className="text-ink-secondary hover:text-ink-primary font-medium"
-        >
-          Вернуться на сайт
-        </button>
-
+      <div className="pt-2 flex items-center justify-between text-xs font-mono">
         <button
           onClick={onEditContacts}
-          className="text-blueprint hover:underline flex items-center gap-1 font-medium"
+          className="text-clay-coral hover:underline font-semibold"
         >
-          <RotateCcw className="w-3 h-3" />
-          <span>Исправить номер или комментарий</span>
+          ← Изменить контакты
+        </button>
+        <button
+          onClick={onReset}
+          className="flex items-center gap-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+        >
+          <RotateCcw className="w-3.5 h-3.5" />
+          <span>Рассчитать другую услугу</span>
         </button>
       </div>
     </div>

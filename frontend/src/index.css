@@ -5,17 +5,28 @@
 @layer base {
   :root {
     --ease-mechanical: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
-    background-color: #F4F2EC;
-    color: #141413;
+    background-color: #F5F7F4;
+    color: #193B32;
     overflow-x: hidden;
+    transition: background-color 250ms ease, color 250ms ease;
   }
 
-  /* Accessible focus indicators matching Swiss Blueprint standard */
+  html.dark body {
+    background-color: #0D1614;
+    color: #E2F0EA;
+  }
+
+  /* Accessible focus indicators */
   :focus-visible {
-    outline: 2px solid #1A4B8C;
+    outline: 2px solid #227B57;
     outline-offset: 2px;
   }
 
@@ -25,26 +36,67 @@
   }
 }
 
-/* Custom scrollbars matching architectural paper theme */
+/* Claymorphic Utility Components */
+@layer components {
+  .clay-card {
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    border: 1px solid rgba(25, 59, 50, 0.08);
+    box-shadow: 0 18px 40px -12px rgba(25, 59, 50, 0.08), 0 4px 16px -2px rgba(25, 59, 50, 0.04), inset 0 1px 1.5px rgba(255, 255, 255, 0.95);
+    transition: all 220ms var(--ease-mechanical);
+  }
+
+  html.dark .clay-card {
+    background-color: #14221E;
+    border: 1px solid rgba(132, 177, 151, 0.16);
+    box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.07);
+  }
+
+  .clay-inset {
+    background-color: #DFEAE3;
+    box-shadow: inset 0 2px 5px rgba(25, 59, 50, 0.12), inset 0 -1px 2px rgba(255, 255, 255, 0.85);
+  }
+
+  html.dark .clay-inset {
+    background-color: #101B18;
+    box-shadow: inset 0 2.5px 6px rgba(0, 0, 0, 0.5), inset 0 -1px 1px rgba(255, 255, 255, 0.06);
+  }
+
+  .clay-knob {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(25, 59, 50, 0.18), 0 1px 3px rgba(25, 59, 50, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    transition: all 200ms var(--ease-spring);
+  }
+
+  html.dark .clay-knob {
+    background-color: #1F362F;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F4F2EC;
+  background: #F5F7F4;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #0D1614;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D8D4C8;
-  border-radius: 2px;
+  background: #C2DCCF;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #848075;
+  background: #84B197;
 }
 
-/* Mechanical motion classes */
-.transition-mechanical {
-  transition-timing-function: var(--ease-mechanical);
-  transition-duration: 200ms;
+/* Spring motion */
+.transition-spring {
+  transition-timing-function: var(--ease-spring);
+  transition-duration: 250ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
