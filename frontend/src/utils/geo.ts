@@ -7,7 +7,11 @@ export interface ClientGeo {
 }
 
 let cachedGeo: ClientGeo | null = null;
-const API_BASE_URL = (import.meta as any).env?.VITE_API_BASE_URL || '';
+const API_BASE_URL =
+  (import.meta as any).env?.VITE_API_BASE_URL ||
+  (typeof window !== 'undefined' && window.location.hostname.includes('github.io')
+    ? 'https://frontend-eight-sable-66.vercel.app'
+    : '');
 
 export async function fetchClientGeo(): Promise<ClientGeo> {
   if (cachedGeo) return cachedGeo;

@@ -1,6 +1,10 @@
 import type { LeadSubmissionPayload, LeadSubmissionResponse } from '../types/quiz.js';
 
-const API_BASE_URL = (import.meta as any).env?.VITE_API_BASE_URL || '';
+const API_BASE_URL =
+  (import.meta as any).env?.VITE_API_BASE_URL ||
+  (typeof window !== 'undefined' && window.location.hostname.includes('github.io')
+    ? 'https://frontend-eight-sable-66.vercel.app'
+    : '');
 
 export async function submitLead(payload: LeadSubmissionPayload): Promise<LeadSubmissionResponse> {
   const response = await fetch(`${API_BASE_URL}/api/v1/leads`, {
