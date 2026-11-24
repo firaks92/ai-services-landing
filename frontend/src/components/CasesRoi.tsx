@@ -56,12 +56,12 @@ export const CasesRoi: React.FC = () => {
   ];
 
   return (
-    <section id="cases" className="py-20 md:py-28 border-b border-slate-200 dark:border-white/10 bg-white dark:bg-dash-bg transition-colors">
+    <section id="cases" className="py-20 md:py-28 border-b border-white/20 dark:border-white/10 bg-transparent transition-colors">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-slate-200 dark:border-white/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-white/20 dark:border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 mb-3 font-mono text-xs font-bold text-dash-magenta uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3 font-mono text-xs font-bold text-dash-magenta uppercase tracking-wider">
               {t('cases_tag')}
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -75,7 +75,7 @@ export const CasesRoi: React.FC = () => {
         </div>
 
         {/* Interactive ROI Calculator with Dynamic Currency */}
-        <div className="neon-card p-6 sm:p-8 mb-12 relative overflow-hidden bg-slate-50 dark:bg-dash-card">
+        <div className="neon-card p-6 sm:p-8 mb-12 relative overflow-hidden">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-md">
               <span className="font-mono text-xs font-bold text-dash-magenta dark:text-dash-cyan uppercase tracking-wider">
@@ -90,7 +90,7 @@ export const CasesRoi: React.FC = () => {
             </div>
 
             {/* Controls */}
-            <div className="w-full lg:w-auto flex-1 max-w-lg p-5 rounded-2xl bg-white dark:bg-dash-track border border-slate-200 dark:border-white/10 space-y-4 shadow-sm">
+            <div className="w-full lg:w-auto flex-1 max-w-lg p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-xl border border-white/30 dark:border-white/10 space-y-4 shadow-sm">
               <div>
                 <div className="flex justify-between font-mono text-xs font-semibold mb-2 text-slate-800 dark:text-white">
                   <span>{t('calc_operators_label')}</span>
@@ -125,7 +125,7 @@ export const CasesRoi: React.FC = () => {
             </div>
 
             {/* Calculated Output Badge */}
-            <div className="p-6 rounded-2xl bg-white dark:bg-gradient-to-br dark:from-dash-card-hover dark:to-dash-surface border border-slate-200 dark:border-dash-cyan/30 text-center min-w-[260px] shadow-sm dark:shadow-neon-cyan">
+            <div className="glass-obsidian p-6 rounded-2xl text-center min-w-[260px] shadow-sm">
               <span className="font-mono text-[10px] text-slate-500 dark:text-dash-muted uppercase tracking-widest block mb-1">
                 {t('calc_annual_savings')}
               </span>
@@ -144,29 +144,29 @@ export const CasesRoi: React.FC = () => {
           {protocols.map((p) => (
             <div
               key={p.id}
-              className="neon-card p-7 rounded-2xl flex flex-col justify-between bg-white dark:bg-dash-card"
+              className="neon-card p-7 rounded-2xl flex flex-col justify-between"
             >
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-white/10">
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/20 dark:border-white/10">
                   <span className="font-mono text-xs font-bold text-dash-magenta">
                     КЕЙС #{p.id} // {p.niche}
                   </span>
-                  <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 text-slate-600 dark:text-dash-muted">
+                  <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full glass-pill text-slate-600 dark:text-dash-muted">
                     {p.location}
                   </span>
                 </div>
 
                 {/* Problem vs Solution */}
                 <div className="space-y-3 mb-6">
-                  <div className="p-3.5 rounded-xl bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-500/20">
+                  <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 backdrop-blur-md">
                     <span className="font-mono text-[10px] uppercase font-bold text-red-600 dark:text-red-400 block mb-1">
                       {language === 'uz' ? 'AI JORIY QILISHDAN OLDIN:' : language === 'en' ? 'BEFORE AI DEPLOYMENT:' : 'БЫЛО ДО ВНЕДРЕНИЯ ИИ:'}
                     </span>
                     <p className="text-xs sm:text-sm text-slate-700 dark:text-dash-muted">{p.before}</p>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-dash-cyan/10 border border-slate-200 dark:border-dash-cyan/30">
+                  <div className="p-3.5 rounded-xl bg-dash-cyan/10 border border-dash-cyan/30 backdrop-blur-md">
                     <span className="font-mono text-[10px] uppercase font-bold text-dash-magenta dark:text-dash-cyan block mb-1">
                       {language === 'uz' ? 'YECHIM VA ARXITEKTURA:' : language === 'en' ? 'AI SOLUTION ARCHITECTURE:' : 'РЕШЕНИЕ И АРХИТЕКТУРА:'}
                     </span>
@@ -176,15 +176,15 @@ export const CasesRoi: React.FC = () => {
               </div>
 
               {/* Metrics & Payback Row */}
-              <div className="pt-4 border-t border-slate-200 dark:border-white/10">
+              <div className="pt-4 border-t border-white/20 dark:border-white/10">
                 <div className="grid grid-cols-2 gap-3 mb-3">
-                  <div className="p-3 rounded-xl bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/5">
+                  <div className="p-3 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-white/30 dark:border-white/5">
                     <span className="font-mono text-[10px] text-slate-500 dark:text-dash-muted block">{p.metric1.label}</span>
                     <span className="text-base font-mono font-bold text-dash-magenta">
                       {p.metric1.value}
                     </span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/5">
+                  <div className="p-3 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-white/30 dark:border-white/5">
                     <span className="font-mono text-[10px] text-slate-500 dark:text-dash-muted block">{p.metric2.label}</span>
                     <span className="text-base font-mono font-bold text-dash-lime">
                       {p.metric2.value}

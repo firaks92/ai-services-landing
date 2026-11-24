@@ -11,9 +11,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenQuiz }) => 
   const { t } = useLocale();
 
   return (
-    <footer className="bg-slate-100 dark:bg-dash-bg text-slate-800 dark:text-white pt-16 pb-12 border-t border-slate-200 dark:border-white/10 transition-colors">
+    <footer className="bg-white/40 dark:bg-dash-bg/40 backdrop-blur-2xl text-slate-800 dark:text-white pt-16 pb-12 border-t border-white/20 dark:border-white/10 transition-colors">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-200 dark:border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/20 dark:border-white/10">
           {/* Brand */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">

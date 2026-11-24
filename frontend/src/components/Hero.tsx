@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
   ];
 
   return (
-    <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 border-b border-slate-200 dark:border-white/10 overflow-hidden bg-white dark:bg-dash-bg transition-colors">
+    <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 border-b border-white/20 dark:border-white/10 overflow-hidden bg-transparent transition-colors">
       {/* Decorative ambient glowing backdrops */}
       <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-r from-dash-violet/10 via-dash-purple/15 to-dash-cyan/15 dark:from-dash-violet/20 dark:via-dash-purple/25 dark:to-dash-cyan/20 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/3 -left-40 w-96 h-96 bg-dash-magenta/10 dark:bg-dash-magenta/15 rounded-full blur-[120px] pointer-events-none" />
@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
         {/* Hero Title & Value Proposition */}
         <div className="text-center max-w-4xl mx-auto mb-12">
           {/* Tagline Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 mb-5 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-5 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-dash-magenta dark:text-dash-cyan animate-pulse" />
             <span className="font-mono text-[11px] font-bold text-dash-magenta dark:text-dash-cyan tracking-wider uppercase">
               {current.tagline}
@@ -102,7 +102,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
 
             <a
               href="#cases"
-              className="flex items-center gap-2 px-6 py-4 text-sm font-semibold text-slate-800 dark:text-white bg-slate-100 dark:bg-dash-card hover:bg-slate-200 dark:hover:bg-dash-card-hover border border-slate-200 dark:border-white/10 rounded-full transition-colors"
+              className="flex items-center gap-2 px-6 py-4 text-sm font-semibold text-slate-800 dark:text-white glass-pill hover:bg-white/80 dark:hover:bg-white/10 rounded-full transition-all"
             >
               <span>{t('hero_cta_roi')}</span>
               <ChevronDown className="w-4 h-4 text-dash-cyan" />
@@ -129,7 +129,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
         </div>
 
         {/* Quick Service Launch Strip */}
-        <div className="pt-8 border-t border-slate-200 dark:border-white/10">
+        <div className="pt-8 border-t border-white/20 dark:border-white/10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
             <span className="font-mono text-xs font-bold uppercase tracking-wider text-dash-magenta dark:text-dash-cyan">
               {t('quick_choice_label')}
@@ -144,7 +144,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuiz, onSelectService }) => {
               <button
                 key={pill.code}
                 onClick={() => onSelectService(pill.code)}
-                className="p-3.5 rounded-2xl bg-white dark:bg-dash-card hover:bg-slate-50 dark:hover:bg-dash-card-hover border border-slate-200 dark:border-white/10 hover:border-dash-cyan/40 shadow-sm transition-all flex items-center justify-between group text-left select-none"
+                className="p-3.5 rounded-2xl glass-pill hover:bg-white/80 dark:hover:bg-white/[0.08] hover:border-dash-cyan/50 shadow-sm transition-all flex items-center justify-between group text-left select-none"
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <span className="text-xl">{pill.icon}</span>

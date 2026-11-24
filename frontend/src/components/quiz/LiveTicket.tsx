@@ -8,13 +8,13 @@ interface LiveTicketProps {
 
 export const LiveTicket: React.FC<LiveTicketProps> = ({ quizState }) => {
   return (
-    <div className="h-full bg-dash-card p-6 font-mono text-xs text-dash-text flex flex-col justify-between select-none relative overflow-hidden border-r border-white/10">
+    <div className="h-full bg-white/50 dark:bg-dash-card/70 backdrop-blur-xl p-6 font-mono text-xs text-slate-900 dark:text-dash-text flex flex-col justify-between select-none relative overflow-hidden border-r border-white/20 dark:border-white/10">
       {/* Top Pass Header */}
       <div>
-        <div className="flex items-center justify-between pb-3.5 border-b border-white/10 mb-4">
+        <div className="flex items-center justify-between pb-3.5 border-b border-white/20 dark:border-white/10 mb-4">
           <div className="flex items-center gap-2">
             <Ticket className="w-4 h-4 text-dash-magenta" />
-            <span className="font-bold uppercase tracking-wider text-[11px] text-white">
+            <span className="font-bold uppercase tracking-wider text-[11px] text-slate-900 dark:text-white">
               SPEC TICKET // СПЕЦИФИКАЦИЯ
             </span>
           </div>
@@ -24,38 +24,38 @@ export const LiveTicket: React.FC<LiveTicketProps> = ({ quizState }) => {
         </div>
 
         {/* Flight & Spec ID */}
-        <div className="flex items-center justify-between text-[11px] font-mono text-dash-muted mb-5">
+        <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-dash-muted mb-5">
           <span>СИСТЕМА: AI.ENGINE-2026</span>
           <span className="text-dash-magenta font-bold">{quizState.leadCode || 'AI-PROD-SPEC'}</span>
         </div>
 
         {/* Live Parameters */}
         <div className="space-y-3.5">
-          <div className="p-3 rounded-xl bg-dash-track border border-white/5">
-            <div className="text-dash-muted text-[10px] uppercase font-bold">[01 / ВЫБРАННЫЙ УЗЕЛ]:</div>
-            <div className="font-bold text-white text-xs mt-0.5 line-clamp-2">
+          <div className="p-3 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-white/30 dark:border-white/10">
+            <div className="text-slate-500 dark:text-dash-muted text-[10px] uppercase font-bold">[01 / ВЫБРАННЫЙ УЗЕЛ]:</div>
+            <div className="font-bold text-slate-900 dark:text-white text-xs mt-0.5 line-clamp-2">
               {quizState.primaryService || '— Ожидание выбора в квизе...'}
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-dash-track border border-white/5">
-            <div className="text-dash-muted text-[10px] uppercase font-bold">[02 / ПАРАМЕТРЫ ЗАДАЧИ]:</div>
-            <div className="text-dash-cyan text-xs mt-0.5 line-clamp-2">
+          <div className="p-3 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-white/30 dark:border-white/10">
+            <div className="text-slate-500 dark:text-dash-muted text-[10px] uppercase font-bold">[02 / ПАРАМЕТРЫ ЗАДАЧИ]:</div>
+            <div className="text-dash-cyan font-bold text-xs mt-0.5 line-clamp-2">
               {quizState.serviceDetails.length > 0
                 ? quizState.serviceDetails.join(', ')
                 : '— На этапе конфигурации'}
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-dash-track border border-white/5">
-            <div className="text-dash-muted text-[10px] uppercase font-bold">[03 / ОТРАСЛЬ И НИША]:</div>
-            <div className="text-white text-xs mt-0.5">
+          <div className="p-3 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-white/30 dark:border-white/10">
+            <div className="text-slate-500 dark:text-dash-muted text-[10px] uppercase font-bold">[03 / ОТРАСЛЬ И НИША]:</div>
+            <div className="text-slate-900 dark:text-white text-xs mt-0.5">
               {quizState.industry || '— Не выбрана'}
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-dash-track border border-white/5">
-            <div className="text-dash-muted text-[10px] uppercase font-bold">[04 / СРОК И БЮДЖЕТ]:</div>
+          <div className="p-3 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-white/30 dark:border-white/10">
+            <div className="text-slate-500 dark:text-dash-muted text-[10px] uppercase font-bold">[04 / СРОК И БЮДЖЕТ]:</div>
             <div className="text-dash-lime font-bold text-xs mt-0.5">
               {quizState.budget || '— Формируется расчет'}
             </div>

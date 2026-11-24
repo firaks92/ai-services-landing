@@ -97,16 +97,18 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
   ];
 
   return (
-    <div className="neon-card p-5 sm:p-7 relative overflow-hidden text-slate-900 dark:text-dash-text">
-      {/* Background radial gradient glow */}
-      <div className="absolute -top-32 -right-32 w-80 h-80 bg-dash-purple/20 rounded-full blur-[90px] pointer-events-none" />
-      <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-dash-cyan/15 rounded-full blur-[90px] pointer-events-none" />
+    <div className="glass-crystal p-5 sm:p-7 relative overflow-hidden text-slate-900 dark:text-dash-text">
+      {/* Background radial gradient glow & floating glass spheres */}
+      <div className="absolute -top-24 -right-24 w-72 h-72 bg-dash-purple/20 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-dash-cyan/20 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/2 -right-12 w-28 h-28 glass-orb animate-float-slow opacity-60 pointer-events-none" />
+      <div className="absolute -bottom-10 right-1/3 w-20 h-20 glass-orb animate-float-reverse opacity-50 pointer-events-none" />
 
       {/* 1. Header Bar: Brand Glyph + Live Status + Timeframe Pills */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-200 dark:border-white/10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-6 border-b border-white/20 dark:border-white/10 relative z-10">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-dash-purple via-dash-violet to-dash-cyan p-0.5 shadow-neon-purple flex items-center justify-center">
-            <div className="w-full h-full bg-white dark:bg-dash-bg rounded-[14px] flex items-center justify-center">
+            <div className="w-full h-full bg-white/90 dark:bg-dash-bg/90 rounded-[14px] flex items-center justify-center backdrop-blur-md">
               <Cpu className="w-5 h-5 text-dash-magenta dark:text-dash-cyan animate-pulse" />
             </div>
           </div>
@@ -115,7 +117,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
               <span className="font-bold text-sm tracking-tight text-slate-900 dark:text-white uppercase">
                 {t('dash_title')}
               </span>
-              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-dash-lime/15 text-dash-lime border border-dash-lime/30 flex items-center gap-1">
+              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-dash-lime/15 text-dash-lime border border-dash-lime/30 flex items-center gap-1 backdrop-blur-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-dash-lime animate-ping" />
                 {t('dash_live')}
               </span>
@@ -127,7 +129,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
         </div>
 
         {/* Timeframe Pill Switcher */}
-        <div className="flex items-center p-1 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 self-start sm:self-auto">
+        <div className="flex items-center p-1 rounded-full glass-pill self-start sm:self-auto">
           {(['1D', '7D', '1M', '1Y'] as const).map((tVal) => (
             <button
               key={tVal}
@@ -145,7 +147,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
       </div>
 
       {/* 2. Metric Mode Switcher Pills */}
-      <div className="grid grid-cols-3 gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 mb-6">
+      <div className="grid grid-cols-3 gap-2 p-1.5 rounded-2xl glass-pill mb-6 relative z-10">
         {[
           { id: 'revenue', label: t('dash_tab_revenue'), icon: TrendingUp },
           { id: 'hours', label: t('dash_tab_hours'), icon: Zap },
@@ -171,9 +173,9 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
       </div>
 
       {/* 3. Main Dashboard Bento Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-6 relative z-10">
         {/* Left Card: Glowing Neon Wave Chart (7 cols) */}
-        <div className="lg:col-span-7 p-5 rounded-2xl bg-slate-50 dark:bg-gradient-to-br dark:from-dash-card-hover dark:to-dash-card border border-slate-200 dark:border-white/10 relative overflow-hidden">
+        <div className="lg:col-span-7 p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] relative overflow-hidden">
           <div className="flex items-center justify-between mb-2">
             <div>
               <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 dark:text-dash-muted">
@@ -232,14 +234,14 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
             </svg>
 
             {/* Floating Live Tooltip */}
-            <div className="absolute top-2 right-12 bg-white/95 dark:bg-dash-bg/90 backdrop-blur-md border border-dash-magenta/40 dark:border-dash-cyan/40 px-2.5 py-1 rounded-lg font-mono text-[10px] text-dash-magenta dark:text-dash-cyan shadow-sm dark:shadow-neon-cyan flex items-center gap-1.5 pointer-events-none">
+            <div className="absolute top-2 right-12 bg-white/80 dark:bg-dash-bg/80 backdrop-blur-md border border-dash-magenta/40 dark:border-dash-cyan/40 px-2.5 py-1 rounded-lg font-mono text-[10px] text-dash-magenta dark:text-dash-cyan shadow-sm dark:shadow-neon-cyan flex items-center gap-1.5 pointer-events-none">
               <span className="w-1.5 h-1.5 rounded-full bg-dash-magenta dark:bg-dash-cyan animate-pulse" />
               <span>+34.8% SLA</span>
             </div>
           </div>
 
           {/* Under-chart metrics strip */}
-          <div className="grid grid-cols-4 gap-2 pt-3 border-t border-slate-200 dark:border-white/5 font-mono text-[10px] text-center">
+          <div className="grid grid-cols-4 gap-2 pt-3 border-t border-white/20 dark:border-white/5 font-mono text-[10px] text-center">
             <div className="p-1 rounded bg-black/5 dark:bg-white/5 text-slate-600 dark:text-dash-muted">ПН · 94%</div>
             <div className="p-1 rounded bg-black/5 dark:bg-white/5 text-slate-600 dark:text-dash-muted">СР · 98%</div>
             <div className="p-1 rounded bg-black/5 dark:bg-white/5 text-dash-magenta dark:text-dash-cyan font-bold">СБ · 100%</div>
@@ -248,7 +250,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
         </div>
 
         {/* Right Card: Radial Donut + 3D Neon Bars (5 cols) */}
-        <div className="lg:col-span-5 p-5 rounded-2xl bg-slate-50 dark:bg-gradient-to-br dark:from-dash-card-hover dark:to-dash-card border border-slate-200 dark:border-white/10 flex flex-col justify-between">
+        <div className="lg:col-span-5 p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] flex flex-col justify-between">
           <div className="flex items-center justify-between mb-3">
             <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 dark:text-dash-muted">
               {t('dash_load_distribution')}
@@ -306,15 +308,15 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-white dark:bg-dash-track/70 border border-slate-200 dark:border-white/5 font-mono text-[11px] text-center text-dash-magenta dark:text-dash-cyan font-bold">
+          <div className="p-3 rounded-xl bg-white/80 dark:bg-dash-track/70 backdrop-blur-md border border-white/30 dark:border-white/5 font-mono text-[11px] text-center text-dash-magenta dark:text-dash-cyan font-bold">
             ✓ {curr.donutLabel} — {curr.donutSub}
           </div>
         </div>
       </div>
 
       {/* 4. Real Team & AI Copilot Live Stream */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-dash-track/80 border border-slate-200 dark:border-white/10 mb-6">
-        <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200 dark:border-white/5">
+      <div className="p-4 sm:p-5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] mb-6 relative z-10">
+        <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/20 dark:border-white/5">
           <div className="flex items-center gap-2">
             <Users className="w-4 h-4 text-dash-purple" />
             <span className="font-mono text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
@@ -331,7 +333,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
           {teamActivities.map((member) => (
             <div
               key={member.name}
-              className="p-3 rounded-xl bg-white dark:bg-dash-card/90 border border-slate-200 dark:border-white/5 hover:border-dash-purple/40 transition-colors flex items-center gap-3"
+              className="p-3 rounded-xl bg-white/70 dark:bg-white/[0.05] backdrop-blur-xl border border-white/40 dark:border-white/5 hover:border-dash-purple/40 transition-colors flex items-center gap-3"
             >
               {/* Photo Avatar with Ring */}
               <div className="relative shrink-0">
@@ -360,7 +362,7 @@ export const NeonDashboard: React.FC<NeonDashboardProps> = ({ onOpenQuiz }) => {
       </div>
 
       {/* 5. Primary Dashboard Action CTA */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-gradient-to-r from-dash-violet/10 via-dash-purple/20 to-dash-magenta/15 dark:from-dash-violet/40 dark:via-dash-purple/30 dark:to-dash-magenta/40 border border-slate-200 dark:border-white/15">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-gradient-to-r from-dash-violet/10 via-dash-purple/20 to-dash-magenta/15 dark:from-dash-violet/30 dark:via-dash-purple/20 dark:to-dash-magenta/30 border border-white/30 dark:border-white/15 backdrop-blur-xl relative z-10">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-white dark:bg-white/10 flex items-center justify-center text-dash-magenta dark:text-dash-cyan shadow-sm">
             <Sparkles className="w-5 h-5" />

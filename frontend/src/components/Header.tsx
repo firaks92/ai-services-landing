@@ -12,12 +12,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
   const { language, setLanguage, currency, setCurrency, t } = useLocale();
 
   return (
-    <header className="sticky top-0 z-40 bg-white/85 dark:bg-dash-bg/85 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 transition-colors">
+    <header className="sticky top-0 z-40 bg-white/70 dark:bg-dash-bg/60 backdrop-blur-2xl border-b border-white/30 dark:border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-colors">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Brand / Logo */}
         <a href="#" className="flex items-center gap-3 shrink-0 group">
           <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-dash-violet via-dash-purple to-dash-cyan p-0.5 shadow-neon-purple group-hover:scale-105 transition-transform flex items-center justify-center">
-            <div className="w-full h-full bg-white dark:bg-dash-bg rounded-[14px] flex items-center justify-center">
+            <div className="w-full h-full bg-white/90 dark:bg-dash-bg/90 rounded-[14px] flex items-center justify-center backdrop-blur-md">
               <Sparkles className="w-5 h-5 text-dash-magenta dark:text-dash-cyan" />
             </div>
           </div>
@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
                 AI.STUDIO
               </span>
               <span className="font-mono text-xs text-dash-magenta font-bold">//</span>
-              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 text-dash-cyan font-bold">
+              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded-full bg-white/60 dark:bg-white/[0.08] border border-white/30 dark:border-white/10 text-dash-cyan font-bold backdrop-blur-md">
                 2026
               </span>
             </div>
@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-1 p-1 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10">
+        <nav className="hidden xl:flex items-center gap-1 p-1 rounded-full glass-pill">
           <a
             href="#services"
             className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white transition-colors"
@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
         {/* Controls: Language + Currency + Theme + CTA */}
         <div className="hidden lg:flex items-center gap-3 shrink-0">
           {/* Trilingual Switcher (RU / UZ / EN) */}
-          <div className="flex items-center p-1 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 font-mono text-[11px] font-bold">
+          <div className="flex items-center p-1 rounded-full glass-pill font-mono text-[11px] font-bold">
             <Globe className="w-3.5 h-3.5 ml-2 mr-1 text-slate-400 dark:text-dash-muted" />
             <button
               onClick={() => setLanguage('ru')}
@@ -103,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
           </div>
 
           {/* Currency Switcher (USD / UZS) */}
-          <div className="flex items-center p-1 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 font-mono text-[11px] font-bold">
+          <div className="flex items-center p-1 rounded-full glass-pill font-mono text-[11px] font-bold">
             <button
               onClick={() => setCurrency('usd')}
               className={`px-2.5 py-0.5 rounded-full transition-all ${
@@ -151,7 +151,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-10 h-10 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-900 dark:text-white focus:outline-none"
+            className="w-10 h-10 rounded-full glass-pill flex items-center justify-center text-slate-900 dark:text-white focus:outline-none"
             aria-label="Меню"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -161,11 +161,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
 
       {/* Mobile dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-slate-200 dark:border-white/10 bg-white dark:bg-dash-bg px-4 py-4 space-y-4">
+        <div className="lg:hidden border-b border-white/20 dark:border-white/10 bg-white/90 dark:bg-dash-bg/90 backdrop-blur-2xl px-4 py-4 space-y-4">
           {/* Mobile Switchers */}
           <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100 dark:border-white/10">
             {/* Lang */}
-            <div className="flex items-center p-1 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 font-mono text-[11px] font-bold">
+            <div className="flex items-center p-1 rounded-full glass-pill font-mono text-[11px] font-bold">
               {(['ru', 'uz', 'en'] as const).map((l) => (
                 <button
                   key={l}
@@ -180,7 +180,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuiz }) => {
             </div>
 
             {/* Currency */}
-            <div className="flex items-center p-1 rounded-full bg-slate-100 dark:bg-dash-track border border-slate-200 dark:border-white/10 font-mono text-[11px] font-bold">
+            <div className="flex items-center p-1 rounded-full glass-pill font-mono text-[11px] font-bold">
               <button
                 onClick={() => setCurrency('usd')}
                 className={`px-2 py-0.5 rounded-full ${

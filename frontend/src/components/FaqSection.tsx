@@ -32,18 +32,18 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 md:py-28 border-b border-white/10 bg-dash-bg">
+    <section id="faq" className="py-20 md:py-28 border-b border-white/20 dark:border-white/10 bg-transparent transition-colors">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column (Sticky info) */}
           <div className="lg:col-span-5 lg:sticky lg:top-28 h-fit">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-dash-track border border-white/10 mb-3 font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3 font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
               [ 05 // ЧАСТЫЕ ВОПРОСЫ И ОТВЕТЫ ]
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
               Ответы на главные вопросы и сомнения
             </h2>
-            <p className="text-sm sm:text-base text-dash-muted leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-dash-muted leading-relaxed mb-8">
               Если у вас есть специфическая задача, нестандартная база данных или закрытый контур — задайте вопрос напрямую нашему архитектору.
             </p>
 
@@ -71,12 +71,12 @@ export const FaqSection: React.FC = () => {
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
                     className="w-full p-6 text-left flex items-start justify-between gap-4 select-none"
                   >
-                    <span className="text-base sm:text-lg font-bold text-white">
+                    <span className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                       {faq.q}
                     </span>
                     <div
-                      className={`w-7 h-7 rounded-full bg-dash-track border border-white/10 shrink-0 flex items-center justify-center transition-transform ${
-                        isOpen ? 'bg-dash-magenta text-white rotate-180 shadow-neon-magenta' : 'text-dash-muted'
+                      className={`w-7 h-7 rounded-full glass-pill shrink-0 flex items-center justify-center transition-transform ${
+                        isOpen ? 'bg-dash-magenta text-white rotate-180 shadow-neon-magenta' : 'text-slate-500 dark:text-dash-muted'
                       }`}
                     >
                       {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -84,7 +84,7 @@ export const FaqSection: React.FC = () => {
                   </button>
 
                   {isOpen && (
-                    <div className="px-6 pb-6 text-sm text-dash-muted leading-relaxed border-t border-white/10 pt-4">
+                    <div className="px-6 pb-6 text-sm text-slate-600 dark:text-dash-muted leading-relaxed border-t border-white/20 dark:border-white/10 pt-4">
                       {faq.a}
                     </div>
                   )}

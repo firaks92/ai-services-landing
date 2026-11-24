@@ -190,72 +190,92 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-dash-bg text-slate-900 dark:text-dash-text selection:bg-dash-magenta selection:text-white transition-colors">
-      {/* 1. Header */}
-      <Header onOpenQuiz={() => handleOpenQuiz({ step: 1, source: 'entry_popup' })} />
+    <div className="min-h-screen flex flex-col bg-slate-50/50 dark:bg-dash-bg/40 text-slate-900 dark:text-dash-text selection:bg-dash-magenta selection:text-white transition-colors relative">
+      {/* Ambient Cosmic Liquid Glass Floating Spheres (Pinterest #1083326885405565250) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Top-right large crystal orb */}
+        <div className="absolute -top-12 -right-16 w-80 h-80 sm:w-96 sm:h-96 glass-orb animate-float-slow opacity-75 dark:opacity-60" />
+        {/* Top-left soft magenta/violet orb */}
+        <div className="absolute top-48 -left-20 w-64 h-64 glass-orb animate-float-reverse opacity-70 dark:opacity-50" />
+        {/* Center cyan floating glass bubble */}
+        <div className="absolute top-[42%] right-[8%] w-52 h-52 sm:w-72 sm:h-72 glass-orb animate-float-drift opacity-65 dark:opacity-45" />
+        {/* Lower-left floating orb */}
+        <div className="absolute top-[68%] -left-12 w-80 h-80 glass-orb animate-float-slow opacity-70 dark:opacity-50" />
+        {/* Bottom floating light sphere */}
+        <div className="absolute -bottom-24 right-1/4 w-96 h-96 glass-orb animate-float-reverse opacity-60 dark:opacity-40" />
 
-      {/* 2. Hero */}
-      <Hero
-        onOpenQuiz={() => handleOpenQuiz({ step: 1, source: 'entry_popup' })}
-        onSelectService={(code) => handleOpenQuiz({ presetService: code, step: 2, source: 'service_card' })}
-      />
+        {/* Diffuse chromatic atmospheric auras */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-dash-purple/10 dark:bg-dash-purple/20 rounded-full blur-[140px]" />
+        <div className="absolute top-2/3 right-10 w-[500px] h-[500px] bg-dash-cyan/10 dark:bg-dash-cyan/15 rounded-full blur-[130px]" />
+      </div>
 
-      {/* 3. Catalog of Services */}
-      <ServicesCatalog
-        onSelectService={(code) => handleOpenQuiz({ presetService: code, step: 2, source: 'service_card' })}
-      />
+      <div className="relative z-10 flex flex-col min-h-screen">
+        {/* 1. Header */}
+        <Header onOpenQuiz={() => handleOpenQuiz({ step: 1, source: 'entry_popup' })} />
 
-      {/* 4. Cases and ROI */}
-      <CasesRoi />
+        {/* 2. Hero */}
+        <Hero
+          onOpenQuiz={() => handleOpenQuiz({ step: 1, source: 'entry_popup' })}
+          onSelectService={(code) => handleOpenQuiz({ presetService: code, step: 2, source: 'service_card' })}
+        />
 
-      {/* 5. Inline Quiz on Page */}
-      <InlineQuiz
-        quizState={quizState}
-        onUpdateState={updateQuizState}
-        onSubmit={handleSubmitLead}
-        onOpenPrivacy={() => setIsPrivacyOpen(true)}
-      />
+        {/* 3. Catalog of Services */}
+        <ServicesCatalog
+          onSelectService={(code) => handleOpenQuiz({ presetService: code, step: 2, source: 'service_card' })}
+        />
 
-      {/* 6. Stages of Work */}
-      <ProcessSteps />
+        {/* 4. Cases and ROI */}
+        <CasesRoi />
 
-      {/* 7. FAQ */}
-      <FaqSection />
+        {/* 5. Inline Quiz on Page */}
+        <InlineQuiz
+          quizState={quizState}
+          onUpdateState={updateQuizState}
+          onSubmit={handleSubmitLead}
+          onOpenPrivacy={() => setIsPrivacyOpen(true)}
+        />
 
-      {/* 8. Footer */}
-      <Footer
-        onOpenPrivacy={() => setIsPrivacyOpen(true)}
-        onOpenQuiz={() => handleOpenQuiz({ step: 1, source: 'entry_popup' })}
-      />
+        {/* 6. Stages of Work */}
+        <ProcessSteps />
 
-      {/* Entry / On-Demand Modal Drawer */}
-      <QuizModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        quizState={quizState}
-        onUpdateState={updateQuizState}
-        onSubmit={handleSubmitLead}
-        onOpenPrivacy={() => setIsPrivacyOpen(true)}
-      />
+        {/* 7. FAQ */}
+        <FaqSection />
 
-      {/* Persistent Dock Widget */}
-      <DockWidget
-        isVisible={!isModalOpen}
-        onOpenQuiz={() => handleOpenQuiz({ step: quizState.step === 6 ? 1 : quizState.step, source: 'entry_popup' })}
-      />
+        {/* 8. Footer */}
+        <Footer
+          onOpenPrivacy={() => setIsPrivacyOpen(true)}
+          onOpenQuiz={() => handleOpenQuiz({ step: 1, source: 'entry_popup' })}
+        />
 
-      {/* Exit Intent */}
-      <ExitIntentModal
-        isOpen={isExitIntentOpen}
-        onClose={() => setIsExitIntentOpen(false)}
-        onStartQuiz={() => handleOpenQuiz({ step: 1, source: 'exit_intent' })}
-      />
+        {/* Entry / On-Demand Modal Drawer */}
+        <QuizModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          quizState={quizState}
+          onUpdateState={updateQuizState}
+          onSubmit={handleSubmitLead}
+          onOpenPrivacy={() => setIsPrivacyOpen(true)}
+        />
 
-      {/* Privacy Policy Modal */}
-      <PrivacyModal
-        isOpen={isPrivacyOpen}
-        onClose={() => setIsPrivacyOpen(false)}
-      />
+        {/* Persistent Dock Widget */}
+        <DockWidget
+          isVisible={!isModalOpen}
+          onOpenQuiz={() => handleOpenQuiz({ step: quizState.step === 6 ? 1 : quizState.step, source: 'entry_popup' })}
+        />
+
+        {/* Exit Intent */}
+        <ExitIntentModal
+          isOpen={isExitIntentOpen}
+          onClose={() => setIsExitIntentOpen(false)}
+          onStartQuiz={() => handleOpenQuiz({ step: 1, source: 'exit_intent' })}
+        />
+
+        {/* Privacy Policy Modal */}
+        <PrivacyModal
+          isOpen={isPrivacyOpen}
+          onClose={() => setIsPrivacyOpen(false)}
+        />
+      </div>
     </div>
   );
 };

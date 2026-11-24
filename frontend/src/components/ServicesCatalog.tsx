@@ -10,29 +10,29 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
   const [viewMode, setViewMode] = useState<'effect' | 'stack'>('effect');
 
   return (
-    <section id="services" className="py-20 md:py-28 border-b border-white/10 bg-dash-bg">
+    <section id="services" className="py-20 md:py-28 border-b border-white/20 dark:border-white/10 bg-transparent transition-colors">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header & View Mode Switcher */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-white/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 gap-6 border-b border-white/20 dark:border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-dash-track border border-white/10 mb-3 font-mono text-xs font-bold text-dash-cyan uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3 font-mono text-xs font-bold text-dash-magenta dark:text-dash-cyan uppercase tracking-wider">
               [ 01 // ИНЖЕНЕРНЫЕ УЗЛЫ СИСТЕМЫ ]
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               Модульная архитектура для вашего бизнеса
             </h2>
           </div>
 
           {/* Interactive Perspective Switcher (Pinterest inspired toggle) */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <span className="font-mono text-xs text-dash-muted uppercase">Режим отображения:</span>
-            <div className="p-1 rounded-full bg-dash-track border border-white/10 flex items-center">
+            <span className="font-mono text-xs text-slate-500 dark:text-dash-muted uppercase">Режим отображения:</span>
+            <div className="p-1 rounded-full glass-pill flex items-center">
               <button
                 onClick={() => setViewMode('effect')}
                 className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                   viewMode === 'effect'
                     ? 'bg-gradient-to-r from-dash-purple to-dash-violet text-white shadow-neon-purple'
-                    : 'text-dash-muted hover:text-white'
+                    : 'text-slate-500 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 Бизнес-эффект & ROI
@@ -42,7 +42,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                 className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                   viewMode === 'stack'
                     ? 'bg-gradient-to-r from-dash-purple to-dash-violet text-white shadow-neon-purple'
-                    : 'text-dash-muted hover:text-white'
+                    : 'text-slate-500 dark:text-dash-muted hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 Стек & Интеграции
@@ -63,28 +63,28 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                   </span>
                   <span className="font-mono text-xs text-dash-subtle">ЗАПУСК ЗА 7–14 ДНЕЙ</span>
                 </div>
-                <div className="w-11 h-11 rounded-2xl bg-dash-track border border-white/15 flex items-center justify-center text-dash-cyan group-hover:scale-105 transition-transform shadow-neon-cyan">
+                <div className="w-11 h-11 rounded-2xl glass-pill flex items-center justify-center text-dash-magenta dark:text-dash-cyan group-hover:scale-105 transition-transform shadow-sm">
                   <Bot className="w-6 h-6" />
                 </div>
               </div>
 
               {/* Schematic mini-track */}
-              <div className="p-3 mb-6 rounded-xl bg-dash-track border border-white/10 flex items-center justify-between font-mono text-xs text-dash-muted">
-                <span className="font-semibold text-white">Клиент (TG / WhatsApp)</span>
+              <div className="p-3 mb-6 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-white/30 dark:border-white/10 flex items-center justify-between font-mono text-xs text-slate-600 dark:text-dash-muted">
+                <span className="font-semibold text-slate-900 dark:text-white">Клиент (TG / WhatsApp)</span>
                 <span className="text-dash-magenta font-bold">⟶ [LLM Продавец] ⟶</span>
                 <span className="font-semibold text-dash-lime">Сделка в CRM (0.6с)</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
                 ИИ-чат-боты и голосовые ассистенты
               </h3>
 
               {viewMode === 'effect' ? (
-                <p className="text-sm sm:text-base text-dash-muted leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-slate-600 dark:text-dash-muted leading-relaxed mb-6">
                   Консультируют по каталогу без галлюцинаций, квалифицируют лидов, отрабатывают 90% возражений и автоматически создают сделку в CRM. Отвечают за 0.8 сек даже в 3 часа ночи.
                 </p>
               ) : (
-                <div className="p-4 mb-6 rounded-xl bg-dash-track border border-white/10 font-mono text-xs space-y-1.5 text-dash-text">
+                <div className="p-4 mb-6 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-white/30 dark:border-white/10 font-mono text-xs space-y-1.5 text-slate-900 dark:text-dash-text">
                   <div>• Архитектура: Llama 3.3 / Claude 3.5 Sonnet / OpenAI GPT-4o</div>
                   <div>• Каналы: Telegram Bot API, WhatsApp Business API, Web Widget</div>
                   <div>• Интеграции: amoCRM, Bitrix24, МойСклад, Google Таблицы</div>
@@ -102,7 +102,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                 ].map((tag) => (
                   <span
                     key={tag.name}
-                    className={`font-mono text-xs px-3 py-1 rounded-full border ${tag.color}`}
+                    className={`font-mono text-xs px-3 py-1 rounded-full border backdrop-blur-md ${tag.color}`}
                   >
                     #{tag.name}
                   </span>
@@ -112,7 +112,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
 
             <button
               onClick={() => onSelectService('chatbot')}
-              className="flex items-center justify-between w-full pt-5 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
+              className="flex items-center justify-between w-full pt-5 border-t border-white/20 dark:border-white/10 text-xs font-bold uppercase tracking-wider text-dash-magenta dark:text-dash-cyan hover:opacity-80 transition-opacity"
             >
               <span>Сконфигурировать узел чат-бота</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -126,7 +126,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                 <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-dash-magenta/15 text-dash-magenta border border-dash-magenta/30">
                   NODE-02 // АВТОМАТИЗАЦИЯ
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-dash-track border border-white/15 flex items-center justify-center text-dash-magenta group-hover:scale-105 transition-transform shadow-neon-magenta">
+                <div className="w-11 h-11 rounded-2xl glass-pill flex items-center justify-center text-dash-magenta group-hover:scale-105 transition-transform shadow-sm">
                   <Workflow className="w-6 h-6" />
                 </div>
               </div>
@@ -136,11 +136,11 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
               </h3>
 
               {viewMode === 'effect' ? (
-                <p className="text-sm text-dash-muted leading-relaxed mb-6">
+                <p className="text-sm text-slate-600 dark:text-dash-muted leading-relaxed mb-6">
                   Автоматический разбор счетов, договоров, накладных и актов сверки. ИИ считывает сканы документов, извлекает реквизиты и отправляет данные в 1С или ERP без ошибок оператора.
                 </p>
               ) : (
-                <div className="p-4 mb-6 rounded-xl bg-dash-track border border-white/10 font-mono text-xs space-y-1.5 text-dash-text">
+                <div className="p-4 mb-6 rounded-xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-md border border-white/30 dark:border-white/10 font-mono text-xs space-y-1.5 text-slate-900 dark:text-dash-text">
                   <div>• Движок автоматизации: n8n self-hosted / Make</div>
                   <div>• Распознавание: OCR + Vision LLM мультимодальные модели</div>
                   <div>• Выгрузка: 1С:Предприятие, Bitrix24, Postgres, Webhooks</div>
@@ -151,7 +151,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                 {['Bitrix24', '1С / ERP', 'n8n Flow', 'Google Docs'].map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-dash-muted"
+                    className="font-mono text-xs px-3 py-1 rounded-full glass-pill text-slate-700 dark:text-dash-muted"
                   >
                     #{tag}
                   </span>
@@ -161,7 +161,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
 
             <button
               onClick={() => onSelectService('automation')}
-              className="flex items-center justify-between w-full pt-5 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
+              className="flex items-center justify-between w-full pt-5 border-t border-white/20 dark:border-white/10 text-xs font-bold uppercase tracking-wider text-dash-magenta dark:text-dash-cyan hover:opacity-80 transition-opacity"
             >
               <span>Сконфигурировать автоматизацию</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -177,16 +177,16 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                 </span>
                 <Database className="w-5 h-5 text-dash-purple" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                 Базы знаний и RAG-поиск
               </h3>
-              <p className="text-xs sm:text-sm text-dash-muted leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-dash-muted leading-relaxed mb-6">
                 Поиск по регламентам, PDF, ГОСТам и внутренней документации компании. Ассистент находит точный пункт регламента за 0.5 секунды с указанием первоисточника.
               </p>
             </div>
             <button
               onClick={() => onSelectService('rag_analytics')}
-              className="flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
+              className="flex items-center justify-between w-full pt-4 border-t border-white/20 dark:border-white/10 text-xs font-bold uppercase tracking-wider text-dash-magenta dark:text-dash-cyan hover:opacity-80 transition-opacity"
             >
               <span>Выбрать RAG</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -202,16 +202,16 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                 </span>
                 <Sparkles className="w-5 h-5 text-dash-coral" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                 ИИ-маркетинг и контент
               </h3>
-              <p className="text-xs sm:text-sm text-dash-muted leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-dash-muted leading-relaxed mb-6">
                 Массовая генерация сотен карточек товаров для маркетплейсов, рекламные сценарии, фотореалистичные генерации и видео-аватары по брендбуку.
               </p>
             </div>
             <button
               onClick={() => onSelectService('content')}
-              className="flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
+              className="flex items-center justify-between w-full pt-4 border-t border-white/20 dark:border-white/10 text-xs font-bold uppercase tracking-wider text-dash-magenta dark:text-dash-cyan hover:opacity-80 transition-opacity"
             >
               <span>Выбрать контент</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -227,16 +227,16 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                 </span>
                 <Compass className="w-5 h-5 text-dash-lime" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                 ИИ-аудит и кастомное R&D
               </h3>
-              <p className="text-xs sm:text-sm text-dash-muted leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-dash-muted leading-relaxed mb-6">
                 Полный аудит бизнес-процессов компании с выявлением узких мест. Составляем расчет окупаемости (ROI), подбираем архитектуру и внедряем под ключ.
               </p>
             </div>
             <button
               onClick={() => onSelectService('custom_audit')}
-              className="flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-bold uppercase tracking-wider text-dash-cyan group-hover:text-dash-magenta transition-colors"
+              className="flex items-center justify-between w-full pt-4 border-t border-white/20 dark:border-white/10 text-xs font-bold uppercase tracking-wider text-dash-magenta dark:text-dash-cyan hover:opacity-80 transition-opacity"
             >
               <span>Заказать аудит</span>
               <ArrowRight className="w-3.5 h-3.5" />

@@ -57,31 +57,31 @@ export const InlineQuiz: React.FC<InlineQuizProps> = ({
   };
 
   return (
-    <section id="quiz-block" className="py-20 md:py-28 border-b border-white/10 bg-dash-bg">
+    <section id="quiz-block" className="py-20 md:py-28 border-b border-white/20 dark:border-white/10 bg-transparent transition-colors">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-dash-track border border-white/10 mb-3 font-mono text-xs font-bold text-dash-magenta uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-pill mb-3 font-mono text-xs font-bold text-dash-magenta uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-dash-cyan" />
             [ 03 // ИНТЕРАКТИВНЫЙ КОНФИГУРАТОР ТЗ ]
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3">
             Сконфигурируйте ИИ-систему за 60 секунд
           </h2>
-          <p className="text-sm sm:text-base text-dash-muted">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-dash-muted">
             Пройдите 4 коротких шага. Вы мгновенно получите спецификацию со сметой, а инженер свяжется с вами для демонстрации прототипа.
           </p>
         </div>
 
-        {/* Big Dual-Pane Neon Card */}
-        <div className="neon-card rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-neon-card">
+        {/* Big Dual-Pane Glass Card */}
+        <div className="glass-crystal rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl">
           {/* Left Column: Live Ticket / Boarding Pass */}
-          <div className="w-full lg:w-80 shrink-0 border-b lg:border-b-0 lg:border-r border-white/10">
+          <div className="w-full lg:w-80 shrink-0 border-b lg:border-b-0 lg:border-r border-white/20 dark:border-white/10">
             <LiveTicket quizState={quizState} />
           </div>
 
           {/* Right Column: Steps Canvas */}
-          <div className="flex-1 flex flex-col justify-between p-6 sm:p-10 bg-dash-card">
+          <div className="flex-1 flex flex-col justify-between p-6 sm:p-10 bg-white/40 dark:bg-white/[0.02] backdrop-blur-2xl">
             <div>
               {currentStep <= 5 && <StepIndicator currentStep={currentStep} />}
 
